@@ -18,29 +18,36 @@ nav:
           - item9：优先考虑别名声明而非typedef: cpp/effective/item9.md
           - item23：理解std::move和std::forward: cpp/effective/item23.md
 
-  - OS:
-      - os/index.md
-      - 操作系统：原理与实现:
-          - 操作系统简介: os/银杏书/intro.md
-          - ARM64硬件结构与系统接口: os/银杏书/硬件结构.md
-        
-  - Database:
-      - db/index.md
-      - CMU15-445:
-          - Database Storage I: db/cmu15445/L3.md
-          - Database Storage II: db/cmu15445/L4.md
-          - Buffer Pools: db/cmu15445/L5.md
-          - Hash Tables: db/cmu15445/L6.md
-          - Trees Indexes I: db/cmu15445/L7.md
-          - Trees Indexes II: db/cmu15445/L8.md
-          - Index Concurrency Control: db/cmu15445/L9.md
-          - Sorting + Aggregations: db/cmu15445/L10.md
-          - Joins Algorithms: db/cmu15445/L11.md
-          - Query Execution I: db/cmu15445/L12.md
-          - Query Execution II: db/cmu15445/L13.md
+  - Leetcode:
+      - leetcode/index.md
+      - Contests:
+          - 第 393 场周赛: leetcode/contests/393.md
+      - 杂记:
+          - 专题分类: leetcode/专题.md
+          - 面试题: leetcode/面试题.md
 
-  # - Golang:
-  #     - go/index.md
+  - 核心知识:
+      - core/index.md
+      - 编译原理: 
+          - 词法分析: core/compiler/lexer.md
+      # - TVM:
+
+
+  # - Database:
+  #     - db/index.md
+  #     - CMU15-445:
+  #         - Database Storage I: db/cmu15445/L3.md
+  #         - Database Storage II: db/cmu15445/L4.md
+  #         - Buffer Pools: db/cmu15445/L5.md
+  #         - Hash Tables: db/cmu15445/L6.md
+  #         - Trees Indexes I: db/cmu15445/L7.md
+  #         - Trees Indexes II: db/cmu15445/L8.md
+  #         - Index Concurrency Control: db/cmu15445/L9.md
+  #         - Sorting + Aggregations: db/cmu15445/L10.md
+  #         - Joins Algorithms: db/cmu15445/L11.md
+  #         - Query Execution I: db/cmu15445/L12.md
+  #         - Query Execution II: db/cmu15445/L13.md
+
 
 site_name: 0X10CC's notes
 site_url: https://tangjp-wraith.github.io/

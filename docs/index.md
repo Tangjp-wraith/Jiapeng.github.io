@@ -13,10 +13,11 @@ statistics: true
     - [C++](cpp/index.md)
           - C++零碎杂记
           - Effective Modern C++ 阅读笔记
-    - [OS](os/index.md)
-          - 操作系统：原理与实现（银杏书）学习笔记
-    - [Database](db/index.md)
-          - CMU 15-445 :: Intro to Database Systems
+    - [Leetcode](leetcode/index.md)
+          - Leetcode 周赛记录
+          - Leetcode 做题记录
+    - [核心知识](core/index.md)
+          - 编译原理
 
 !!! info ""
 

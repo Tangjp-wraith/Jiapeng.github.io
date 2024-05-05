@@ -22,14 +22,14 @@ nav:
       - leetcode/index.md
       - Contests:
           - 第 393 场周赛: leetcode/contests/393.md
-      - 杂记:
-          - 专题分类: leetcode/专题.md
-          - 面试题: leetcode/面试题.md
+      - 每日一题: 
+          - 2024年5月: leetcode/daily/2024-5.md
+      # - 杂记:
+      #     - 面试题: leetcode/面试题.md
 
   - 核心知识:
       - core/index.md
-      - 编译原理: 
-          - 词法分析: core/compiler/lexer.md
+      - NJU编译原理笔记: core/nju-compiler.md
       # - TVM:
 
 
@@ -50,9 +50,9 @@ nav:
 
 
 site_name: 0X10CC's notes
-site_url: https://tangjp-wraith.github.io/
-repo_name: Tangjp-wraith.github.io
-repo_url: https://github.com/Tangjp-wraith/Tangjp-wraith.github.io
+site_url: https://tang-jiapeng.github.io/
+repo_name: tang-jiapeng.github.io
+repo_url: https://github.com/tang-jiapeng/tang-jiapeng.github.io
 
 theme:
   name: material

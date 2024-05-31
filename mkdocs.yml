@@ -32,7 +32,21 @@ nav:
       - NJU编译原理笔记: core/nju-compiler.md
       # - TVM:
 
-
+  - 文档翻译:
+      - 文档翻译: trans/index.md
+      - Kaleidoscope:
+          - Kaleidoscope language and Lexer: trans/kaleidoscope/chapter1.md
+          - Implementing a Parser and AST: trans/kaleidoscope/chapter2.md
+          - Code generation to LLVM IR: trans/kaleidoscope/chapter3.md
+          - Adding JIT and Optimizer Support: trans/kaleidoscope/chapter4.md
+          - Extending the Language：Control Flow:  trans/kaleidoscope/chapter5.md
+          - Extending the Language：User-defined Operators: trans/kaleidoscope/chapter6.md
+          - Extending the Language：Mutable Variables: trans/kaleidoscope/chapter7.md
+          - Compiling to Object Files: trans/kaleidoscope/chapter8.md
+          - Debug Information: trans/kaleidoscope/chapter9.md
+          - Conclusion and other tidbits: trans/kaleidoscope/chapter10.md
+  
+  
   # - Database:
   #     - db/index.md
   #     - CMU15-445:

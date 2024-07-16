@@ -10,14 +10,13 @@ statistics: true
 
 
 ???+ example "📚内容分类"
-    - [C++](cpp/index.md)
+    - [Langs](cpp/index.md)
           - C++零碎杂记
           - Effective Modern C++ 阅读笔记
-    - [Leetcode](leetcode/index.md)
-          - Leetcode 周赛记录
-          - Leetcode 做题记录
-    - [核心知识](core/index.md)
-          - 编译原理
+    - [Core](core/index.md)
+          - CMU10-714：Deep Learning Systems
+    - [Trans](trans/index.md)
+          - Kaleidoscope
 
 !!! info ""
 

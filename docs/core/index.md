@@ -1,7 +1,3 @@
-# 核心知识
+# sth.
 
-!!! Abstract
-
-    - NJUSE 编译原理学习笔记
-
-<!-- ???+ Abstract  -->
+## CMU10-714 Deep Learning Systems

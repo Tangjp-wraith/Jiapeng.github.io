@@ -2,37 +2,39 @@ nav:
   - 🏡 Home: # 主页/
       - index.md
 
-  - C++:
-      - cpp/index.md
+  - Langs:
+      - langs/index.md
       - C++零碎杂记:
-          - 顶层const与底层const: cpp/零碎杂记/顶层const与底层const.md
-          - 值类型与右值引用: cpp/零碎杂记/值类型与右值引用.md
-          - 数组指针与函数指针: cpp/零碎杂记/数组指针与函数指针.md
-          - C++类对象布局: cpp/零碎杂记/C++类对象布局.md
-          - C++中的多态与RTTI: cpp/零碎杂记/C++中的多态与RTTI.md
+          - 顶层const与底层const: langs/cpp/零碎杂记/顶层const与底层const.md
+          - 值类型与右值引用: langs/cpp/零碎杂记/值类型与右值引用.md
+          - 数组指针与函数指针: langs/cpp/零碎杂记/数组指针与函数指针.md
+          - C++类对象布局: langs/cpp/零碎杂记/C++类对象布局.md
+          - C++中的多态与RTTI: langs/cpp/零碎杂记/C++中的多态与RTTI.md
       - Effective Modern C++:
-          - item1：理解模板类型推导: cpp/effective/item1.md
-          - item2：理解auto类型推导: cpp/effective/item2.md
-          - item3：理解decltype: cpp/effective/item3.md
-          - item7：区别使用()和{}创建对象: cpp/effective/item7.md
-          - item9：优先考虑别名声明而非typedef: cpp/effective/item9.md
-          - item23：理解std::move和std::forward: cpp/effective/item23.md
+          - item1：理解模板类型推导: langs/cpp/effective/item1.md
+          - item2：理解auto类型推导: langs/cpp/effective/item2.md
+          - item3：理解decltype: langs/cpp/effective/item3.md
+          - item7：区别使用()和{}创建对象: langs/cpp/effective/item7.md
+          - item9：优先考虑别名声明而非typedef: langs/cpp/effective/item9.md
+          - item23：理解std::move和std::forward: langs/cpp/effective/item23.md
 
-  - Leetcode:
-      - leetcode/index.md
-      - Contests:
-          - 第 393 场周赛: leetcode/contests/393.md
-      - 每日一题: 
-          - 2024年5月: leetcode/daily/2024-5.md
+  # - Leetcode:
+  #     - leetcode/index.md
+  #     - Contests:
+  #         - 第 393 场周赛: leetcode/contests/393.md
+  #     - 每日一题: 
+  #         - 2024年5月: leetcode/daily/2024-5.md
       # - 杂记:
       #     - 面试题: leetcode/面试题.md
 
-  - 核心知识:
+  - Core:
       - core/index.md
-      - NJU编译原理笔记: core/nju-compiler.md
+      - CMU10-714：Deep Learning Systems: 
+          - Lecture2：ML Refresher / Softmax Regression: core/cmu10-714/lecture2.md
+          
       # - TVM:
 
-  - 文档翻译:
+  - Trans:
       - 文档翻译: trans/index.md
       - Kaleidoscope:
           - Kaleidoscope language and Lexer: trans/kaleidoscope/chapter1.md
@@ -125,7 +127,7 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.inlinehilite

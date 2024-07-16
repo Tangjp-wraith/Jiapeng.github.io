@@ -31,7 +31,8 @@ nav:
       - core/index.md
       - CMU10-714：Deep Learning Systems: 
           - Lecture2：ML Refresher / Softmax Regression: core/cmu10-714/lecture2.md
-          
+          - Lecture3：Manual Neural Networks / Backprop: core/cmu10-714/lecture3.md
+
       # - TVM:
 
   - Trans:

@@ -32,6 +32,8 @@ nav:
       - CMU10-714：Deep Learning Systems: 
           - Lecture2：ML Refresher / Softmax Regression: core/cmu10-714/lecture2.md
           - Lecture3：Manual Neural Networks / Backprop: core/cmu10-714/lecture3.md
+          - Lecture4：Automatic Differentiation: core/cmu10-714/lecture4.md
+          - Lecture5：Automatic Differentiation Implementation: core/cmu10-714/lecture5.md
 
       # - TVM:
 
@@ -48,7 +50,9 @@ nav:
           - Compiling to Object Files: trans/kaleidoscope/chapter8.md
           - Debug Information: trans/kaleidoscope/chapter9.md
           - Conclusion and other tidbits: trans/kaleidoscope/chapter10.md
-  
+
+  - Tools:
+      - tools/index.md
   
   # - Database:
   #     - db/index.md

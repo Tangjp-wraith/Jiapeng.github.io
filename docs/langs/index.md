@@ -2,41 +2,46 @@
 
 ## C++
 
-### C++ 零碎杂记
-    
-[顶层const与底层const](./cpp/零碎杂记/顶层const与底层const.md)
 
-[值类型与右值引用](./cpp/零碎杂记/值类型与右值引用.md)
+???+ "C++ 零碎杂记"
 
-[数组指针与函数指针](./cpp/零碎杂记/值类型与右值引用.md)
+    [顶层const与底层const](./cpp/零碎杂记/顶层const与底层const.md)
 
-[C++类对象布局](./cpp/零碎杂记/C++类对象布局.md)
+    [值类型与右值引用](./cpp/零碎杂记/值类型与右值引用.md)
 
-[C++中的多态与RTTI](./cpp/零碎杂记/C++中的多态与RTTI.md)
+    [数组指针与函数指针](./cpp/零碎杂记/值类型与右值引用.md)
 
-### Effective Modern C++
- 
-  **Deducing Types**
+    [C++类对象布局](./cpp/零碎杂记/C++类对象布局.md)
 
-  - [item1：理解模板类型推导](./cpp/effective/item1.md)
-  - [item2：理解auto类型推导](./cpp/effective/item2.md)
-  - [item3：理解decltype](./cpp/effective/item3.md)
+    [C++中的多态与RTTI](./cpp/零碎杂记/C++中的多态与RTTI.md)
 
-  **auto**
+???+ "Effective Modern C++"
 
-  **Moving to Modern C++**
+      **Deducing Types**
 
-  - [item7：区别使用()和{}创建对象](./cpp/effective/item7.md)
-  - [item9：优先考虑别名声明而非typedef](./cpp/effective/item9.md)
+      - [item1：理解模板类型推导](./cpp/effective/item1.md)
+      - [item2：理解auto类型推导](./cpp/effective/item2.md)
+      - [item3：理解decltype](./cpp/effective/item3.md)
 
-  **Smart Pointers**
+      **auto**
 
-  **Rvalue References, Move Semantics, and Perfect Forwarding**
+      **Moving to Modern C++**
 
-  - [item23：理解std::move和std::forward](./cpp/effective/item23.md)
+      - [item7：区别使用()和{}创建对象](./cpp/effective/item7.md)
+      - [item9：优先考虑别名声明而非typedef](./cpp/effective/item9.md)
 
-  **Lambda Expressions**
+      **Smart Pointers**
 
-  **The Concurrency API**
+      **Rvalue References, Move Semantics, and Perfect Forwarding**
 
-  **Tweaks**
+      - [item23：理解std::move和std::forward](./cpp/effective/item23.md)
+
+      **Lambda Expressions**
+
+      **The Concurrency API**
+
+      **Tweaks**
+
+## CUDA 
+
+???+ "CUDA Training Series"

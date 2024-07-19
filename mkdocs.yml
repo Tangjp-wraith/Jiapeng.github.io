@@ -17,6 +17,9 @@ nav:
           - item7：区别使用()和{}创建对象: langs/cpp/effective/item7.md
           - item9：优先考虑别名声明而非typedef: langs/cpp/effective/item9.md
           - item23：理解std::move和std::forward: langs/cpp/effective/item23.md
+      - CUDA Training Series:
+          - CUDA C++ BASICS: langs/cuda/cuda-trans/lecture1.md
+
 
   # - Leetcode:
   #     - leetcode/index.md

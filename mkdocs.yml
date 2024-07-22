@@ -17,8 +17,8 @@ nav:
           - item7：区别使用()和{}创建对象: langs/cpp/effective/item7.md
           - item9：优先考虑别名声明而非typedef: langs/cpp/effective/item9.md
           - item23：理解std::move和std::forward: langs/cpp/effective/item23.md
-      - CUDA Training Series:
-          - CUDA C++ BASICS: langs/cuda/cuda-trans/lecture1.md
+      - CUDA C 编程权威指南:
+          - CUDA C++ BASICS: langs/cuda/cuda-c/lecture1.md
 
 
   # - Leetcode:
@@ -32,13 +32,17 @@ nav:
 
   - Core:
       - core/index.md
+      - CSAPP:
+          - Chapter1：计算机系统漫游: core/csapp/ch1.md
+          - Chapter2：信息的表示和处理: core/csapp/ch2.md
+          
+      
       - CMU10-714：Deep Learning Systems: 
           - Lecture2：ML Refresher / Softmax Regression: core/cmu10-714/lecture2.md
           - Lecture3：Manual Neural Networks / Backprop: core/cmu10-714/lecture3.md
           - Lecture4：Automatic Differentiation: core/cmu10-714/lecture4.md
           - Lecture5：Automatic Differentiation Implementation: core/cmu10-714/lecture5.md
-
-      # - TVM:
+          - Lecture6：Optimization: core/cmu10-714/lecture6.md
 
   - Trans:
       - 文档翻译: trans/index.md

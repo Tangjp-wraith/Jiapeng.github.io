@@ -44,4 +44,4 @@
 
 ## CUDA 
 
-???+ "CUDA Training Series"
+???+ "CUDA C 编程权威指南"

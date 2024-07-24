@@ -14,11 +14,13 @@ statistics: true
           - Effective Modern C++ 阅读笔记（有空一定读完）
           - CUDA C 编程权威指南
     - [Core](core/index.md)
-          - CSAPP
+          - CMU15-213：CSAPP
+          - MIT 6.S081：Operating System Engineering
           - CMU10-714：Deep Learning Systems
     - [Trans](trans/index.md)
           - Kaleidoscope
     - [Tools](tools/index.md)
+    - [Life](life/index.md)
 
 !!! info ""
 

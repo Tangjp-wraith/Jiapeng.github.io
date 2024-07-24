@@ -32,10 +32,19 @@ nav:
 
   - Core:
       - core/index.md
-      - CSAPP:
+      - CMU15-213：CSAPP:
           - Chapter1：计算机系统漫游: core/csapp/ch1.md
           - Chapter2：信息的表示和处理: core/csapp/ch2.md
           
+      - MIT 6.S081：Operating System Engineering:
+          - Lecture1：Introduction: core/xv6/lecture1.md
+          - Lab1：Xv6 and Unix utilities: core/xv6/lab1.md
+          - Lecture2：Operating System Organization: core/xv6/lecture2.md
+          - Lab2：System calls: core/xv6/lab2.md
+          - Lecture3：Page Tables: core/xv6/lecture3.md
+          - Lab3：Page tables: core/xv6/lab3.md
+          - Lecture4：RISC-V calling convention: core/xv6/lecture4.md
+
       
       - CMU10-714：Deep Learning Systems: 
           - Lecture2：ML Refresher / Softmax Regression: core/cmu10-714/lecture2.md
@@ -60,6 +69,9 @@ nav:
 
   - Tools:
       - tools/index.md
+
+  - Life:
+      - life/index.md
   
   # - Database:
   #     - db/index.md

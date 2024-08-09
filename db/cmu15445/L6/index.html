@@ -1,0 +1,2144 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tang-jiapeng.github.io/db/cmu15445/L6/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../logo.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>L6 - 0X10CC's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../from_oi_wiki/css/extra.css?v=13">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
+    
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-JT9BRCXKJJ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-JT9BRCXKJJ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-JT9BRCXKJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#数据结构" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-header__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            0X10CC's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              L6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  🏡 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../langs/" class="md-tabs__link">
+          
+  
+    
+  
+  Langs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/" class="md-tabs__link">
+          
+  
+    
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+    
+  
+  Life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-nav__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    0X10CC's notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏡 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏡 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../langs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Langs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Langs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++零碎杂记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++零碎杂记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E9%A1%B6%E5%B1%82const%E4%B8%8E%E5%BA%95%E5%B1%82const/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    顶层const与底层const
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    值类型与右值引用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数组指针与函数指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++类对象布局
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E4%B8%8ERTTI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++中的多态与RTTI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effective Modern C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Effective Modern C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item1：理解模板类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item2：理解auto类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item3：理解decltype
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item7：区别使用()和{}创建对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item9：优先考虑别名声明而非typedef
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item23：理解std::move和std::forward
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../core/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU15-213：CSAPP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            CMU15-213：CSAPP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter1：计算机系统漫游
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter2：信息的表示和处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter3：程序的机器级表示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter4：处理器体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter5：优化程序性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter6：存储器层次结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter7：链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter8：异常控制流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter9：虚拟内存
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter10：系统级I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter11：网络编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter12：并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU10-714：Deep Learning Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU10-714：Deep Learning Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2：ML Refresher / Softmax Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3：Manual Neural Networks / Backprop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4：Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5：Automatic Differentiation Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture6：Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Life
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#数据结构" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hash Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-hashing-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static Hashing Schemes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Static Hashing Schemes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-probe-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Probe Hashing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linear Probe Hashing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-unique-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      non-unique keys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-robin-hood-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Robin Hood Hashing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuckoo-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuckoo Hashing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-hashing-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Hashing Schemes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Hashing Schemes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chained-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chained Hashing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-extendible-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Extendible Hashing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-linear-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Linear Hashing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Linear Hashing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#线性哈希的数学原理" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性哈希的数学原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#线性哈希的具体实现" class="md-nav__link">
+    <span class="md-ellipsis">
+      线性哈希的具体实现
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>L6</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 5272 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 18 分钟</p>
+</div>
+<h2 id="数据结构">数据结构<a class="headerlink" href="#数据结构" title="Permanent link">&para;</a></h2>
+<p>现在我们要来讨论下 buffer pool manager 之上的东⻄，即 Access methods。这是一种用于对数据库数据进行读/写的方式（数据库存放在磁盘的page中）。接下来几节中，我们会讨论数据系统内部所维护的数据结构—— hash tables、trees。</p>
+<p><center><img alt="2" src="../image/image29.png" width="200" /></center></p>
+<p>一个 DBMS 为系统内部的许多不同部分使用不同的数据结构：</p>
+<ul>
+<li>
+<p><strong>Internal Meta-Data（内部元数据）</strong> ：跟踪数据库和系统状态的信息。</p>
+<p>🌰 Page Directory 或 Page Table 来检索对应的Page时，就是一个hash table。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Page Directory（heap文件表示形式之一）维护 pageID 到磁盘物理位置（文件路径+偏移量）的映射</p>
+<p>Buffer Pool 中提到额外的 indirection 层 Page Table 维护 pageID 到内存中的位置（frame）的映射</p>
+</div>
+</li>
+<li>
+<p><strong>Core Data Storage（核心数据存储）</strong> ：可以用作数据库中 tuple 的基础存储。数据库所存储的数据，可以被组织成一个 hash table 或 B+ tree 或者其他树结构。</p>
+<p>🌰 memcache 本质是一个 hash table；MySQL 的 innodb 引擎使用的是 B+ tree（将tuple存在叶子节点）</p>
+</li>
+<li>
+<p><strong>Temporary Data Structures（临时数据）</strong> ：执行查询或者高效计算时临时创建的数据结构。</p>
+<p>🌰 例如 join 时创建的 hash table。</p>
+</li>
+<li>
+<p><strong>Table Indexes（表索引）</strong> ：本质是用 tuple 的 key 构建一个目录，辅助我们快速查找到某个 tuple，避免顺序检索。</p>
+</li>
+</ul>
+<p>这些数据结构的设计需考虑的问题：</p>
+<ul>
+<li>Data Origanization：如何在内存/ Page 中组织数据的存储，并且支持快速的读写与增删。</li>
+<li>Concurrency：如何支持多线程环境对数据结构的访问。🌰 <strong>对于同一个内存位置的数据，一个线程在写，另一个线程同时在读，就可能会出现问题（脏读）</strong>。并发控制对于后续的事务处理将会是很重要的一个考量。</li>
+</ul>
+<p>这节课的重点是 hash table，且只考虑单线程的情况（这样我们就能使用 latch 保护物理数据结构，它能防止我们去读取某些无效的内存地址 or 无效的 page 位置）。之后会讨论如何在这些数据结构内部进行并发控制。</p>
+<h2 id="hash-table">Hash Table<a class="headerlink" href="#hash-table" title="Permanent link">&para;</a></h2>
+<p>hash table 是个抽象数据类型，提供无序的关联数组实现的 API，它能将 key 映射到 value。</p>
+<ul>
+<li>可以将任意的 key 映射到对应的 value 上。在 hash table 中并没有顺序的说法，也就是说 hash table 的 key 是无序的（但是具体实现时，例如树状哈希，还是有一定的顺序）。</li>
+<li>对于数组形式的哈希，它使用 hash 函数计算给定 key 在数组中的 offset，从中可以找到对应的 value。</li>
+<li>hash table 的空间复杂度是 <strong>O(n)</strong>，查找的平均复杂度是 <strong>O(1)</strong>，但是最坏情况下是 <strong>O(n)</strong>。<blockquote>
+<p>最坏情况 <strong>O(n)</strong> 意味着我们必须进⾏循序查找或者是线性搜索来对每个可能的 key 进⾏查找，以找到要找的 key</p>
+</blockquote>
+</li>
+</ul>
+<p>对于一个 <strong>理想情况下</strong> 的 hash 表，可以视作一个数组。<strong>我们知道所有 key 的数量，并且每个 key 都是唯一的，则每个 key 经过哈希函数映射后都会是不同的值（每次 hash 结果都不同）</strong> 。这样就可以做到一个理想的 hash 表。然而实际情况下，很难找到一个完美 hash 函数，不存在任何能保证 hash 结果唯一的 hash 函数，这就意味着一定会有 hash 冲突的产生，因此我们得对 hash 冲突进行处理。</p>
+<p>hash table 是由二部分组成的数据结构：</p>
+<ol>
+<li><strong>Hash Function：</strong> 如何将一个大的 key 映射到一个相对小范围的 integer 值。要权衡 hash 速度与冲突率。</li>
+<li><strong>Hash Scheme：</strong> 如何处理 hash 冲突。要权衡使用的内存空间与处理冲突时的额外操作。</li>
+</ol>
+<p>我们首先讨论 hash 函数，展示有哪些 hash 函数以及人们现在使用的是哪些；然后讨论两类 hash scheme——static hashing scheme、dynamic hashing scheme</p>
+<h2 id="hash-functions">Hash Functions<a class="headerlink" href="#hash-functions" title="Permanent link">&para;</a></h2>
+<p>Hash Function 接受任何 key 作为其输入。然后返回该 key 的整数表示(即“hash”)。函数的输出是确定性的（即相同的 key 应该总是生成相同的哈希输出）。</p>
+<p>常见的hash函数有 SHA-256、MD5。</p>
+<ul>
+<li>SHA-256 是非对称加密，也就是不可逆的加密 hash</li>
+<li>MD5 是可逆的加密 hash</li>
+</ul>
+<p><strong>DBMS 不希望使用加密 hash 函数</strong> ，因为我们不需要担心保护密钥的内容。这些哈希函数主要由 DBMS 内部使用，因此信息不会泄露到系统外部，而且加密 hash 函数的速度也很慢（MD5 是单向散列 hash 但也很慢）。在这一讲中，我们 =只关心 hash 函数的速度和冲突率= 。</p>
+<hr />
+<p>以下是人们使用的部分 hash 函数：</p>
+<ul>
+<li>CRC-64：（1975）生成 hash 的碰撞率合理，但速度非常慢</li>
+<li>MurmurHash：（2008）从数据库层面说，其诞生进入了现代 hash 函数时代，google 对其修改使长度更短的 key 获得更快的速度</li>
+<li>Google 的 CityHash：（2011）google 在之后做出了 CityHash</li>
+<li>Facebook 的 XXHash：（2012）之后发行的 XXHash3 是目前速度最快、碰撞率最低的Hash函数</li>
+<li>Google 的 FarmHash：（2014）google 对 CityHash 进行修改得到 FarmHash，碰撞率比 CityHash 更低</li>
+</ul>
+<p>👇图展示了各 hash 函数速度随 key 增大的变化，可见 XXHash3 的性能是最好的，实际上它的碰撞率表现也很不错。</p>
+<p>所以，在我们自己的数据库系统中，尽可能多的使用 Facebook 的 XXHash3。（不要自己写 hash 函数，很浪费时间）</p>
+<p><center><img alt="2" src="../image/image30.png" width="500" /></center></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>图像上，当 key 大小为32、64、128byte 时，FarmHash、CityHash、XXHash3都出现了尖峰。</p>
+<p>这是因为它们进行计算处理后的 key 刚好填满单个 Cache Line（CPU与内存间数据传输的最小单位）因此，当我们从内存中读取一次数据时可一次性操作。</p>
+</div>
+<h2 id="static-hashing-schemes">Static Hashing Schemes<a class="headerlink" href="#static-hashing-schemes" title="Permanent link">&para;</a></h2>
+<p>静态哈希方案是指 <strong>哈希表的大小是固定的</strong> 。这意味着，当 DBMS 用完哈希表中的存储空间后，它必须扩容并且重建（将原来的值全复制过去）哈希表。通常，新哈希表的大小是原哈希表的两倍。</p>
+<p>扩容代价非常高，理想情况下，我们需要大概知道要保存的元素（key）的上限，这样就无须扩容。</p>
+<p>为了减少浪费的比较次数，重要的是避免哈希键的碰撞。这要求哈希表的槽数（slots）是预期元素数的两倍 slots = 2*keys。</p>
+<p>首先讨论最基本的静态哈希方案——线性探查 hash。之后讨论在它之上的一些变种，Robin Hood Hashing、Cuckoo Hashing，他们都是基于Linear Probe Hashing 修改的。</p>
+<h3 id="linear-probe-hashing">Linear Probe Hashing<a class="headerlink" href="#linear-probe-hashing" title="Permanent link">&para;</a></h3>
+<p>线性探查法，是最基本的哈希方案，通常也是最快的。它是个 slot 表。slot 中需存储 key 值，这样才能支持查找和删除。</p>
+<p>How 解决 hash 冲突 ——（hash表逻辑上是个环形的buffer）</p>
+<p><strong>插入数据：</strong> 若 hash(key) 映射的 slot 位置无数据，就直接插入 key|value 键值对；否则就线性向后探查，直到找到一个能插入数据的空 slot 为止。（value 是指向某个 page 或 tuple 的指针）</p>
+<p><strong>查找数据：</strong> 找到 hash(key) 映射的 slot，若不是要找的 key，就线性向后探查，若直到一个空 slot 还未找到，证明没有此 key。</p>
+<p><strong>删除数据：</strong> 对于某个 key 不能直接删除，否则会影响数据的查找👇🌰。</p>
+<p><center><img alt="2" src="../image/image31.png" width="600" /></center></p>
+<ul>
+<li>方一： <strong>设置标记（Tombstone 墓碑）</strong> 。删除 slot 上的值并设置 Tombstone，逻辑上这里没有 entry 但物理上这个 slot 被占用。这样就不会影响数据的查找，但会浪费空间，稍后需进行清理。</li>
+<li>方二： <strong>移动数据</strong> 。即删除 slot 上数据的同时，将后面的数据都往前挪动。</li>
+</ul>
+<p>移动数据的方法在实际处理中会出现很多问题👇🌰，且很复杂，一般会选择标记 Tombstone。</p>
+<p><center><img alt="2" src="../image/image32.png" width="600" /></center></p>
+<h4 id="non-unique-keys">non-unique keys<a class="headerlink" href="#non-unique-keys" title="Permanent link">&para;</a></h4>
+<p>之前我们都假设 key 是唯一的，对 primary index 来说，这没问题。但实际数据集中 key 可能不唯一。</p>
+<p>如果我们想在哈希表中记录相同的 key 的不同 value，有 2 种方法：</p>
+<ol>
+<li>将 key 的值存储在单独的存储区域：每个 key 的 slot 指向一个单独的链表，链表上保存的 value 对应的都是同一 key</li>
+<li>在 hash 表中存储含冗余 key 的元素</li>
+</ol>
+<p><center><img alt="2" src="../image/image33.png" width="500" /></center></p>
+<p>这两种方法可用在任何一种 Hashing Scheme 中。实战中一般都使用第二种方法，即使它更浪费存储空间（因为 key 被多次重复记录）。</p>
+<h3 id="42-robin-hood-hashing">4.2 Robin Hood Hashing<a class="headerlink" href="#42-robin-hood-hashing" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Robin Hood（罗宾汉）是一个英国的民间传说，说的是一个劫富济贫的侠盗的故事，这也是这个算法的思想来源。</p>
+<p>在简单的线性探查时，遇到冲突会线性探查下去，但是这样可能会造成一种不平衡，可能有某个 key 的 value 的位置距离 hash(key) 的位置非常远，这样就要付出很大的代价去查找。 因此我们可以考虑记录下每个 (key,value) 值距离 hash(key) 的相对位置，相对位置越大，就越 “poor”，就可以从 “rich” 的 key 手中抢夺 slot 以达到一种平衡。</p>
+</div>
+<p>这是线性探查法的扩展，会对整个 hash table 进行平衡，试图让每个 key 尽可能靠近它原本的位置（减少它到在 hash 表中的最佳位置 hash(key) 的距离）。允许线程从 “rich” key 中窃取 slot，并将它们给 “poor” key。</p>
+<ul>
+<li>每个 key 跟踪它们在表中最优位置的位置。</li>
+<li>插入时，若要插入的键比此处原本的键更 poor（到最佳位置的距离更远），则窃取该 slot。原本的键必须重新插入到表中。<strong>因此会使写入或插入的代价更高（原本一次的写入操作变成了多次）</strong></li>
+</ul>
+<p><center><img alt="2" src="../image/image34.png" width="600" /></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>罗宾汉哈希可以显著降低探查长度的方差。🌰 该算法倾向于让两个 key 都离最佳位置一个单位，而不是一个 key 在最佳位置，另一个离最佳位置两个单位。</p>
+<p><strong>实际表现中，大多数情况下线性探查法还是强无敌，某些情况下 Robin 算法将会有很大的代价。</strong></p>
+</div>
+<h3 id="cuckoo-hashing">Cuckoo Hashing<a class="headerlink" href="#cuckoo-hashing" title="Permanent link">&para;</a></h3>
+<p>这种方法不是使用单个 hash 表，而是维护多个具有不同 hash 函数的表。hash 函数是相同的算法(例如，XXHash, CityHash);它们通过使用不同的 seed 值为同一个键生成不同的 hash 值。</p>
+<ul>
+<li>插入时，检查每个表，并挑选有空闲 slot 的表（若有多个，可随机选一个）。</li>
+<li>如果没有表有空闲 slot，则从中随机选择一个 slot 窃取，对该 slot 原本的元素重新 hash，为之找到一个新的位置。</li>
+<li>我们可能会卡在一个循环里（如A选择在hash表2中窃取B，B需在hash表1中窃取C，C在hash表2中需窃取A），我们需标记是否已经访问过某个 slot 以发现循环。那么我们可以用新的 hash 函数种子（不太常用）重建所有的 hash 表，或者用更大的表（更常用）重建 hash 表。</li>
+</ul>
+<blockquote>
+<p>实战中，大多数人使用 Cuckoo Hashing 时都只使用两个 hash table。超过三个没必要。</p>
+<p><strong>查找始终是O(1)，但插入的代价很大。</strong></p>
+</blockquote>
+<p><center><img alt="2" src="../image/image35.png" width="500" /></center></p>
+<h2 id="dynamic-hashing-schemes">Dynamic Hashing Schemes<a class="headerlink" href="#dynamic-hashing-schemes" title="Permanent link">&para;</a></h2>
+<p><strong>静态哈希方案</strong> 要求 DBMS 知道它想要存储的元素的数量。否则，如果需要增大/缩小表的大小，它将重建 hash 表。</p>
+<p><strong>动态哈希方案</strong> 能够根据需要调整 hash 表的大小，而不需要重建整个 hash 表。这些方案以不同的方式执行这种调整，可以最大化读或写。</p>
+<h3 id="chained-hashing">Chained Hashing<a class="headerlink" href="#chained-hashing" title="Permanent link">&para;</a></h3>
+<p>这是最常见的动态哈希方案。是 java 中 hashmap 采用的默认数据结构。</p>
+<p>DBMS  <strong>为 hash 表中的每个 slot 维护一个 bucket 的 linked list</strong> 。 <strong>每个 slot 不是存储元素，而是存储一个指向 bucket 组成链表的指针（引用）</strong> 。</p>
+<p><center><img alt="2" src="../image/image36.png" width="400" /></center></p>
+<ul>
+<li>通过将具有相同 hash key 的元素放入相同的 bucket 来解决冲突。</li>
+<li>如果 bucket 已满，添加另一个 bucket 到该 list。hash 表可以无限增长，因为 DBMS 不断添加新的 bucket。</li>
+<li>判断某个 key 是否存在，将它 hash 到一个 bucket 然后扫描该 bucket。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>可以将 bucket 当做 page，在 heap文件中，当某个 page 满了会分配新 page，并将它们链接在一起，通过 page id 指明该如何遍历。</p>
+<p><strong>可能会退化为顺序扫描。删除和插入操作很简单，因为修改的是 bucket 而不是 slot array。可以做到近乎无限的扩容，也很容易实现线程安全，我们只需要对每个 slot/bucket 加上 latch 就好。</strong></p>
+</div>
+<h3 id="52-extendible-hashing">5.2 Extendible Hashing<a class="headerlink" href="#52-extendible-hashing" title="Permanent link">&para;</a></h3>
+<p>改进的链列哈希，<strong>对 overflow 的 bucket 进行拆分，而不是让链永远增长</strong> 。这种方法允许 hash 表中的多个 slot 位置指向同一个 bucket chain。</p>
+<p>重新平衡哈希表的核心思想是在拆分时移动 bucket 项，并增加 bit 数，以便在 hash 表中查找条目。这意味着 DBMS 只需要在分割链的 bucket 中移动数据；所有其他 bucket 都保持原样。</p>
+<blockquote>
+<p>拆分 VS. 重建：拆分只针对那些满了的 bucket，重建针对整个 hash 表。</p>
+</blockquote>
+<ul>
+<li>Extendible Hashing 将 <strong>key 计算哈希值后转换为一个二进制表示</strong>，然后它会维护一个 <code>global counter</code>，记录 <strong>定位到 bucket 指针数组 (slot array)，需要取 key 的二进制的多少位</strong> ；每个 bucket 也有一个 counter，记为 <code>local counter</code>，表示的是 <strong>定位到该 bucket 需要二进制的多少位</strong> 。</li>
+<li>当存储 bucket 满时，DBMS 将 bucket 拆分并重新洗牌它的元素。如果拆分 bucket 的 local counter &lt; global counter，则新 bucket 将被添加到现有的 slot 数组中。否则，DBMS 将 slot 数组的大小翻倍以容纳新的 bucket，并增加 global counter。</li>
+<li>删除操作就是将插入操作逆向进行。</li>
+</ul>
+<p><center><img alt="2" src="../image/image37.png" width="600" /></center></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此处 insert 要做的：对两个 page 进行写入（拆分原有 page，产生一个新的 page），更新相应的（这俩page的）slot array 的映射。这种代价不大，因为改变的只是映射，而不是所指向的数据的实际存储位置。</p>
+</div>
+<h3 id="53-linear-hashing">5.3 Linear Hashing<a class="headerlink" href="#53-linear-hashing" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>在 Extendible Hashing 中，尽管调整指针数组的代价并不高，但调整时需要对整个 slot 数组上 latch，这会成为一种性能的瓶颈，因此我们可以只对溢出的 bucket 进行扩容，这样就不用上一个全局的latch。    ——linear Hashing</p>
+</div>
+<p>线性哈希是一种动态扩展哈希表的方法。这个方案 <strong>不是在 bucket overflow 时立即拆分 bucket，而是维护一个 split pointer 来跟踪下一个要拆分的 bucket</strong> 。不管这个指针是否指向溢出的 bucket，DBMS 总是分裂。overflow 标准由实现决定。</p>
+<ul>
+<li>假定最初 split pointer 指向第一个 bucket。</li>
+<li>当任何 bucket overflow 时，在 pointer 位置添加一个新的 slot 位条目拆分 bucket，并创建一个新的 hash 函数（使用的是相同的 hash 函数，只是使用了不同的 seed），对该 bucket 中的所有 key 采用新的 hash 函数进行拆分。溢出桶的溢出 kv 会放在溢出页，直到该 bucket 分裂。</li>
+<li>后续查找中，如果 hash 值映射到之前被 pointer 指向的 slot（桶号小于 split pointer），再应用新的 hash 函数得到 value。</li>
+<li>当 pointer 到达最后一个 slot 时，删除原来的 hash 函数，并用新的 hash 函数替换它。</li>
+<li>若进行删除操作，删除到需要缩减合并 bucket（有bucket为空）时，split pointer 会往回移动，但这在实战中很棘手。</li>
+</ul>
+<blockquote>
+<p><strong>线性hash 基于 split pointer 最终会将 overflow 的 bucket 都进行拆分。</strong></p>
+</blockquote>
+<h4 id="线性哈希的数学原理">线性哈希的数学原理<a class="headerlink" href="#线性哈希的数学原理" title="Permanent link">&para;</a></h4>
+<p>(任意key) % n = M</p>
+<p>(任意key) %2n = M 或 (任意key) %2n = M + n</p>
+<h4 id="线性哈希的具体实现">线性哈希的具体实现<a class="headerlink" href="#线性哈希的具体实现" title="Permanent link">&para;</a></h4>
+<p>我们假设初始化的哈希表如下：</p>
+<p><center><img alt="2" src="../image/image38.png" width="300" /></center></p>
+<p><strong>为了方便叙述，我们作出以下假定：</strong></p>
+<ol>
+<li>为了使哈希表能进行动态的分裂，我们从桶0开始设定一个分裂点。</li>
+<li>一个桶的容量为 listSize = 5，当桶的容量超出后就从分裂点开始进行分裂。</li>
+<li>hash 函数为 h0 = key %4 h1 = key % 8，h1 会在分裂时使用。</li>
+<li>整个表初始化包含了4个桶，桶号为 0-3，并已提前插入了部分的数据。</li>
+</ol>
+<p><strong>分裂过程如下：</strong></p>
+<p>现在插入 key = 27</p>
+<ol>
+<li>进行哈希运算，h0 = 27 % 4 = 3</li>
+<li>将key = 27 插入桶 3，但发现桶 3 已经达到了桶的容量，所以触发哈希分裂</li>
+<li>由于现在分裂点处于 0 桶，所以我们对 0 桶进行分割。这里需要注意虽然这里是 3 桶满了，但我们并不会直接从 3 桶进行分割，而是从分割点进行分割。</li>
+<li>对分割点所指向的桶 (桶0) 所包含的 key 采用新的 hash 函数 (h1) 进行分割，将产生如下的哈希表。</li>
+<li>虽然进行了分裂，但桶 3 并不是分裂点，所以桶 3 会将多出的 key，放于溢出页.,一直等到桶 3 进行分裂。</li>
+<li>进行分裂后，将分裂点向后移动一位。</li>
+</ol>
+<p><center><img alt="2" src="../image/image39.png" width="300" /></center></p>
+<p><strong>key 的读取：</strong></p>
+<p>采用 h0 对 key 进行计算。</p>
+<ul>
+<li>如果算出的桶号小于了分裂点，表示桶已经进行的分裂，我们采用 h1 进行 hash 运算，算出 key 所对应的真正的桶号。再从真正的桶里取出 value。</li>
+<li>如果算出的桶号大于了分裂点，那么表示此桶还没进行分裂，直接从当前桶进行读取 value。</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ol>
+<li>若下一次 key 插入 0、1、2、4 桶，不会触发分裂（因为没有超出桶的容量）。若是插入桶 3，用户在实现时可以自己设定，可以一旦插入就触发，也可以等溢出页达到 listSize 再触发新的分裂。</li>
+<li>
+<p>现在 0 桶被分裂了，新数据的插入怎么才能保证没分裂的桶能正常工作，已经分裂的桶能将部分插入到新分裂的桶呢？
+   A：只要分裂点小于桶的总数，我们依然采用 h0 函数进行哈希计算。</p>
+</li>
+<li>
+<p>如果哈希结果小于分裂号，那么表示这个 key 所插入的桶已经进行了分割，那么我就采用 h1 再次进行哈希，而 h1 的哈希结果就这个 key 所该插入的桶号。</p>
+</li>
+<li>如果哈希结果大于分裂号，那么表示这个 key 所插入的桶还没有进行分裂。直接插入。</li>
+</ol>
+<p>这也是为什么虽然是桶 3 的容量不足，但分裂的桶是分裂点所指向的桶。如果直接在桶 3 进行分裂，那么当新的 key 插入的时候就不能正常的判断哪些桶已经进行了分裂。
+3. 如果使用分裂点，就具备了无限扩展的能力。<strong>当分裂点移动到最后一个桶 (桶3) 再出现分裂，那么分裂点就会回到桶 0，到这个时候，h0 作废，h1 替代 h0, h2(key % 12) 替代 h1。那么又可以开始动态分割</strong>。 那个整个初始化状态就发生了变化。就好像没有发生过分裂。那么上面的规则就可以循环使用。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>线性哈希的论文中是按上面的规则来进行分裂的。其实我们可以安装自己的实际情况来进行改动：假如我们现在希望去掉分割点，一旦哪个桶满了，马上对这个桶进行分割，可以考虑了以下方案：</p>
+<ul>
+<li>为所有桶增加一个标志位。初始化的时候对所有桶的标志位清空。</li>
+<li>一旦某个桶满了，直接对这个桶进行分割，然后将设置标志位。当新的数据插入的时候，经过哈希计算 (h0) 发现这个桶已经分裂了，那么就采用新的哈希函数 (h1) 来计算分裂之后的桶号。在读取数据的时候处理类似。</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>hash table 是一个高效的数据结构，大多时候能够在 O(1) 的情况下插入和查询数据，在数据库系统中，有很多地方都使用到了哈希表，例如前面提到的 page table，page directory，以及执行 sql 查询时一些用于 join 的临时数据结构。</p>
+<p>但是哈希表的应用场景也有限，因为它存储的所有 key 都是无序的，这样虽然适合点查（精准匹配 key 的查找），但是无法进行范围扫描（通过关于 key 的部分条件查找，比如找出小于我给出的 key 的所有 key），在更加通用的场景下，数据库中的表索引使用最广泛的还是 B+ 树。</p>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+<div id="__comments">
+
+<h3>颜色主题调整</h3>
+
+<!-- <div class="tx-switch">
+<button data-md-color-scheme="default"><code>default</code></button>
+<button data-md-color-scheme="slate"><code>slate</code></button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-scheme")
+        document.body.setAttribute("data-md-color-scheme", attr)
+        localStorage.setItem("data-md-color-scheme",attr);
+        updateScheme();
+        })
+})
+</script> -->
+
+<div class="tx-switch">
+<button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
+<button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
+<button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
+<button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
+<button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
+<button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
+<button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
+<button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
+<button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
+<button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
+<button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius=3px">brown</button>
+<button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
+<button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
+<button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-primary]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-primary")
+        document.body.setAttribute("data-md-color-primary", attr)
+        localStorage.setItem("data-md-color-primary",attr);
+        })
+})
+</script>
+
+<h2 ><!-- 评论 -->评论区~</h2>
+
+有用的话请给我个赞和 star => <a href="https://github.com/Tangjp-wraith/Tangjp-wraith.github.io"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Tangjp-wraith/Tangjp-wraith.github.io.svg?style=plastic&amp;label=Stars"></a>
+
+</br>
+
+快来跟我聊天~
+
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="Tangjp-wraith/discussion" data-repo-id="R_kgDOLRJCPw"
+    data-category="General" data-category-id="DIC_kwDOLRJCP84CdJdO" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN"
+    crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+/* Set palette on initial load */
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) 
+}
+
+/* Register event handlers after documented loaded */
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        localStorage.setItem("data-md-color-scheme", palette.color.scheme === "slate" ? "slate" : "default");
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../from_oi_wiki/js/extra.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../js/tablesort.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

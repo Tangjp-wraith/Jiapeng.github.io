@@ -1,0 +1,2193 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tang-jiapeng.github.io/db/cmu15445/L5/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../logo.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>L5 - 0X10CC's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../from_oi_wiki/css/extra.css?v=13">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
+    
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-JT9BRCXKJJ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-JT9BRCXKJJ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-JT9BRCXKJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#buffer-pool-manager" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-header__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            0X10CC's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              L5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  🏡 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../langs/" class="md-tabs__link">
+          
+  
+    
+  
+  Langs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/" class="md-tabs__link">
+          
+  
+    
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+    
+  
+  Life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-nav__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    0X10CC's notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏡 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏡 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../langs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Langs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Langs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++零碎杂记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++零碎杂记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E9%A1%B6%E5%B1%82const%E4%B8%8E%E5%BA%95%E5%B1%82const/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    顶层const与底层const
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    值类型与右值引用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数组指针与函数指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++类对象布局
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E4%B8%8ERTTI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++中的多态与RTTI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effective Modern C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Effective Modern C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item1：理解模板类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item2：理解auto类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item3：理解decltype
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item7：区别使用()和{}创建对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item9：优先考虑别名声明而非typedef
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item23：理解std::move和std::forward
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../core/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU15-213：CSAPP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            CMU15-213：CSAPP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter1：计算机系统漫游
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter2：信息的表示和处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter3：程序的机器级表示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter4：处理器体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter5：优化程序性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter6：存储器层次结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter7：链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter8：异常控制流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter9：虚拟内存
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter10：系统级I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter11：网络编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/csapp/ch12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter12：并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU10-714：Deep Learning Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU10-714：Deep Learning Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2：ML Refresher / Softmax Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3：Manual Neural Networks / Backprop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4：Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5：Automatic Differentiation Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/cmu10-714/lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture6：Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Life
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#buffer-pool-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Pool Manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Buffer Pool Manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#locks-vs-latches" class="md-nav__link">
+    <span class="md-ellipsis">
+      locks VS. latches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-table-vs-page-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      page table VS. page directory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-allocation-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Allocation Policies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buffer-pool-优化" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Pool 优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Buffer Pool 优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-buffer-pools复数缓存池" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Buffer Pools（复数缓存池）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-fetching预取" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-fetching（预取）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scan-sharing扫描共享" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scan Sharing（扫描共享）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-pool-bypass跳过buffer-pool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Pool Bypass（跳过Buffer Pool）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-pool-vs-os-page-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Pool VS. OS Page Cache
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buffer-replacement-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buffer Replacement Policies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Buffer Replacement Policies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lru-最近最少使用算法" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRU 最近最少使用算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clock-算法" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clock 算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lru-与-clock-的问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRU 与 Clock 的问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LRU 与 Clock 的问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lru-k" class="md-nav__link">
+    <span class="md-ellipsis">
+      LRU-K
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Localization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#priority-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Priority Hints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dirty-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dirty Pages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-memory-pools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Memory Pools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>L5</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4453 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 15 分钟</p>
+</div>
+<p><strong>review: database workloads</strong></p>
+<p>OLTP：收集数据，运算快速，每次只读取/更新一小部分数据。（simple，read）</p>
+<p>OLAP：查询复杂，对大量OLTP收集数据进行读取分析，以推断出新数据。（complex，write）</p>
+<p>HTAP：既做OLTP又做OLAP的数据库系统。</p>
+<p>👇标准配置：前端OLTP数据库，后端大型数据仓库。前端做事务处理，后端完成数据分析。</p>
+<p>（有时被称为Data silo 数据孤岛，相互独立的数据存储区）</p>
+<p>然后可执行 <strong>ETL操作</strong>：将业务系统的数据经过抽取、清洗转换后加载到数据仓库；数据仓库完成分析后将分析数据传给前端数据库。</p>
+<p><center><img alt="2" src="../image/image19.png" width="500" /></center></p>
+<p>HTAP：在OLTP端也要完成一些数据分析操作。这样就不用等待数据仓库完成OLAP后传给前端。数据仓库做数据汇总用。</p>
+<p><center><img alt="2" src="../image/image20.png" width="500" /></center></p>
+<p>前端数据库：MySQL、PostgreSQL、MongoDB等你想要的数据库</p>
+<p>后端数据仓库：Hadoop、Spark、Greenplum、Vertica、云端数据库（RedShift、Snowflake）</p>
+<hr />
+<p>上节中提到，DBMS 的磁盘管理模块主要解决两个问题：</p>
+<ol>
+<li>如何使用磁盘文件来表示数据库的数据（元数据、索引、数据表等）</li>
+<li>（本节）如何管理数据在内存与磁盘之间的移动</li>
+</ol>
+<blockquote>
+<p>冯诺依曼结构表明，我们只有将数据放入内存后才能进行读写</p>
+</blockquote>
+<p>本节将讨论第二个问题。管理数据在内存与磁盘之间的移动又分为两个方面：空间控制（Spatial Control）和时间控制（Temporal Control）</p>
+<p>内存的访问速度更快，并且磁盘 page 的访问读取在时间和空间上具有局部性的特征，所以一次被访问到的 page，加载到内存之后，有可能被再次访问，这样可以避免频繁从磁盘中加载 page。</p>
+<ul>
+<li><strong>Spatical Control</strong> ：空间控制策略决定将 pages 写到磁盘的哪个位置，目标是让常一起使用的 pages 能离得更近，从而提高 I/O 效率。</li>
+<li><strong>Temporal Control</strong> ：时间控制策略决定何时将 pages 读入内存/写回磁盘，目标是使读写的次数最小，从而提高 I/O 效率。</li>
+</ul>
+<p><center><img alt="2" src="../image/image21.png" width="500" /></center></p>
+<p>本节的提纲如下：</p>
+<ul>
+<li>Buffer Pool Manager 及其优化</li>
+<li>Allocation Policies</li>
+<li>Replacement Policies</li>
+<li>Other Memory Pools</li>
+</ul>
+<h2 id="buffer-pool-manager">Buffer Pool Manager<a class="headerlink" href="#buffer-pool-manager" title="Permanent link">&para;</a></h2>
+<p>DBMS 启动时会从 OS 申请一片内存区域，即 <code>Buffer Pool</code>，并将这块区域划分成大小相同的 pages，为了与 disk 的 pages 区别开，通常称为 <code>frames</code>，当 DBMS 请求一个 disk page 时，它首先需要被复制到 Buffer Pool 的一个 frame 中，如下图所示：</p>
+<p><center><img alt="2" src="../image/image22.png" width="200" /></center></p>
+<p>因为Buffer Pool 中 frame 的顺序与 disk 中 page 的顺序无关。因此还需要一个额外的 indirection 层（page table），告知哪个page在哪个frame中。</p>
+<p>DBMS 维护的页表 <code>page table</code>，负责记录每个 page 在内存中的位置，以及是否被修改（Dirty Flag），是否被引用或引用计数（Pin/Reference Counter）等元信息，如下图所示：</p>
+<p><center><img alt="2" src="../image/image23.png" width="200" /></center></p>
+<p>当 page table 中的某 page 被引用时，会记录引用数（pin/reference），表示该 page 正在被使用，空间不够时不应该被移除；当被请求的 page 不在 page table 中时，DBMS 会先申请一个 latch，表示该 entry 被占用，然后从 disk 中读取相关 page 到 buffer pool，释放 latch。以上两种过程如下图所示：</p>
+<p><center><img alt="2" src="../image/image24.png" width="200" /></center></p>
+<h3 id="locks-vs-latches">locks VS. latches<a class="headerlink" href="#locks-vs-latches" title="Permanent link">&para;</a></h3>
+<p><strong>locks</strong></p>
+<ul>
+<li>保护  <strong>数据库逻辑内容</strong> (例如元组、表、数据库)不受其他事务的影响。</li>
+<li>在事务持续期间保持。</li>
+<li>需要能够回滚更改。</li>
+</ul>
+<p><strong>latches</strong></p>
+<ul>
+<li>保护 <strong>DBMS内部数据结构</strong> 的关键部分不受其他线程的影响。</li>
+<li>操作期间保持。</li>
+<li>不需要能够回滚更改。</li>
+</ul>
+<blockquote>
+<p>lock是数据库中更高级的逻辑原语，latch是底层保护原语</p>
+</blockquote>
+<h3 id="page-table-vs-page-directory">page table VS. page directory<a class="headerlink" href="#page-table-vs-page-directory" title="Permanent link">&para;</a></h3>
+<p><strong>page directory</strong> ：数据库文件中 page id 到 page 位置的映射</p>
+<ul>
+<li>是告诉执行引擎数据在哪个page的哪个slot（即offset）的关键索引，所有改变都应被记录在磁盘上（持久化），以保证DBMS重启时能找到</li>
+</ul>
+<p><strong>page table</strong> ：是page id 到 buffer pool 中 frame 的映射</p>
+<ul>
+<li>是个在内存中的数据结构（hash表），因此无需存储在磁盘上（无需保证持久化，丢失了重新建立一个就好，但要线程安全）</li>
+</ul>
+<blockquote>
+<p>因此 page table 可用 hashtable 或 hashmap 实现</p>
+</blockquote>
+<h2 id="2-allocation-policies">2 Allocation Policies<a class="headerlink" href="#2-allocation-policies" title="Permanent link">&para;</a></h2>
+<p>Allocation Policies 指 DBMS 如何为不同的查询分配缓冲池内存：</p>
+<ul>
+<li><strong>全局策略</strong>（Global Policies）：同时考虑所有查询和事务来分配内存</li>
+<li><strong>局部策略</strong>（Local Policies）：为单个查询/事务分配内存frames时不考虑其它查询的情况。可以让特定的事务表现更好，当然全局上可能会有糟糕的表现。</li>
+</ul>
+<p>大多数DBMS都会尽量兼顾全局和局部信息来进行分配。</p>
+<h2 id="buffer-pool-优化">Buffer Pool 优化<a class="headerlink" href="#buffer-pool-优化" title="Permanent link">&para;</a></h2>
+<p>简单的缓存池做到上面的内容就够了，但是对于实际的生产其表现远远不够，因此需要对其进行特定的优化。下面展示一些Buffer Pool的优化方法：Multiple Buffer Pools、Pre-fetching、Scan Sharing、Buffer Pool Bypass。</p>
+<h3 id="multiple-buffer-pools复数缓存池">Multiple Buffer Pools（复数缓存池）<a class="headerlink" href="#multiple-buffer-pools复数缓存池" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>实际上没有规定一个数据库只能有一个Buffer Pool，我们可以分配多块内存区域以支持多个Buffer Pool，每个区域可以有自己的页表，并且自己一套page id和frame的映射关系，这样可以更好地运用局部策略，并且根据不同的类型来分配page的置换策略（例如index或者table data），这样也能减少访问缓存池的不同线程之间对于页表锁的争夺。</p>
+</div>
+<p>为了减少并发控制的开销（减少那些试图访问Buffer池的不同线程间争抢Latch的情况）并改善数据的局部性，DBMS 可以 <strong>在不同维度上维护多个Buffer Pools</strong> ：</p>
+<ul>
+<li>多个 Buffer Pools 实例，相同的 page hash 到相同的实例上</li>
+<li>每个 Database 分配一个 Buffer Pool</li>
+<li>每种 Page 类型一个 Buffer Pool</li>
+</ul>
+<p>实现 multiple buffer pools 的方法：</p>
+<ul>
+<li>在 record id 中添加一个 objectId</li>
+<li>使用 hash 将 page id 映射到不同 buffer pool</li>
+</ul>
+<p><center><img alt="2" src="../image/image25.png" width="500" /></center></p>
+<p><center><img alt="2" src="../image/image26.png" width="500" /></center></p>
+<h3 id="pre-fetching预取">Pre-fetching（预取）<a class="headerlink" href="#pre-fetching预取" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>这是一种大胆的猜测（实际上有迹可循）。对于顺序的扫描或者索引的扫描，我们可能会读一大段连续的page，那么我们可以一次性把许多连续的 page 预存在缓存池中，这样就不用每次只将一个 page 加载进来而是一次性加载，这样可以减轻很多负担。</p>
+</div>
+<p>希望最小化数据库系统的停顿，则DBMS 可以通过查询计划来预取 pages，如：</p>
+<ul>
+<li><strong>顺序扫描</strong> Sequential Scans</li>
+<li><strong>按索引扫描</strong> Index Scans：需要额外记录一些元数据（index-page按照二叉搜索树的方式去组织）</li>
+</ul>
+<p><center><img alt="2" src="../image/image27.png" width="500" /></center></p>
+<p>从index-page0开始，假设我想查找value范围在100到250的所有结果：我会跳到page1，再到叶子结点。</p>
+<p><center><img alt="2" src="../image/image28.png" width="500" /></center></p>
+<blockquote>
+<p>这也是为什么DBMS要自己管理内存的原因，DBMS知道这个操作要做什么，因此可以做对应的优化。</p>
+</blockquote>
+<h3 id="scan-sharing扫描共享">Scan Sharing（扫描共享）<a class="headerlink" href="#scan-sharing扫描共享" title="Permanent link">&para;</a></h3>
+<p>Scan Sharing 技术主要用在 <strong>多个查询存在数据共用</strong> 的情况。当两个查询 A, B 先后发生，B 发现自己有一部分数据与 A 共用，于是先共用 A 的 cursor，等 A 扫完后，再扫描自己还需要的其它数据。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>这与结果缓存（ <strong>result caching</strong> ）不同，结果缓存指——我计算出某些结果并将之缓存起来，再遇上相同的查询时直接使用，而不需要重新执行查询。<strong>通常情况下，result caching中，查询必须一样；但scan sharing中，查询不一定要一样。</strong></p>
+</div>
+<p>Oracle支持一种基本的 Scan Sharing，他们称之为 Cursor Sharing（游标共享）</p>
+<h3 id="buffer-pool-bypass跳过buffer-pool">Buffer Pool Bypass（跳过Buffer Pool）<a class="headerlink" href="#buffer-pool-bypass跳过buffer-pool" title="Permanent link">&para;</a></h3>
+<p>当遇到大数据量的 Sequential Scan 时，如果将所需 pages 顺序存入 Buffer Pool，将造成后者的污染，因为这些 pages 通常只使用一次，而它们的进入将导致一些可能在未来更需要的 pages 被移除。因此一些 DBMS 做了相应的优化，<strong>在这种查询出现时，为它单独分配一块局部内存，将其对 Buffer Pool 的影响隔离；当查询完成时，所有这些page就会被丢弃。</strong></p>
+<h3 id="buffer-pool-vs-os-page-cache">Buffer Pool VS. OS Page Cache<a class="headerlink" href="#buffer-pool-vs-os-page-cache" title="Permanent link">&para;</a></h3>
+<p>大部分 disk operations 都是通过操作系统调用完成，通常操作系统会维护自身的数据缓存，这会导致一份数据分别在操作系统和 DMBS 中被缓存两次。是否要对OS提供的缓存进行利用就是一种取舍。大多数 DBMS 都会使用 (O_DIRECT) 来告诉 OS 不要缓存这些数据，除了 PostgresSQL。</p>
+<h2 id="buffer-replacement-policies">Buffer Replacement Policies<a class="headerlink" href="#buffer-replacement-policies" title="Permanent link">&para;</a></h2>
+<p>当 Buffer Pool 空间不足时，读入新的 pages 必然需要 DBMS 从已经在 Buffer Pool 中的 pages 选择一些移除，这个选择就由 Buffer Replacement Policies 负责完成。需从以下四因素选择合适的置换算法：</p>
+<ul>
+<li>正确性（Correctness）：操作过程中要保证脏数据同步到 disk</li>
+<li>准确性（Accuracy）：尽量选择不常用的 pages 移除</li>
+<li>速度（Speed）：决策要迅速，每次移除 pages 都需要申请 latch，使用太久将使得并发度下降</li>
+<li>元数据负荷（Meta-data overhead）：决策所使用的元信息占用的量不能太大</li>
+</ul>
+<h3 id="lru-最近最少使用算法">LRU 最近最少使用算法<a class="headerlink" href="#lru-最近最少使用算法" title="Permanent link">&para;</a></h3>
+<p>维护每个 page 上一次被访问的时间戳，每次移除时间戳最早的 page。</p>
+<p>我们可以维护一个单独的数据结构，比如queue，它根据page的时间戳进行排序；若某时刻有人对某个page进行读或写，则将此page从queue中取出并放入队列尾部（因为队列是先进先出的）</p>
+<h3 id="clock-算法">Clock 算法<a class="headerlink" href="#clock-算法" title="Permanent link">&para;</a></h3>
+<p>Clock 是 LRU 的近似策略（二者性能接近），它不需追踪每个 page 上次被访问的时间戳，而是为每个 page 保存一个标志位 reference bit，它告诉你自从上次检查完该page后，此page是否被访问了。</p>
+<ul>
+<li>每当 page 被访问时，reference bit 设置为 1</li>
+<li>每当需要移除 page 时，从上次访问的位置开始，按顺序轮询每个 page 的 reference bit，若该 bit 为 1，则重置为 0；若该 bit 为 0，则移除该 page</li>
+</ul>
+<h3 id="lru-与-clock-的问题">LRU 与 Clock 的问题<a class="headerlink" href="#lru-与-clock-的问题" title="Permanent link">&para;</a></h3>
+<p>二者都容易被 sequential flooding （顺序溢出）现象影响，从而导致最近被访问的 page 实际上却是最不可能需要的 page。</p>
+<p>顺序读取所有page，则buffer pool会被只读了一次之后再也不会读取的page污染。即在某些特定的workload下，我们想移出的page是那些最近被使用的，而不是最近最少被使用的。</p>
+<p>我们可以有多种办法来解决这个问题：</p>
+<ol>
+<li>LRU-K：记录页面最后k次访问的时间戳并且计算时间戳的间隔</li>
+<li>局部策略：对不同的访问采用不同的内存池</li>
+<li>优先级提示：这也是需要一些先验知识。如果例如我们访问的是index，而index-page按照B+树或者有组织的形式存储，我们就可以按照这个信息来帮助页面置换信息的判断。</li>
+</ol>
+<h4 id="lru-k">LRU-K<a class="headerlink" href="#lru-k" title="Permanent link">&para;</a></h4>
+<p>LRU-K 保存每个 page 的最后 K 次访问时间戳，利用这些时间戳间隔来估计它们下次被访问的时间，时间间隔最长的page是最近最少被使用的。通常 K 取 2 就能获得很好的效果。</p>
+<h4 id="localization">Localization<a class="headerlink" href="#localization" title="Permanent link">&para;</a></h4>
+<p>使用多个buffer池，让每个查询本地化。DBMS 针对每个查询做出移除 pages 的限制，使得这种影响被控制在较小的范围内，类似 API 的 rate limit。</p>
+<h4 id="priority-hints">Priority Hints<a class="headerlink" href="#priority-hints" title="Permanent link">&para;</a></h4>
+<p>有时候 DBMS 知道每个 page 在查询执行过程中的上下文信息，因此它可以根据这些信息判断一个 page 是否重要。</p>
+<h3 id="dirty-pages">Dirty Pages<a class="headerlink" href="#dirty-pages" title="Permanent link">&para;</a></h3>
+<p>移除一个 dirty page 的成本要高于移除一般 page，因为前者需要写 disk，后者可以直接 drop，因此 DBMS 在移除 page 的时候也需要考虑到这部分的影响。除了直接在 Replacement Policies 中考虑，有的 DBMS 使用 Background Writing （后台写）的方式来处理。它们定期扫描 page table，发现 dirty page 就写入 disk，在 Replacement 发生时就无需考虑脏数据带来的问题。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在将 dirty page 写入 disk之前，要确保该 dirty page 对应的修改操作写入日志。这对于数据的一致性和rollback非常的重要（这也就是所谓的 <strong>WAL</strong>，Write Ahead Logging）。</p>
+</div>
+<h2 id="other-memory-pools">Other Memory Pools<a class="headerlink" href="#other-memory-pools" title="Permanent link">&para;</a></h2>
+<p>除了存储 tuples 和 indexes，DBMS 执行查询等操作时还需要 Memory Pools 来存储其它数据，如：</p>
+<ul>
+<li>Sorting + Join Buffers</li>
+<li>Query Caches</li>
+<li>Maintenance Buffers</li>
+<li>Log Buffers</li>
+<li>Dictionary Caches</li>
+</ul>
+<h2 id="总结">总结<a class="headerlink" href="#总结" title="Permanent link">&para;</a></h2>
+<p>DBMS 管理数据在内存和磁盘间的移动，需考虑 page 的访问在时间和空间上的局部性特征，以提高 I/O 效率。（一次被访问到的 page 加载到内存之后，有可能被再次访问，这样可以避免频繁从磁盘中加载 page）</p>
+<ul>
+<li>空间控制策略：将 pages 写到磁盘的哪个位置，使常一起使用的 pages 能离得更近。</li>
+<li>时间控制策略：何时将 pages 读入内存/写回磁盘，使读写的次数最小。</li>
+</ul>
+<p>DBMS 启动时向 OS 申请一块 <strong>共享内存区域</strong>  —— <code>Buffer Pool</code>，用于对磁盘上的 page 进行缓存，尽量减少磁盘 IO，提升 DBMS 性能。该区域被划分为多个与 page 大小相同的小块，称为 <code>frame</code>，用于缓存 page。此外，还维护一个哈希表 <code>page table</code>，存储 page id 到 frame 的映射，以及一些 page 的元数据信息，如 page 是否为脏页，page 的引用计数 pin count 等。若请求的 page 不在 page table 中，DBMS 会先申请一个 latch，锁住该 entry，然后从 disk 中读取相关 page 到 Buffer Pool，释放 latch。</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>page table 的访问，一般要保证并发安全，因为在多线程环境下，对于同一个内存中 frame 的读写不能同时进行。</p>
+</div>
+<hr />
+<p>DBMS 如何为不同的查询分配缓冲池内存，涉及 <strong>Allocation Policies</strong> ：</p>
+<ul>
+<li><strong>全局策略</strong> ：同时考虑所有查询和事务来分配内存。</li>
+<li><strong>局部策略</strong> ：为单个查询/事务分配内存frames时不考虑其它查询的情况。可以让特定的事务表现更好，当然全局上可能会有糟糕的表现。</li>
+<li>大多数 DBMS 都兼顾全局和局部信息来进行分配。</li>
+</ul>
+<hr />
+<p>当 Buffer Pool 空间不足时，读入新的 pages 必然需要 DBMS 从已经在 Buffer Pool 中的 pages 选择一些移除，这个选择就由 Buffer <strong>Replacement Policies</strong> 负责完成。具体算法有： <strong>LRU</strong> 、 <strong>Clock</strong> 。二者都存在 sequential flooding （顺序溢出）问题，可采用  <strong>LRU-K</strong> 、 <strong>Localization (局部策略)</strong> 、<strong>Priority Hints (优先级提示)</strong> 解决。</p>
+<ul>
+<li>顺序溢出：大量的顺序扫描 (sequential scan) 会使 buffer pool 被只读了一次之后再也不会读取的 page 污染。从而导致最近被访问的 page 实际上却是最不可能需要的 page。</li>
+<li>局部策略：使用多个 buffer 池，让每个查询本地化，DBMS 针对每个查询做出移除去 page 的限制。</li>
+<li>优先级提示：记录每个 page 在查询执行过程中的上下文信息，根据这些信息判断该 page 是否重要。</li>
+</ul>
+<p>移除一个 dirty page 的成本要高于移除一般 page，有的 DBMS 使用 <strong>Background Writing (后台写)</strong> 的方式来处理。它们定期扫描 page table，发现 dirty page 就写入 disk，在 Replacement 发生时就无需考虑脏数据带来的问题。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在将 dirty page 写入 disk 之前，要确保该 dirty page 对应的修改操作写入日志——<code>WAL</code></p>
+</div>
+<hr />
+<p>实际生产中有很多对 Buffer Pool 的优化方法：</p>
+<ul>
+<li>
+<p><strong>Multiple Buffer Pools (复数缓存池)</strong> ：在不同维度上维护多个 Buffer Pool，相同的 page hash 到相同的实例上。
+🌰 每个 database / 每种 page 类型，分配一个 Buffer Pool 等。</p>
+</li>
+<li>
+<p><strong>Pre-fetching (预取)</strong> ：对于顺序扫描或者索引扫描，可能会读一大段连续的 page，因此可一次性把许多连续的 page 预存在缓存池中。</p>
+</li>
+<li><strong>Scan Sharing (扫描共享)</strong> ：多个查询存在数据共用时，可共用 cursor。<ul>
+<li>VS. result caching (结果缓存)：计算出某些结果并将之缓存起来，再遇上相同的查询时直接使用，而不需要重新执行查询。结果缓存中，查询必须一样；扫描共享中，查询不一定要一样。</li>
+</ul>
+</li>
+<li><strong>Buffer Pool Bypass (跳过 Buffer Pool)</strong> ：大量数据的顺序扫描会导致 Buffer Pool 的污染，因此这种查询出现时，可为它单独分配一块局部内存，隔离它对 Buffer Pool 的影响。查询完成后，就丢弃这些 page。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>page table VS. page directory：</p>
+<ul>
+<li><strong>page directory</strong> ：数据库文件中 page id 到 page 位置的映射。是告诉执行引擎数据在哪个 page 的那个 slot（即 offset）的关键索引，所有改变都需持久化到磁盘，以保证DBMS重启时能找到。</li>
+<li><strong>page table</strong> ：是 page id 到 buffer pool 中 frame 的映射。是个在内存中的 hash表结构，无需存储在磁盘上（无需保证持久化，丢失了重新建立一个就好，但要线程安全）。</li>
+</ul>
+<p>lock VS. latch：</p>
+<ul>
+<li><strong>lock</strong> ：保护 <strong>数据库逻辑内容</strong> (例如元组、表、数据库)不受其他事务的影响。在事务持续期间保持，能够回滚更改。</li>
+<li><strong>latches</strong> ：保护 <strong>DBMS内部数据结构</strong> 的关键部分不受其他线程的影响。操作期间保持，不能够回滚更改。</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+<div id="__comments">
+
+<h3>颜色主题调整</h3>
+
+<!-- <div class="tx-switch">
+<button data-md-color-scheme="default"><code>default</code></button>
+<button data-md-color-scheme="slate"><code>slate</code></button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-scheme")
+        document.body.setAttribute("data-md-color-scheme", attr)
+        localStorage.setItem("data-md-color-scheme",attr);
+        updateScheme();
+        })
+})
+</script> -->
+
+<div class="tx-switch">
+<button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
+<button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
+<button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
+<button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
+<button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
+<button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
+<button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
+<button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
+<button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
+<button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
+<button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius=3px">brown</button>
+<button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
+<button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
+<button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-primary]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-primary")
+        document.body.setAttribute("data-md-color-primary", attr)
+        localStorage.setItem("data-md-color-primary",attr);
+        })
+})
+</script>
+
+<h2 ><!-- 评论 -->评论区~</h2>
+
+有用的话请给我个赞和 star => <a href="https://github.com/Tangjp-wraith/Tangjp-wraith.github.io"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Tangjp-wraith/Tangjp-wraith.github.io.svg?style=plastic&amp;label=Stars"></a>
+
+</br>
+
+快来跟我聊天~
+
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="Tangjp-wraith/discussion" data-repo-id="R_kgDOLRJCPw"
+    data-category="General" data-category-id="DIC_kwDOLRJCP84CdJdO" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN"
+    crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+/* Set palette on initial load */
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) 
+}
+
+/* Register event handlers after documented loaded */
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        localStorage.setItem("data-md-color-scheme", palette.color.scheme === "slate" ? "slate" : "default");
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../from_oi_wiki/js/extra.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../js/tablesort.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

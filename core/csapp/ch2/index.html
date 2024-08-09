@@ -1,0 +1,2790 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tang-jiapeng.github.io/core/csapp/ch2/">
+      
+      
+        <link rel="prev" href="../ch1/">
+      
+      
+        <link rel="next" href="../ch3/">
+      
+      
+      <link rel="icon" href="../../../logo.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Chapter2：信息的表示和处理 - 0X10CC's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../from_oi_wiki/css/extra.css?v=13">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
+    
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-JT9BRCXKJJ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-JT9BRCXKJJ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-JT9BRCXKJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#信息的表示和处理" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-header__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            0X10CC's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter2：信息的表示和处理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  🏡 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../langs/" class="md-tabs__link">
+          
+  
+    
+  
+  Langs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+    
+  
+  Life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-nav__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    0X10CC's notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏡 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏡 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../langs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Langs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Langs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++零碎杂记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++零碎杂记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E9%A1%B6%E5%B1%82const%E4%B8%8E%E5%BA%95%E5%B1%82const/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    顶层const与底层const
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    值类型与右值引用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数组指针与函数指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++类对象布局
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E4%B8%8ERTTI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++中的多态与RTTI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effective Modern C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Effective Modern C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item1：理解模板类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item2：理解auto类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item3：理解decltype
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item7：区别使用()和{}创建对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item9：优先考虑别名声明而非typedef
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item23：理解std::move和std::forward
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU15-213：CSAPP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            CMU15-213：CSAPP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter1：计算机系统漫游
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter2：信息的表示和处理
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter2：信息的表示和处理
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#信息的存储" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息的存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息的存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#十六进制表示法" class="md-nav__link">
+    <span class="md-ellipsis">
+      十六进制表示法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数据大小" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#寻址和字节顺序" class="md-nav__link">
+    <span class="md-ellipsis">
+      寻址和字节顺序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#字符串" class="md-nav__link">
+    <span class="md-ellipsis">
+      字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#代码" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#布尔代数简介" class="md-nav__link">
+    <span class="md-ellipsis">
+      布尔代数简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的位级运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的位级运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的逻辑运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的移位运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的移位运算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#整数的表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      整数的表示
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整数的表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无符号编码" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#有符号数和无符号数的转换" class="md-nav__link">
+    <span class="md-ellipsis">
+      有符号数和无符号数的转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的有符号数和无符号数" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的有符号数和无符号数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#扩展一个数的位级表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展一个数的位级表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#截断数字" class="md-nav__link">
+    <span class="md-ellipsis">
+      截断数字
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#整数的运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      整数的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整数的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无符号加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号加法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码加法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#无符号乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#乘以常数" class="md-nav__link">
+    <span class="md-ellipsis">
+      乘以常数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#除以-2-的幂" class="md-nav__link">
+    <span class="md-ellipsis">
+      除以 2 的幂
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#浮点" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二进制小数" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制小数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-浮点数表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE 浮点数表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#舍入" class="md-nav__link">
+    <span class="md-ellipsis">
+      舍入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#浮点运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点运算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter3：程序的机器级表示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter4：处理器体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter5：优化程序性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter6：存储器层次结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter7：链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter8：异常控制流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter9：虚拟内存
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter10：系统级I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter11：网络编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter12：并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU10-714：Deep Learning Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU10-714：Deep Learning Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2：ML Refresher / Softmax Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3：Manual Neural Networks / Backprop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4：Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5：Automatic Differentiation Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture6：Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Life
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#信息的存储" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息的存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="信息的存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#十六进制表示法" class="md-nav__link">
+    <span class="md-ellipsis">
+      十六进制表示法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#数据大小" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据大小
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#寻址和字节顺序" class="md-nav__link">
+    <span class="md-ellipsis">
+      寻址和字节顺序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#字符串" class="md-nav__link">
+    <span class="md-ellipsis">
+      字符串
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#代码" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#布尔代数简介" class="md-nav__link">
+    <span class="md-ellipsis">
+      布尔代数简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的位级运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的位级运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的逻辑运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的逻辑运算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的移位运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的移位运算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#整数的表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      整数的表示
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整数的表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无符号编码" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#有符号数和无符号数的转换" class="md-nav__link">
+    <span class="md-ellipsis">
+      有符号数和无符号数的转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-中的有符号数和无符号数" class="md-nav__link">
+    <span class="md-ellipsis">
+      C 中的有符号数和无符号数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#扩展一个数的位级表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      扩展一个数的位级表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#截断数字" class="md-nav__link">
+    <span class="md-ellipsis">
+      截断数字
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#整数的运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      整数的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整数的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#无符号加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号加法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码加法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#无符号乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      无符号乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#二进制补码乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制补码乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#乘以常数" class="md-nav__link">
+    <span class="md-ellipsis">
+      乘以常数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#除以-2-的幂" class="md-nav__link">
+    <span class="md-ellipsis">
+      除以 2 的幂
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#浮点" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浮点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#二进制小数" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制小数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ieee-浮点数表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      IEEE 浮点数表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#舍入" class="md-nav__link">
+    <span class="md-ellipsis">
+      舍入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#浮点运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点运算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="信息的表示和处理">信息的表示和处理<a class="headerlink" href="#信息的表示和处理" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4052 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 60 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 14 分钟</p>
+</div>
+<h2 id="信息的存储">信息的存储<a class="headerlink" href="#信息的存储" title="Permanent link">&para;</a></h2>
+<p>大多数机器使用字节（8 位的块）作为存储器中的最小寻址单元，而非访问单独的位。内存中的每一个字节都对应一个唯一的数字，即它的地址，所有可能的地址集合构成了虚拟内存。它是由 DRAM、闪存（Flash Memory) 和磁盘存储共同实现的，而在程序看来则只是一个统一的字节数组。</p>
+<p>编译器和运行时系统负责将内存空间划分为更加易于管理的单元，从而存储不同的程序对象。例如，C 中指针的值代表其指向的存储块内第一个字节的虚拟地址。C 编译器还将每个指针与其类型信息联系起来，这样就可以根据指针类型生成不同的机器级代码来访问指针所指向的对象。不过机器级代码中并没有任何与类型相关的信息，编译器只是简单地把每个程序对象都视为一个字节块，而把程序视为一个字节序列。</p>
+<h3 id="十六进制表示法">十六进制表示法<a class="headerlink" href="#十六进制表示法" title="Permanent link">&para;</a></h3>
+<p>使用二进制表示位模式（Bit Pattern）会非常冗长，因为一个字节就包含了 8 位。而如果使用十进制，则不方便与位模式进行互相转化，因此我们采用十六进制（Hexadecimal）来书写位模式。一个十六进制数占 4 位，因此一个字节的取值范围就是 <span class="arithmatex">\(00_{16}\)</span> ~ <span class="arithmatex">\(FF_{16}\)</span> 。</p>
+<p>将一个二进制数字转化为十六进制数字，需要首先将其分为多个 4 位的组，然后再将每组数转化为十六进制。如果总位数不为 4 的倍数，那么最左边的一组可以少于四位，然后在首位补 0。如 <span class="arithmatex">\(111100_2\)</span> 可以分成 <span class="arithmatex">\(0011_2\)</span> 和 <span class="arithmatex">\(1100_2\)</span>，转化结果为 <span class="arithmatex">\(3C_{16}\)</span> 。在 C 中，若一个常数以 0x 或 0X 作为前缀，则代表它是一个十六进制数字。</p>
+<h3 id="数据大小">数据大小<a class="headerlink" href="#数据大小" title="Permanent link">&para;</a></h3>
+<p>每台计算机都有一个字长（Word Size），它指定了指针数据的标准大小。如果一台机器的字长为 <span class="arithmatex">\(w\)</span> 位，那么虚拟地址的范围为 <span class="arithmatex">\(0～2^w -1\)</span>，程序最多可以访问 <span class="arithmatex">\(2^w\)</span> 字节。32 位机器的虚拟地址大小约为 4 GB，而 64 位机器则能达到 16 EB。</p>
+<p>C 中几个基本数据类型的大小如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>Signed</th>
+<th>Unsigned</th>
+<th>32-bit</th>
+<th>64-bit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[signed] char</td>
+<td>unsigned char</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>unsigned short</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>unsigned</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>unsigned long</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>int32_t</td>
+<td>uint_32t</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>int64_t</td>
+<td>uint_64t</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>char *</td>
+<td></td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td></td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td></td>
+<td>8</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>除<code>char</code>外，若不添加前缀<code>unsigned</code>，则默认使用有符号类型。指针类型的数据使用机器的全字长，如<code>char *</code>。由于某些数据类型的大小在不同机器上有所不同，因此开发人员应使程序对不同数据类型的确切大小不敏感，从而保证程序的可移植性（Portable）。</p>
+<h3 id="寻址和字节顺序">寻址和字节顺序<a class="headerlink" href="#寻址和字节顺序" title="Permanent link">&para;</a></h3>
+<p>对于包含多字节的程序对象，我们必须建立两个准则：这个对象的地址是什么和这些字节在内存中的排列顺序是怎样的。某些机器按照从最低有效字节到最高有效字节的顺序存储对象，该方式被称为小端法（Little Endian）；某些机器则与之相反，被称为大端法（Big Endian）。例如一个<code>int</code>类型的变量地址为 0x100，其值为十六进制的 0x1234567，那么上述两种机器存储该变量的方式分别如下：</p>
+<p>Little Endian</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">0x100</th>
+<th style="text-align: center;">0x101</th>
+<th style="text-align: center;">0x102</th>
+<th style="text-align: center;">0x103</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>Big Endian</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">0x100</th>
+<th style="text-align: center;">0x101</th>
+<th style="text-align: center;">0x102</th>
+<th style="text-align: center;">0x103</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">...</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">67</td>
+<td style="text-align: center;">...</td>
+</tr>
+</tbody>
+</table>
+<p>有些时候不同的字节存储顺序可能导致一些问题：</p>
+<ul>
+<li>不同类型的机器通过网络传递二进制数据，如小端法机器生成的数据发送到大端法机器上，程序收到的字节序列是反的。为了避免这一问题，发送方应先将数据转换为网络标准格式，接收方再将其转换为内部表达方式；</li>
+<li>对于小端法机器，书写字节序列与书写数字的顺序相反；</li>
+<li>某些使用强制类型转换（Cast）的程序，在不同类型的机器上编译运行的结果不同。</li>
+</ul>
+<p>对于上述第三种情况，以一个程序为例：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">byte_pointer</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">show_bytes</span><span class="p">(</span><span class="n">byte_pointer</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// %.2x 代表整数会被打印为至少两位（digits）的十六进制数字</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%.2x&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">show_int</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">show_float</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">show_pointer</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">show_bytes</span><span class="p">((</span><span class="n">byte_pointer</span><span class="p">)</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">fval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="n">show_int</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+<span class="w">    </span><span class="n">show_float</span><span class="p">(</span><span class="n">fval</span><span class="p">);</span>
+<span class="w">    </span><span class="n">show_pointer</span><span class="p">(</span><span class="n">pval</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>不同类型机器的输出结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>Machine</th>
+<th>val</th>
+<th>fval</th>
+<th>pval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux32</td>
+<td>0x39300000</td>
+<td>0x00e44046</td>
+<td>0xe4f9ffbf</td>
+</tr>
+<tr>
+<td>Windows32</td>
+<td>0x39300000</td>
+<td>0x00e44046</td>
+<td>0xb4cc2200</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>0x00003039</td>
+<td>0x4640e400</td>
+<td>0xeffffa0c</td>
+</tr>
+<tr>
+<td>Linux64</td>
+<td>0x39300000</td>
+<td>0x00e44046</td>
+<td>0xb811e5ffff7f0000</td>
+</tr>
+</tbody>
+</table>
+<p>这是因为 Sun 系统采用大端法，其他三者采用小端法。对于指针类型的变量，不同操作系统在存储分配上有着不同的准则。同时，64 位系统使用 8 字节地址，32 位系统使用 4 字节地址，这导致了指针类型变量<code>pval</code>输出结果的不同。</p>
+<h3 id="字符串">字符串<a class="headerlink" href="#字符串" title="Permanent link">&para;</a></h3>
+<p>字符串在 C 中被编码为一个以<code>NULL</code>字符结尾（其值为 0）的字符数组，每个字符都由某种标准编码组成，如 ASCII 码。因此，如果我们执行上面的程序<code>show_bytes("12345", 6)</code>，将得到<code>31 32 33 34 35 00</code>。</p>
+<p>由于字符串中各字符的排列顺序是由字符串本身决定的，因此字符串不会受到字节顺序的影响，除非字符使用两字节的 Unicode 进行编码。</p>
+<h3 id="代码">代码<a class="headerlink" href="#代码" title="Permanent link">&para;</a></h3>
+<p>不同类型的机器使用不同且不兼容的指令和编码方式，因此二进制代码很少能在不同机器和操作系统组合之间移植。</p>
+<h3 id="布尔代数简介">布尔代数简介<a class="headerlink" href="#布尔代数简介" title="Permanent link">&para;</a></h3>
+<p>几种布尔运算符的定义如下：</p>
+<ul>
+<li><code>～</code>：非，相当于逻辑运算的 NOT；</li>
+<li><code>&amp;</code>：与，相当于逻辑运算的 AND；</li>
+<li><code>|</code>：或，相当于逻辑运算的 OR；</li>
+<li><code>^</code>：异或，相当于逻辑运算的 EXCLUSIVE-OR。若 <span class="arithmatex">\(p = 0\)</span>，<span class="arithmatex">\(q = 1\)</span> 或 <span class="arithmatex">\(p = 1\)</span>，<span class="arithmatex">\(q = 0\)</span> 时，<span class="arithmatex">\(p\)</span> ^ <span class="arithmatex">\(q = 1\)</span>。</li>
+</ul>
+<p>布尔运算符可以应用于位向量，即固定长度的 0、1 序列。举例来说，若 a 为 [0110]，b 为 [0101]，那么：</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~a</td>
+<td>[1001]</td>
+</tr>
+<tr>
+<td>a &amp; b</td>
+<td>[0100]</td>
+</tr>
+<tr>
+<td>a | b</td>
+<td>[0111]</td>
+</tr>
+<tr>
+<td>a ^ b</td>
+<td>[0011]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c-中的位级运算">C 中的位级运算<a class="headerlink" href="#c-中的位级运算" title="Permanent link">&para;</a></h3>
+<p>C 中支持按位布尔运算，上面提到的布尔运算符其实就是在 C 中使用的。一个使用布尔运算符的经典程序如下：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">inplace_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>利用对于任意数 <span class="arithmatex">\(a\)</span> ，<span class="arithmatex">\(a\)</span> ^ <span class="arithmatex">\(a\)</span> = 0 且 <span class="arithmatex">\(0\)</span> ^ <span class="arithmatex">\(a = a\)</span> 这一性质，该程序不使用中间变量便完成了变量值的交换。另外，上述程序的实现还建立在异或运算满足交换律和结合律的基础之上。</p>
+<h3 id="c-中的逻辑运算">C 中的逻辑运算<a class="headerlink" href="#c-中的逻辑运算" title="Permanent link">&para;</a></h3>
+<p>C 还提供了逻辑运算符，即<code>||</code>、<code>&amp;&amp;</code>和<code>!</code>。它们和位级运算的一个区别是，如果对第一个参数求值就能确定表达式的结果，便不会对第二个参数进行求值。如表达式<code>a &amp;&amp; 5 / a</code>不会导致除数为 0 的异常，而<code>p &amp;&amp; *p++</code>也不会导致空指针引用异常。</p>
+<h3 id="c-中的移位运算">C 中的移位运算<a class="headerlink" href="#c-中的移位运算" title="Permanent link">&para;</a></h3>
+<p>C 中的移位运算有左移和右移两种，均不会改变位向量的长度。左移运算 <span class="arithmatex">\(x &lt;&lt; k\)</span> 就是 <span class="arithmatex">\(x\)</span> 向左移动 <span class="arithmatex">\(k\)</span> 位，丢弃 <span class="arithmatex">\(k\)</span> 个高位，并在右端补充 <span class="arithmatex">\(k\)</span> 个 0。通常可以使用 <span class="arithmatex">\(x &lt;&lt; 1\)</span> 和 <span class="arithmatex">\(x &lt;&lt; 2\)</span> 分别代替 <span class="arithmatex">\(x \times 2\)</span> 和 <span class="arithmatex">\(x \times 4\)</span>，因为位级运算拥有相比乘法更快的运算速度。</p>
+<p>右移运算分为两种形式，逻辑和算术。无符号数据必须使用逻辑右移，<span class="arithmatex">\(x &gt;&gt; k\)</span> 将 x 的左端补充 <span class="arithmatex">\(k\)</span> 个 0 ，并丢弃 <span class="arithmatex">\(k\)</span> 个低位。而大多数机器使用算术右移处理有符号数据，<span class="arithmatex">\(x &gt;&gt; k\)</span> 将 <span class="arithmatex">\(x\)</span> 的左端补充 <span class="arithmatex">\(k\)</span> 个最高有效位的拷贝，并丢弃 <span class="arithmatex">\(k\)</span> 个低位。</p>
+<p>加减乘除运算符的优先级大于移位运算符，因此 <span class="arithmatex">\(1 &lt;&lt; 2 + 3 &lt;&lt; 4\)</span> 等效于 <span class="arithmatex">\(1 &lt;&lt; (2 + 3) &lt;&lt; 4\)</span>。</p>
+<h2 id="整数的表示">整数的表示<a class="headerlink" href="#整数的表示" title="Permanent link">&para;</a></h2>
+<h3 id="无符号编码">无符号编码<a class="headerlink" href="#无符号编码" title="Permanent link">&para;</a></h3>
+<p>一个长度为 <span class="arithmatex">\(w\)</span> 的位向量 <span class="arithmatex">\(\vec{x} = [x_{w-1},x_{w-2},...,x_0]\)</span>，它从二进制（Binary）转化为无符号编码（Unsigned）的公式为：</p>
+<div class="arithmatex">\[ B2U_w(\vec{x}) \doteq \displaystyle\sum_{i=0}^{w - 1}x_i2^i \]</div>
+<p>其中， <span class="arithmatex">\(\doteq\)</span> 符号表示等式的左手边被定义为右手边。无符号编码的最小值为位向量 [00...0]，即整数值 0。最大值为位向量 [11...1]，即整数值 <span class="arithmatex">\(U\max_w \doteq \displaystyle\sum_{i=0}^{w - 1}2^i = 2^w -1\)</span>。函数 <span class="arithmatex">\(B2U_w\)</span> 是一个双射（Bijection）：对于每个长度为 <span class="arithmatex">\(w\)</span> 的位向量，都有唯一的整数值与之对应，反之亦然。</p>
+<h3 id="二进制补码">二进制补码<a class="headerlink" href="#二进制补码" title="Permanent link">&para;</a></h3>
+<p>二进制补码（Two's-Complement Encoding）将位向量的符号位（即最高有效位）作为负权重（Negative Weight），符号位为 1 代表值为负，符号位为 0 代表值为正。如一个长度为 <span class="arithmatex">\(w\)</span> 的位向量 <span class="arithmatex">\(\vec{x} = [x_{w-1},x_{w-2},...,x_0]\)</span>，它从二进制转化为二进制补码的公式为：</p>
+<div class="arithmatex">\[ B2T_w(\vec{x}) \doteq -x_{w - 1}2^{w - 1} + \displaystyle\sum_{i=0}^{w - 2}x_i2^i \]</div>
+<p>二进制补码的最小值为位向量 [10...0]，即整数值 <span class="arithmatex">\(T\min_w \doteq -2^{w-1}\)</span>。最大值为位向量 [01...1]，即整数值 <span class="arithmatex">\(T\max_w \doteq \displaystyle\sum_{i=0}^{w - 2}2^i = 2^{w-1} -1\)</span>。与二进制转化无符号编码类似，函数 <span class="arithmatex">\(B2T_w\)</span> 也是一个双射。而它们的最值之间有着如下性质：</p>
+<div class="arithmatex">\[ |T\min| =|T\max| + 1\]</div>
+<div class="arithmatex">\[ U\max = 2T\max + 1\]</div>
+<p>特别地，整数 -1 和 <span class="arithmatex">\(U\max_w\)</span>的位级表示均为全 1：[11...1]，而整数 0 在两种表达方式中均为全 0：[00...0]。虽然 C 标准并没有限制有符号整数的二进制表达，但大多数机器都采用了二进制补码的方式。</p>
+<h3 id="有符号数和无符号数的转换">有符号数和无符号数的转换<a class="headerlink" href="#有符号数和无符号数的转换" title="Permanent link">&para;</a></h3>
+<p>在 C 中，有符号数和无符号数之间的转换是基于位级视角的，而非数字。例如：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">short</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-12345</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">uv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="p">)</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;v = %d, uv = %u</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">uv</span><span class="p">);</span>
+</code></pre></div>
+<p>输出结果为<code>v = -12345，uv = 53191</code>。这意味着在类型转换过程中位向量不变，但位向量转换到整数值的方式不同。根据推导，二进制补码转换为无符号数的公式如下：</p>
+<div class="arithmatex">\[T2U_w(x) = \begin{cases}
+   x + 2^w &amp;\text x &lt; 0 \cr
+   x &amp;\text x \geq 0
+\end{cases}\]</div>
+<p>如下图所示，非负数转换前后保持不变，负数则变成了一个更大的正数：</p>
+<p><img alt="alt text" src="../image/QQ_1721642614568.png" /></p>
+<p>而无符号数转换为二进制补码的公式则为：</p>
+<div class="arithmatex">\[U2T_w(u) = \begin{cases}
+   u &amp;\text u \leq T\max_w \cr
+   u - 2^w &amp;\text u &gt; T\max_w
+\end{cases}\]</div>
+<p>如图所示，小于 <span class="arithmatex">\(2 ^ {w - 1}\)</span> （最高有效位为 0）的数转换前后保持不变，大于等于 <span class="arithmatex">\(2 ^ {w - 1}\)</span> （最高有效位为 1）的数将被转换为一个负数：</p>
+<p><img alt="alt text" src="../image/QQ_1721642623901.png" /></p>
+<p>通过上面的讨论我们发现，大于等于 0 且小于 <span class="arithmatex">\(2 ^ {w - 1}\)</span> 的值有相同的无符号和二进制补码表示。而这个范围之外的数，在转换过程中需要加上或减去 <span class="arithmatex">\(2 ^ w\)</span>。</p>
+<h3 id="c-中的有符号数和无符号数">C 中的有符号数和无符号数<a class="headerlink" href="#c-中的有符号数和无符号数" title="Permanent link">&para;</a></h3>
+<p>通常我们默认数字是有符号的，除非加上后缀 U 或 u，如 12345U 和 0x1A2Bu 等。除了显式地使用强制类型转换（如上一节中的程序）以外，也可以将一种类型的表达式赋值给另一种变量，即隐式转换：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">tx</span><span class="p">,</span><span class="w"> </span><span class="n">ty</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="n">ux</span><span class="p">,</span><span class="w"> </span><span class="n">uy</span><span class="p">;</span>
+<span class="n">tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ux</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Cast to signed*/</span>
+<span class="n">uy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ty</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Cast to usigned*/</span>
+</code></pre></div>
+<p>如果参与运算的两个数一个是有符号的，一个是无符号的，那么 C 会隐式地将有符号数转换为无符号数并假定两数均为非负后再进行计算。比如表达式 -1 &lt; 0U 的值为 false，因为 -1 会先被转换为无符号数再与 0 进行比较。</p>
+<h3 id="扩展一个数的位级表示">扩展一个数的位级表示<a class="headerlink" href="#扩展一个数的位级表示" title="Permanent link">&para;</a></h3>
+<p>要将一个无符号数转换为更大的数据类型，只需简单地在头部添加 0，这种运算被称为零扩展（Zero Extension）。而对于二进制补码，则需要在头部添加最高有效位（符号位），即符号扩展（Sign Extension）。</p>
+<p>当类型转换既改变数据类型的大小又改变符号类型时，则先改变大小，再改变有无符号。例如将一个<code>short</code>类型的变量转换为<code>unsigned</code>类型，它会先被转换为<code>int</code>类型，再被转换为<code>unsigned</code>类型。</p>
+<h3 id="截断数字">截断数字<a class="headerlink" href="#截断数字" title="Permanent link">&para;</a></h3>
+<p>将一个数转换为更小的数据类型时，截断数字的位数是不可避免的。如一个 <span class="arithmatex">\(w\)</span> 位的位向量 <span class="arithmatex">\(\vec{x} = [x_{w-1},x_{w-2},...,x_0]\)</span> 被截断为 <span class="arithmatex">\(k\)</span> 位时，我们会丢弃 <span class="arithmatex">\(w-k\)</span> 个高位，得到 <span class="arithmatex">\({\vec{x} = [x_{k-1},x_{k-2},...,x_0]}\)</span>。截断数字可能会导致值的变化：</p>
+<div class="arithmatex">\[B2U_k([x_{k-1},x_{k-2},...,x_0]) = B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod 2^k\]</div>
+<div class="arithmatex">\[B2T_k([x_{k-1},x_{k-2},...,x_0])= U2T_k(B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod 2^k)\]</div>
+<p>通过上面几小节的讨论，我们发现无符号数与有符号数之间的隐式转换导致了一些与常识相悖的运算结果，这将导致一些很难发现的程序错误。因此很多编程语言，如 Java，不支持无符号数的使用。</p>
+<h2 id="整数的运算">整数的运算<a class="headerlink" href="#整数的运算" title="Permanent link">&para;</a></h2>
+<h3 id="无符号加法">无符号加法<a class="headerlink" href="#无符号加法" title="Permanent link">&para;</a></h3>
+<p>两个可用 <span class="arithmatex">\(w\)</span> 位无符号编码表示的非负整数 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span>，其范围：<span class="arithmatex">\(0 \leq x, y \leq 2^w -1\)</span>，那么它们的和：<span class="arithmatex">\(0 \leq x+ y \leq 2^{w + 1} -2\)</span> 就有可能需要用 <span class="arithmatex">\(w+1\)</span> 位来表示。如果出现溢出便丢弃高位，因此无符号加法（<span class="arithmatex">\(+_w^u\)</span>）等价于计算 <span class="arithmatex">\((x+y) \bmod 2^w\)</span>，即：</p>
+<div class="arithmatex">\[x + _w^uy = \begin{cases}
+   x + y  &amp;\text x + y &lt; 2^w &amp;\text Normal \cr
+   x + y - 2^w &amp;\text 2^w \leq x + y &lt; 2^{w+1} &amp;\text Overflow
+\end{cases}\]</div>
+<p>模数加法构成了一种数学结构，即阿贝尔群（Abelian Group），它是可交换的和可结合的。<span class="arithmatex">\(w\)</span> 位无符号数的集合执行 <span class="arithmatex">\(+_w^u\)</span> 运算，对于每个值 <span class="arithmatex">\(x\)</span>，必然有某个值 <span class="arithmatex">\(-_w^ux\)</span> 满足 <span class="arithmatex">\(-_w^ux +_w^ux = 0\)</span>，该值被称为 <span class="arithmatex">\(x\)</span> 的逆元（Inverse）。当 <span class="arithmatex">\(x = 0\)</span> 时，其逆元自然为 0。当 <span class="arithmatex">\(x &gt; 0\)</span> 时，显然 $ (x + 2^w - x)\bmod 2^w = 0$。由于 <span class="arithmatex">\(0 &lt; 2^w -x &lt; 2^w\)</span>，因此 <span class="arithmatex">\(2^w -x\)</span> 便是 <span class="arithmatex">\(x\)</span> 的逆元。上述两种情况总结如下：</p>
+<div class="arithmatex">\[ -_w^ux = \begin{cases}
+   x   &amp;\text x = 0 \cr
+   2^w -x &amp;\text x &gt; 0
+\end{cases}\]</div>
+<h3 id="二进制补码加法">二进制补码加法<a class="headerlink" href="#二进制补码加法" title="Permanent link">&para;</a></h3>
+<p>两个数的 <span class="arithmatex">\(w\)</span> 位二进制补码之和（<span class="arithmatex">\(+_w^t\)</span>）与无符号之和有着完全相同的位级表示，因此对于 <span class="arithmatex">\(-2^{w-1} \leq x, y \leq 2^{w-1} -1\)</span> ，有：</p>
+<div class="arithmatex">\[\begin{split} x +_w^ty &amp;=U2T_w(T2U_w(x) +_w^uT2U_w(y))\cr
+      &amp;=U2T_w[(x+y)\bmod 2^w]
+\end{split}\]</div>
+<p>进一步地，我们根据两数之和的范围，将上述结果分情况讨论，从而得到：</p>
+<div class="arithmatex">\[x + _w^ty = \begin{cases}
+   x + y + 2^w &amp;\text x + y &lt; -2^{w-1} &amp;\text  Negative \space \space Overflow \cr
+   x + y  &amp;\text -2^{w-1} \leq x + y &lt; 2^{w-1} &amp;\text Normal \cr
+   x + y - 2^w &amp;\text x + y \geq 2^{w-1} &amp;\text  Positive \space \space Overflow
+\end{cases}\]</div>
+<p>因此，若 <span class="arithmatex">\(x&gt;0, y&gt;0, x+_w^ty\leq 0\)</span>，那么结果便出现了正溢出；若 <span class="arithmatex">\(x&lt;0, y&lt;0, x+_w^ty\geq 0\)</span>，结果便出现了负溢出。</p>
+<p>二进制补码的逆元计算公式如下：</p>
+<div class="arithmatex">\[ -_w^tx = \begin{cases}
+   T\min_w   &amp;\text x = T\min_w \cr
+   -x &amp;\text x &gt; T\min_w
+\end{cases}\]</div>
+<h3 id="无符号乘法">无符号乘法<a class="headerlink" href="#无符号乘法" title="Permanent link">&para;</a></h3>
+<p>无符号乘法运算（<span class="arithmatex">\(\times_w^u\)</span>）与加法类似，都可以转换为对 <span class="arithmatex">\(2^w\)</span> 的模运算：</p>
+<div class="arithmatex">\[x\times_w^uy=(x \times y)\bmod2^w\]</div>
+<h3 id="二进制补码乘法">二进制补码乘法<a class="headerlink" href="#二进制补码乘法" title="Permanent link">&para;</a></h3>
+<p>同样与加法类似，两个数的 <span class="arithmatex">\(w\)</span> 位二进制补码之积（<span class="arithmatex">\(\times_w^t\)</span>）与无符号之积有着完全相同的位级表示，因此：</p>
+<div class="arithmatex">\[\begin{split} x \times_w^ty &amp;=U2T_w(T2U_w(x)\times_w^uT2U_w(y))\cr
+      &amp;=U2T_w[(x \times y)\bmod 2^w]
+\end{split}\]</div>
+<h3 id="乘以常数">乘以常数<a class="headerlink" href="#乘以常数" title="Permanent link">&para;</a></h3>
+<p>整数乘法运算在许多机器上运行缓慢，一个重要的优化便是使用移位运算和加法运算来代替它。我们首先考虑乘以 2 的幂的情况，然后推广到任意常数。若存在位向量 <span class="arithmatex">\([x_{w-1},x_{w-2},...,x_0]\)</span>，<span class="arithmatex">\(x \times 2^k\)</span> 可以表示为在其右端添加 <span class="arithmatex">\(k\)</span> 个 0，即 <span class="arithmatex">\([x_{w-1},x_{w-2},...,x_0,0,...,0]\)</span>。因此在 C 中，对于整数 <span class="arithmatex">\(x\)</span> （无论是无符号数还是二进制补码）和 无符号数 <span class="arithmatex">\(k\)</span>，<span class="arithmatex">\(x \times 2^k\)</span> 就等于 <span class="arithmatex">\(x&lt;&lt;k\)</span>。</p>
+<p>如果一个常数可以拆分为 2 的幂的和，那么我们便可以使用左移运算和加（减）法运算来替换与相关的乘法运算。如 <span class="arithmatex">\(14=2^3+2^2+2^1\)</span>，那么 <span class="arithmatex">\(x\times14=(x&lt;&lt;3)+(x&lt;&lt;2)+(x&lt;&lt;1)\)</span>。</p>
+<h3 id="除以-2-的幂">除以 2 的幂<a class="headerlink" href="#除以-2-的幂" title="Permanent link">&para;</a></h3>
+<p>我们使用右移运算来代替除法运算，逻辑右移和算术右移分别适用于无符号数和二进制补码。由于结果为整数，因此很可能需要进行舍入（Round）。我们定义 <span class="arithmatex">\(⌊ ⌋\)</span> 为向下取整，<span class="arithmatex">\(⌈ ⌉\)</span> 为向上取整。如 <span class="arithmatex">\(⌊3.14⌋=3\)</span>，<span class="arithmatex">\(⌊-3.14⌋=-4\)</span>，而 <span class="arithmatex">\(⌈3.14⌉=4\)</span>，<span class="arithmatex">\(⌈-3.14⌉=-3\)</span>。</p>
+<p>在 C 中，对于无符号数 <span class="arithmatex">\(x, k\)</span>， <span class="arithmatex">\(x&gt;&gt;k=⌊x/2^k⌋\)</span>；对于二进制补码 <span class="arithmatex">\(x\)</span> 和无符号数 <span class="arithmatex">\(k\)</span>，则有 <span class="arithmatex">\(x&gt;&gt;k=⌊x/2^k⌋\)</span>。前者为逻辑右移，后者为算术右移。</p>
+<p>考虑到若 <span class="arithmatex">\(x&lt;0\)</span>，<span class="arithmatex">\(x/y\)</span> 的结果应为 <span class="arithmatex">\(⌈x/y⌉\)</span>，而非 <span class="arithmatex">\(⌊x/y⌋\)</span>。我们可以利用性质：<span class="arithmatex">\(⌈x/y⌉=⌊(x+y-1)/y⌋\)</span>，来修正这种不合适的舍入。因此，对于 <span class="arithmatex">\(x&lt;0\)</span> 的二进制补码除法，应使用：<span class="arithmatex">\((x+(1&lt;&lt;k)-1)&gt;&gt;k=⌈x/2^k⌉\)</span>。综上，二进制补码除以 2 的幂 <span class="arithmatex">\(x/2^k\)</span> 可以用三元运算符表示为：</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">k</span><span class="p">)</span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span>
+</code></pre></div>
+<p>与乘法不同，除法无法推广到任意常数。</p>
+<h2 id="浮点">浮点<a class="headerlink" href="#浮点" title="Permanent link">&para;</a></h2>
+<h3 id="二进制小数">二进制小数<a class="headerlink" href="#二进制小数" title="Permanent link">&para;</a></h3>
+<p>十进制小数的表示方法为 <span class="arithmatex">\(d_md_{m-1}...d_1d_0.d_{-1}d_{-2}...d_{-n}\)</span>，其中 <span class="arithmatex">\(d_i\)</span> 为 0～9 的整数。那么该数的大小为：</p>
+<div class="arithmatex">\[d=\displaystyle\sum_{i=-n}^{m}10^id_i\]</div>
+<p>小数点左边的数的权值为 10 的非负幂，右边的则为 10 的负幂。类似地，我们可以得出二进制小数的表示方法。<span class="arithmatex">\(b_i\)</span> 为 0 或 1，则二进制数 <span class="arithmatex">\(b_mb_{m-1}...b_1b_0.b_{-1}b_{-2}...b{-n}\)</span> 的值为：</p>
+<div class="arithmatex">\[b=\displaystyle\sum_{i=-n}^{m}2^ib_i\]</div>
+<p>二进制小数点向左移动一位，相当于数字除以 2。向右移动一位，则相当于数字乘以 2。这种方法只能表示可转化为 <span class="arithmatex">\(x \times 2^y\)</span> 形式的数，无法精确表示如 <span class="arithmatex">\(\frac{1}{3}\)</span>、<span class="arithmatex">\(\frac{5}{7}\)</span> 这样的数。</p>
+<h3 id="ieee-浮点数表示">IEEE 浮点数表示<a class="headerlink" href="#ieee-浮点数表示" title="Permanent link">&para;</a></h3>
+<p>二进制小数的表示方法难以表示很大的数，我们更希望通过给定 <span class="arithmatex">\(x, y\)</span> 的值来表示形如 <span class="arithmatex">\(x \times 2^y\)</span> 的数。IEEE 浮点数标准使用 <span class="arithmatex">\(V=(-1)^s\times M \times 2^E\)</span> 的形式来表示小数：</p>
+<ul>
+<li>符号 <span class="arithmatex">\(s\)</span>：为 1 代表负值，为 0 代表正值；</li>
+<li>有效数 <span class="arithmatex">\(M\)</span>：一个二进制小数，范围在 1 到 <span class="arithmatex">\(2-\varepsilon\)</span> 或 0 到 <span class="arithmatex">\(1-\varepsilon\)</span> 之间；</li>
+<li>指数 <span class="arithmatex">\(E\)</span>：2 的幂指数，有可能是负数。</li>
+</ul>
+<p>因此，浮点数的位级表达分为了三个部分：</p>
+<ul>
+<li>一个符号位 <span class="arithmatex">\(s\)</span>;</li>
+<li><span class="arithmatex">\(k\)</span> 位的指数域 <span class="arithmatex">\(exp=e_{k-1}...e_1e_0\)</span> 编码指数 <span class="arithmatex">\(E\)</span>；</li>
+<li><span class="arithmatex">\(n\)</span> 位的小数域 <span class="arithmatex">\(frac=f_{n-1}...f_1f_0\)</span> 编码有效数 <span class="arithmatex">\(M\)</span>。</li>
+</ul>
+<p>对于 C 中的<code>float</code>类型，<span class="arithmatex">\(s=1, k=8, n=23\)</span>。而对于<code>double</code>类型，<span class="arithmatex">\(s=1, k=11, n=52\)</span>。IEEE 浮点数表示法有三种情况，如下图所示：</p>
+<p><img alt="alt text" src="../image/QQ_1721642679034.png" /></p>
+<p>第一种情况是最常见的，即指数域不全为 0，也不全为 1。在这种情况下，指数域的值为 <span class="arithmatex">\(E=e-Bias\)</span>，其中 <span class="arithmatex">\(e\)</span> 是一个位级表达为 <span class="arithmatex">\(e_{k-1}...e_1e_0\)</span> 的无符号数，<span class="arithmatex">\(Bias\)</span> 则是一个等于 <span class="arithmatex">\(2^{k-1}-1\)</span> 的常数。小数域的值为 <span class="arithmatex">\(M=1+f\)</span>，其中，<span class="arithmatex">\(f\)</span> 是一个二进制小数 <span class="arithmatex">\(0.f_{n-1}...f_1f_0\)</span>。</p>
+<p>第二张情况是指数域全为 0，这样所表示的数就是非标准化形式的。在这种情况下，<span class="arithmatex">\(E=1-Bias, M=f\)</span>。非标准化数可以表示第一种情况无法表示的 0 以及非常接近 0 的数字。</p>
+<p>第三种情况是指数域全为 1 时出现的。若小数域全为 0，得到的值则为 <span class="arithmatex">\(\pm \infty\)</span>。若小数域不全为 0，则结果为 NaN，即不是一个数字。比如计算 <span class="arithmatex">\(\infty -\infty\)</span> 和 <span class="arithmatex">\(\sqrt{-1}\)</span>，就会得到这样的结果。</p>
+<p>以 8 位浮点数为例，<span class="arithmatex">\(s=1, k=4, n=3\)</span>，此时偏移量 <span class="arithmatex">\(Bias=2^{4-1}-1=7\)</span>。最靠近 0 的是非标准化数，<span class="arithmatex">\(E=1-Bias=-6\)</span>，<span class="arithmatex">\(2^E=\frac{1}{64}\)</span>，<span class="arithmatex">\(M=f=0,\frac{1}{8},...,\frac{7}{8}\)</span>，因此浮点数 <span class="arithmatex">\(V\)</span> 的范围就是 0 ～<span class="arithmatex">\(\frac{7}{8\times64}=\frac{7}{512}\)</span>。而对于最小的标准数来说，指数域为 [0001]，因此 <span class="arithmatex">\(E=e-Bias=-6\)</span>，小数域 <span class="arithmatex">\(M=1+f=1,\frac{9}{8},...\frac{15}{8}\)</span>，浮点数 <span class="arithmatex">\(V\)</span> 的范围为 <span class="arithmatex">\(\frac{8}{512}=\frac{1}{64}\)</span> ~ <span class="arithmatex">\(\frac{15}{512}\)</span>。</p>
+<p>我们可以观察到最大非标准数和最小标准数分别为 <span class="arithmatex">\(\frac{7}{512}\)</span> 和 <span class="arithmatex">\(\frac{8}{512}\)</span>，这种平滑的过渡得益于我们将非标准数的 <span class="arithmatex">\(E\)</span> 使用 <span class="arithmatex">\(1-Bias\)</span> 来计算，而非 <span class="arithmatex">\(-Bias\)</span>。</p>
+<p>在这种条件下，当指数域为 [1110]，<span class="arithmatex">\(E=e-Bias=7, 2^E=128\)</span>，小数域 <span class="arithmatex">\(M=1+0.111_2=\frac{15}{8}\)</span> 时，<span class="arithmatex">\(V\)</span> 取到最大值 240，超出这个值就会溢出到 <span class="arithmatex">\(+\infty\)</span>。值得一提的是，IEEE 浮点数可以使用整数排序函数来进行排序。</p>
+<h3 id="舍入">舍入<a class="headerlink" href="#舍入" title="Permanent link">&para;</a></h3>
+<p>对浮点数的表示限制了其范围和精度，因此浮点计算只能近似地表示实数计算。IEEE 浮点数格式定义了四种不同的舍入方式：</p>
+<p><img alt="alt text" src="../image/QQ_1721642818849.png" /></p>
+<p>向偶数舍入（Round-to-even），也称向最接近的数舍入（Round-to-nearest），是默认的方法。它试图找到一个最接近的匹配值，对于中间值（如表中的 1.5），则使结果的最低有效位为偶数（舍入为 2）。其他三种方法用来确定值的上下界。</p>
+<p>即使在舍入到小数的情况下，也可以使用整数舍入，只需简单地考虑最低有效数字是偶数还是奇数。如保留两位小数，我们把十进制小数 1.234999 舍入到 1.23，把 1.235001 舍入到 1.24，而 1.235 和 1.245 均舍入到 1.24。这种方法同样可以推广到二进制小数，此时应将中间值舍入到最低有效位等于 0 的数。</p>
+<h3 id="浮点运算">浮点运算<a class="headerlink" href="#浮点运算" title="Permanent link">&para;</a></h3>
+<p>浮点数的加法和乘法是实际运算后进行舍入后的结果，即对于实数 <span class="arithmatex">\(x, y\)</span>，以及运算 <span class="arithmatex">\(\odot\)</span>，结果为 <span class="arithmatex">\(Round(x\odot y)\)</span>。IEEE 标准规定了浮点数运算的行为，这意味着它不依赖于任何具体的硬件或软件，从而实现了可移植性。</p>
+<p>上文提到整数的加法和乘法形成了阿贝尔群，而实数亦如此，但浮点数还要考虑舍入对其特性的影响。浮点数 <span class="arithmatex">\(\infty\)</span> 和 NaN 没有逆元，加法也只满足交换律但不满足结合律。类似地，浮点数乘法只满足交换律，而不满足结合律和分配律。这些特性的缺少对程序员有着非常重要的影响，如示例的简单程序：</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+</code></pre></div>
+<p>编译器可以生成下列代码以省去一次浮点加法运算，从而提升效率：</p>
+<div class="highlight"><pre><span></span><code><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+</code></pre></div>
+<p>由于使用了加法结合律，计算结果可能与预期不同。因此大多数编译器对浮点运算的优化都较为保守，以免产生错误的结果。</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+<div id="__comments">
+
+<h3>颜色主题调整</h3>
+
+<!-- <div class="tx-switch">
+<button data-md-color-scheme="default"><code>default</code></button>
+<button data-md-color-scheme="slate"><code>slate</code></button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-scheme")
+        document.body.setAttribute("data-md-color-scheme", attr)
+        localStorage.setItem("data-md-color-scheme",attr);
+        updateScheme();
+        })
+})
+</script> -->
+
+<div class="tx-switch">
+<button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
+<button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
+<button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
+<button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
+<button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
+<button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
+<button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
+<button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
+<button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
+<button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
+<button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius=3px">brown</button>
+<button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
+<button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
+<button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-primary]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-primary")
+        document.body.setAttribute("data-md-color-primary", attr)
+        localStorage.setItem("data-md-color-primary",attr);
+        })
+})
+</script>
+
+<h2 ><!-- 评论 -->评论区~</h2>
+
+有用的话请给我个赞和 star => <a href="https://github.com/Tangjp-wraith/Tangjp-wraith.github.io"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Tangjp-wraith/Tangjp-wraith.github.io.svg?style=plastic&amp;label=Stars"></a>
+
+</br>
+
+快来跟我聊天~
+
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="Tangjp-wraith/discussion" data-repo-id="R_kgDOLRJCPw"
+    data-category="General" data-category-id="DIC_kwDOLRJCP84CdJdO" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN"
+    crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+/* Set palette on initial load */
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) 
+}
+
+/* Register event handlers after documented loaded */
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        localStorage.setItem("data-md-color-scheme", palette.color.scheme === "slate" ? "slate" : "default");
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../from_oi_wiki/js/extra.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../js/tablesort.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

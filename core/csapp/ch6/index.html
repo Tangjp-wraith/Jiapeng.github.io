@@ -1,0 +1,2904 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tang-jiapeng.github.io/core/csapp/ch6/">
+      
+      
+        <link rel="prev" href="../ch5/">
+      
+      
+        <link rel="next" href="../ch7/">
+      
+      
+      <link rel="icon" href="../../../logo.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Chapter6：存储器层次结构 - 0X10CC's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/timeago.css">
+    
+      <link rel="stylesheet" href="../../../from_oi_wiki/css/extra.css?v=13">
+    
+      <link rel="stylesheet" href="../../../css/status.css">
+    
+      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-JT9BRCXKJJ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-JT9BRCXKJJ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-JT9BRCXKJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#存储器层次结构" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-header__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            0X10CC's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter6：存储器层次结构
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+    
+  
+  🏡 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../langs/" class="md-tabs__link">
+          
+  
+    
+  
+  Langs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../tools/" class="md-tabs__link">
+          
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../life/" class="md-tabs__link">
+          
+  
+    
+  
+  Life
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="0X10CC&#39;s notes" class="md-nav__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
+      
+  <img src="../../../logo.ico" alt="logo">
+
+    </a>
+    0X10CC's notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    tang-jiapeng.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🏡 Home
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            🏡 Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../langs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Langs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Langs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++零碎杂记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++零碎杂记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E9%A1%B6%E5%B1%82const%E4%B8%8E%E5%BA%95%E5%B1%82const/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    顶层const与底层const
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    值类型与右值引用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数组指针与函数指针
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++类对象布局
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E4%B8%8ERTTI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++中的多态与RTTI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Effective Modern C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Effective Modern C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item1：理解模板类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item2：理解auto类型推导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item3：理解decltype
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item7：区别使用()和{}创建对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item9：优先考虑别名声明而非typedef
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../langs/cpp/effective/item23/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    item23：理解std::move和std::forward
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Core
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU15-213：CSAPP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            CMU15-213：CSAPP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter1：计算机系统漫游
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter2：信息的表示和处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter3：程序的机器级表示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter4：处理器体系结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter5：优化程序性能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter6：存储器层次结构
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter6：存储器层次结构
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#存储技术" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#随机存取存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机存取存储器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="随机存取存储器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    <span class="md-ellipsis">
+      SRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#传统的-dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统的 DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#存储模块" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#改进的-dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      改进的 DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#非易失性存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      非易失性存储器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#访问主存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问主存储器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘存储" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁盘存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#磁盘构造" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘构造
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘容量" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘容量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘的逻辑块" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘的逻辑块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#连接的-io-设备" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接的 I/O 设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#访问磁盘" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问磁盘
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      局部性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="局部性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#引用程序数据的局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      引用程序数据的局部性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#获取指令的局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取指令的局部性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#存储系统层级" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储系统层级
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储系统层级">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#缓存命中与缺失" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存命中与缺失
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存管理" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#缓存的实现细节" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存的实现细节
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存的实现细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#通用缓存管理" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#直接映射缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接映射缓存
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直接映射缓存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#缓存实现示例" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存实现示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#冲突缺失" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲突缺失
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#集关联型缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      集关联型缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#全关联型缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      全关联型缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存的写入" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存的写入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#真实缓存层级剖析" class="md-nav__link">
+    <span class="md-ellipsis">
+      真实缓存层级剖析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存参数对性能的影响" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存参数对性能的影响
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#编写缓存友好型代码" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写缓存友好型代码
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#缓存对程序性能的影响" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存对程序性能的影响
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter7：链接
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter8：异常控制流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter9：虚拟内存
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter10：系统级I/O
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter11：网络编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter12：并发编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CMU10-714：Deep Learning Systems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CMU10-714：Deep Learning Systems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2：ML Refresher / Softmax Regression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3：Manual Neural Networks / Backprop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4：Automatic Differentiation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5：Automatic Differentiation Implementation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cmu10-714/lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture6：Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../tools/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../life/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Life
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Life
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#存储技术" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#随机存取存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机存取存储器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="随机存取存储器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    <span class="md-ellipsis">
+      SRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#传统的-dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统的 DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#存储模块" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储模块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#改进的-dram" class="md-nav__link">
+    <span class="md-ellipsis">
+      改进的 DRAM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#非易失性存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      非易失性存储器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#访问主存储器" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问主存储器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘存储" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘存储
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="磁盘存储">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#磁盘构造" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘构造
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘容量" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘容量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#磁盘的逻辑块" class="md-nav__link">
+    <span class="md-ellipsis">
+      磁盘的逻辑块
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#连接的-io-设备" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接的 I/O 设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#访问磁盘" class="md-nav__link">
+    <span class="md-ellipsis">
+      访问磁盘
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssd" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSD
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      局部性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="局部性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#引用程序数据的局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      引用程序数据的局部性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#获取指令的局部性" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取指令的局部性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#存储系统层级" class="md-nav__link">
+    <span class="md-ellipsis">
+      存储系统层级
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="存储系统层级">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#缓存命中与缺失" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存命中与缺失
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存管理" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#缓存的实现细节" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存的实现细节
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="缓存的实现细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#通用缓存管理" class="md-nav__link">
+    <span class="md-ellipsis">
+      通用缓存管理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#直接映射缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接映射缓存
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直接映射缓存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#缓存实现示例" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存实现示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#冲突缺失" class="md-nav__link">
+    <span class="md-ellipsis">
+      冲突缺失
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#集关联型缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      集关联型缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#全关联型缓存" class="md-nav__link">
+    <span class="md-ellipsis">
+      全关联型缓存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存的写入" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存的写入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#真实缓存层级剖析" class="md-nav__link">
+    <span class="md-ellipsis">
+      真实缓存层级剖析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#缓存参数对性能的影响" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存参数对性能的影响
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#编写缓存友好型代码" class="md-nav__link">
+    <span class="md-ellipsis">
+      编写缓存友好型代码
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#缓存对程序性能的影响" class="md-nav__link">
+    <span class="md-ellipsis">
+      缓存对程序性能的影响
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="存储器层次结构">存储器层次结构<a class="headerlink" href="#存储器层次结构" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 7160 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 8 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 24 分钟</p>
+</div>
+<p>存储系统（Memory System）包含多个层级（Hierarchy），每个层级的存储设备（Storage Device）具有不同的容量、成本和访问速度。层级越低，存储设备的容量就越大，成本也越低，但访问速度却越慢。存储系统的层级结构对应用性能有着显著的影响，其中最为重要的便是 CPU 与主存储器之间的高速缓存。</p>
+<h2 id="存储技术">存储技术<a class="headerlink" href="#存储技术" title="Permanent link">&para;</a></h2>
+<h3 id="随机存取存储器">随机存取存储器<a class="headerlink" href="#随机存取存储器" title="Permanent link">&para;</a></h3>
+<p>随机存取存储器（Random Access Memory，RAM）有两种，分别是静态（Static）的 SRAM 和 动态（Dynamic）的 DRAM。其中，SRAM 的访问速度比 DRAM 更快，不过其成本明显更高。SRAM 用于 CPU 芯片内外的缓存，而 DRAM 则用于主存储器和图形系统中的帧缓存（Frame Buffer）。</p>
+<h4 id="sram">SRAM<a class="headerlink" href="#sram" title="Permanent link">&para;</a></h4>
+<p>SRAM 将每个位存储在一个双稳态（Bistable）的存储单元中，每个单元是由一个六晶体管电路实现的，其结构类似于下图中的倒转摆锤：</p>
+<p><img alt="alt text" src="../image/image-40.png" /></p>
+<p>该电路将永远处于两种电压配置（状态）之一。任何其他的状态都是不稳定的，将会快速地朝向其中一个稳定的状态移动。因此只要 SRAM 通电，就会永久地保存其值而不受一些扰动（如电噪声）的影响。</p>
+<h4 id="dram">DRAM<a class="headerlink" href="#dram" title="Permanent link">&para;</a></h4>
+<p>DRAM 将每一位存储为一个电容上的电荷，其存储单元对任何扰动都十分敏感。电流泄露会导致 DRAM 单元在大约 10 到 100 毫秒的时间内失去电荷，因此存储系统必须定期地通过读取并重写来刷新其中的每一位。</p>
+<p><img alt="alt text" src="../image/image-41.png" /></p>
+<h4 id="传统的-dram">传统的 DRAM<a class="headerlink" href="#传统的-dram" title="Permanent link">&para;</a></h4>
+<p>DRAM 芯片上的位可以被划分为 <span class="arithmatex">\(d\)</span> 个超级单元（Supercell），每个超级单元包含 <span class="arithmatex">\(w\)</span> 个 DRAM 单元，因此一个 <span class="arithmatex">\(d \times w\)</span> 的 DRAM 能够存储 <span class="arithmatex">\(dw\)</span> 位的信息。下图展示了一个 16 <span class="arithmatex">\(\times\)</span> 8 的 DRAM 芯片结构：</p>
+<p><img alt="alt text" src="../image/image-42.png" />
+16 个超级单元被排列成一个 4 <span class="arithmatex">\(\times\)</span> 4 的矩阵，图中标为阴影的超级单元地址为 (2, 1)。信息通过外部连接器（也称 Pin）流入或流出芯片，每个 Pin 都可以携带一位信号。上图中包含了八个传输信息的<code>data</code>Pin，以及两个携带超级单元地址的<code>addr</code>Pin。</p>
+<p>每个 DRAM 芯片都连接了一个被称为存储控制器（Memory Controller）的电路，它可以一次传输 <span class="arithmatex">\(w\)</span> 位的数据。为了读取超级单元 (i, j) 中的内容，存储控制器会向 DRAM 发送行地址 i 和 列地址 j 的寻址请求，分别被称为 RAS（Row Access Strobe）请求和 CAS（Column Access Strobe）请求。详细的读取过程如下图所示：</p>
+<p><img alt="alt text" src="../image/image-43.png" />
+存储控制器首先发送行地址请求，DRAM 会将整个第 2 行拷贝到内部的行缓冲区（图中的“Internal Row Buffer”）中。然后存储控制器再发送列地址请求，DRAM 将从行缓冲区中拷贝超级单元 (2, 1) 的值返回给存储控制器。</p>
+<p>只要对存储控制器读取 DRAM 的过程有所了解，我们就能明白超级单元的排列方式为什么是矩阵而非一维线性数组。在我们的例子中，DRAM 包含了 16 个超级单元。如果按一维数组排列，则超级单元的地址范围为 0 到 15，因此就需要四个 Pin（即四位）来进行寻址。当然，矩阵排列方式也有一定缺点。存储控制器读取超级单元需要分为两个步骤，从而增加了访问时间。</p>
+<h4 id="存储模块">存储模块<a class="headerlink" href="#存储模块" title="Permanent link">&para;</a></h4>
+<p>DRAM 芯片被封装在存储模块（Memory Modules）中，如下图所示：</p>
+<p><img alt="alt text" src="../image/image-44.png" />
+示例的存储模块包含 8 个 8M <span class="arithmatex">\(\times\)</span> 8 DRAM 芯片，能够存储 64 MB 的数据。每个超级单元存储主存储器中的一字节（八位）信息，八个超级单元就可以表示一个地址为“A”的 64 位 Word。存储控制器首先将地址“A”转换为超级单元地址 (i, j)，然后将其发送到存储模块中。存储模块会向所有的 DRAM 广播地址 i 和 j，从而得到每个 DRAM 中超级单元 (i, j) 的内容。存储模块中的电路会将结果整合为一个 64 位的 Word，最终返回给存储控制器。</p>
+<h4 id="改进的-dram">改进的 DRAM<a class="headerlink" href="#改进的-dram" title="Permanent link">&para;</a></h4>
+<p>我们可以对传统的 DRAM 进行优化以提升其访问速度：</p>
+<ul>
+<li>FPM（Fast Page Mode）DRAM：传统 DRAM 将整行数据拷贝到缓冲区中，使用其中一个并丢弃剩余的超级单元。FPM DRAM 可以连续访问同一行的超级单元，因此速度更快。例如读取一行中的四个超级单元，传统 DRAM 需要发送四次 RAS 请求和四次 CAS 请求，而 FPM DRAM 则只需要一次 RAS 请求和四次 CAS 请求；</li>
+<li>EDO（Extended Data Out） DRAM：通过减少发送 CAS 信号的时间间隔来对 FPM DRAM 进行优化；</li>
+<li>SDRAM（Synchronous DRAM）：上文提及的所有 DRAM 都是异步（Asynchronous）地向存储控制器发送信号的，因此同步的 SDRAM 传输数据的速率更快；</li>
+<li>DDDR（Double Data-Rate Synchronous）DRAM：使用时钟边缘（Clock Edge）作为控制信号来将 SDRAM 的速度提升一倍；</li>
+<li>VRAM（Video RAM）：常用于图形系统的帧缓存，其本质与 FPM DRAM 类似。区别在于 VRAM 通过依次对内部缓冲区的内容移位来输出数据，并且可以并行地读写内存。</li>
+</ul>
+<h4 id="非易失性存储器">非易失性存储器<a class="headerlink" href="#非易失性存储器" title="Permanent link">&para;</a></h4>
+<p>非易失性存储器（Nonvolatile Memory）在断电后还会继续保留其存储的信息。即使有些非易失性存储器是可读写的，但由于历史原因，它们被统一称为 ROM（Read-only Memory）。不同种类 ROM 的区别在于其能够被重新编程（写入）的最大次数，以及写入的实现机制。</p>
+<ul>
+<li>PROM（Programmable ROM）：只能被编程一次；</li>
+<li>EPROM（Erasable programmable ROM）：可以被擦除和重新编程约 1000 次；</li>
+<li>EEPROM（Electrically Erasable PROM）：与 EPROM 相比，不需要单独的物理编程设备，但只可以重新编程 105 次；</li>
+<li>闪存（Flash Memory）：基于 EEPROM 的一项重要存储技术，SSD 就是通过闪存实现的。</li>
+</ul>
+<p>存储在 ROM 中的程序通常称为固件（Firmware）。一些系统会在固件中提供简单的输入/输出功能，比如 PC 的 BIOS（Basic Input/Output System）。</p>
+<h4 id="访问主存储器">访问主存储器<a class="headerlink" href="#访问主存储器" title="Permanent link">&para;</a></h4>
+<p>数据通过共享的电气管道在 CPU 和 DRAM 主存储器之间流动，这些管道被称为总线（Bus）。数据传输的过程由一系列的总线事务（Bus Transaction）组成，其中读事务将数据从主存加载到 CPU 中，写事务则将数据从 CPU 传输到主存中。</p>
+<p>总线是一组可以传输地址、数据和控制信号的并行线的集合，其中控制总线负责同步事务并识别当前正在执行事务的类型。下图展示了计算机系统中的总线结构：</p>
+<p><img alt="alt text" src="../image/image-45.png" />
+图中的“I/O Bridge”是一组芯片的集合，包含了上文中提到的存储控制器。它会将系统总线（图中的“System bus”）的电信号转换为存储器总线（图中的“Memory bus”）的电信号，反之亦然。当 CPU 执行数据读取指令时，其芯片上的总线接口（Bus Interface）电路会在总线上初始化一个读事务，过程如下：</p>
+<p><img alt="alt text" src="../image/image-46.png" />
+写事务的过程与之类似：</p>
+<p><img alt="alt text" src="../image/image-47.png" /></p>
+<h3 id="磁盘存储">磁盘存储<a class="headerlink" href="#磁盘存储" title="Permanent link">&para;</a></h3>
+<p>磁盘（Disk）是主力存储设备，可以容纳成百上千 GB 的数据，但其读写速度却远远低于 RAM。本节中的磁盘主要指的是旋转磁盘，并不涉及 SSD。</p>
+<h4 id="磁盘构造">磁盘构造<a class="headerlink" href="#磁盘构造" title="Permanent link">&para;</a></h4>
+<p>磁盘是由盘片（Platter）组成的，每个盘片都有两个盘面（Surface）。下图 6.9(a) 展示了一个典型盘面的结构：</p>
+<p><img alt="alt text" src="../image/image-48.png" />
+每个盘面均由一组被称为磁道（Track）的同心环构成，每条磁道又可以被划分为多个扇区（Section）。每个扇区中都存储了数量相同的数据位（通常为 512 字节），它们之间的间隙（Gap）则只保存扇区的标识。</p>
+<p>如上图 6.9(b) 所示，柱面（Cylinder）是所有盘面上与主轴（Spindle）等距的磁道的集合。</p>
+<h4 id="磁盘容量">磁盘容量<a class="headerlink" href="#磁盘容量" title="Permanent link">&para;</a></h4>
+<p>磁盘的容量由以下三个参数决定：</p>
+<ul>
+<li>记录密度（<span class="arithmatex">\(bits/in\)</span>）：一英寸长度的磁道中存储的位数；</li>
+<li>轨道密度（<span class="arithmatex">\(tracks/in\)</span>）：从主轴中心处延伸一英寸半径内的磁道数量；</li>
+<li>面密度（<span class="arithmatex">\(bits/in^2\)</span>）：记录密度和轨道密度的乘积。</li>
+</ul>
+<p>在以前的磁盘中，每条磁道上的扇区数量是相同的。这样当面密度上升之后，间隙就会越来越大，从而造成浪费。因此现代大容量磁盘使用多区记录（Multiple Zone Recording）技术，令外部磁道包含的扇区数量大于内部磁道。</p>
+<h4 id="磁盘操作">磁盘操作<a class="headerlink" href="#磁盘操作" title="Permanent link">&para;</a></h4>
+<p>磁盘使用连接在传动臂（Actuator Arm）末端的读/写头来进行读写操作：
+<img alt="alt text" src="../image/image-49.png" />
+传动臂沿自身旋转轴不断移动，可以将读/写头定位到任意磁道上，这一操作被称为寻道（Seek）。如上图 6.10(b) 所示，拥有多个盘片的磁盘的每个磁面都有其对应的读/写头。不过在任何时刻，所有的读/写头均处在相同的柱面上。传动臂的移动速度非常快，即使是微小的灰尘也会干扰到读/写头的寻道，因此磁盘需要被密封包装。</p>
+<p>磁盘以扇区大小的块为单元进行读写，其访问时间受三个主要因素的影响：</p>
+<ul>
+<li>寻道时间：即移动传动臂所需的时间；</li>
+<li>旋转延时：当读/写头定位到目标磁道上时，磁盘还需要将目标扇区的首个位旋转到读/写头下，所需的时间被称为旋转延时；</li>
+<li>传输时间：磁盘读写目标扇区内容所需的时间，由磁盘旋转速度和每条磁道中的扇区数量所决定。</li>
+</ul>
+<p>相比其他两个因素，传输时间小到可以忽略。而寻道时间和旋转延时大致相等，因此可以用两倍的寻道时间来估算磁盘的访问时间。</p>
+<h4 id="磁盘的逻辑块">磁盘的逻辑块<a class="headerlink" href="#磁盘的逻辑块" title="Permanent link">&para;</a></h4>
+<p>为了向操作系统隐藏磁盘构造的复杂性，现代磁盘将自身简化为一个由 B 个逻辑块组成的序列。每个逻辑块的尺寸与扇区大小相同，编号为 0，1，... ，B - 1。磁盘控制器（Disk Controller）负责维护逻辑块编号与实际物理磁盘扇区之间的映射关系，它会将操作系统读取的目标逻辑块编号转换为唯一标识物理扇区的三元组（磁面，磁道和扇区）。读取到的信息将首先保存在磁盘控制器的缓冲区中，然后再拷贝到主存。</p>
+<h4 id="连接的-io-设备">连接的 I/O 设备<a class="headerlink" href="#连接的-io-设备" title="Permanent link">&para;</a></h4>
+<p>显卡、显示器、鼠标、键盘和磁盘等输入/输出 (I/O) 设备使用 I/O 总线连接到 CPU 和主存储器上：</p>
+<p><img alt="alt text" src="../image/image-50.png" /></p>
+<h4 id="访问磁盘">访问磁盘<a class="headerlink" href="#访问磁盘" title="Permanent link">&para;</a></h4>
+<p>CPU 从磁盘中读取数据的过程如下：</p>
+<p><img alt="alt text" src="../image/image-51.png" />
+CPU 使用 Memory-mapped I/O 技术向 I/O 设备发送指令，如上图中 (a) 所示。系统会在地址空间中保留一块地址区用于与 I/O 设备的通信，其中的地址被称为 I/O Port。每个连接到总线上的设备都会被映射到一个或多个 I/O Port。</p>
+<p>CPU 将发送三个指令到目标 I/O Port 来初始化读取操作：</p>
+<ul>
+<li>告知磁盘启动读取的命令</li>
+<li>目标数据所在逻辑块的编号</li>
+<li>数据存储的主存地址</li>
+</ul>
+<p>在发出请求之后，CPU 通常会在磁盘读取时进行其他工作。如上图中 (b) 所示，设备自行执行读写总线事务，无需 CPU 的参与，这一过程被称为 DMA（Direct Memory Access ）。当数据存储在主存中之后，磁盘控制器便会向 CPU 发送中断信号以通知磁盘读取完成，如上图中 &copy; 所示。</p>
+<h3 id="ssd">SSD<a class="headerlink" href="#ssd" title="Permanent link">&para;</a></h3>
+<p>固态硬盘（Solid State Disk，SSD）是一种基于闪存的存储技术，其基本理念如下：</p>
+<p><img alt="alt text" src="../image/image-52.png" />
+SSD 由一个或多个闪存芯片以及闪存转换层（Flash Translation Layer）组成，前者代替了旋转磁盘中的机械驱动器，后者则与磁盘控制器的作用相同。</p>
+<p>闪存中包含了 B 个 Block，每个 Block 又可以分成 P 个 Page。Page 的大小通常在 512 字节到 4 KB 之间，而一个 Block 一般由 32 到 128 个 Page 组成，因此 Block 的大小为 16 KB 到 512 KB。</p>
+<p>SSD 以 Page 为单位进行读写，并且只有当 Page 所在的整个 Block 被擦除（即所有位均置为 1）后才能向其写入。不过，只要一个 Block 被擦除，其中的每一个 Page 都可以被写入一次而无需再次擦除。Block 会在大约 100,000 次重复写入后发生磨损，无法再被使用。</p>
+<p>SSD 的随机写入速度比读取慢，这是因为擦除 Block 需要相对较长的时间。另外，如果写操作尝试修改已有数据的 Page，那么就必须先将同一 Block 中其他任何包含有用数据的 Page 复制到另一个已被擦除的 Block 中。</p>
+<p>相比于旋转磁盘，SSD 的随机访问速度更快，消耗的功率更低，同时也更加坚固。</p>
+<h2 id="局部性">局部性<a class="headerlink" href="#局部性" title="Permanent link">&para;</a></h2>
+<p>优秀的计算机程序通常表现出良好的局部性（Locality），即程序多次引用相同的数据或最近引用数据附近的数据。前者被称为时间局部性（Temporal Locality），后者则被称为空间局部性（Spatial Locality）。</p>
+<p>局部性在现代计算机系统的多个层级中都有着广泛的应用。如在硬件级别，我们引入高速缓存来加快对主存储器的访问速度。在操作系统级别，主存储器可以缓存磁盘文件系统中最近使用的 Block。在应用程序级别，Web 浏览器会将最近请求的文档缓存到本地磁盘上。</p>
+<h3 id="引用程序数据的局部性">引用程序数据的局部性<a class="headerlink" href="#引用程序数据的局部性" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../image/image-53.png" />
+变量<code>sum</code>在每次循环中都被引用一次，因此上图中的两个函数都具有优秀的时间局部性。而对数组元素<code>a[i][j]</code>来说，第一个函数<code>sumarrayrows</code>会按照其在内存中存储的顺序依次读取，所以循环的空间局部性也十分良好。我们将每隔 k 个元素访问连续向量的模式称为 stride-k 引用，空间局部性随着 k 的增加而降低。显然，采用 stride-2 引用模式的函数<code>sumarraycols</code>的空间局部性较差。</p>
+<h3 id="获取指令的局部性">获取指令的局部性<a class="headerlink" href="#获取指令的局部性" title="Permanent link">&para;</a></h3>
+<p>我们还可以评估 CPU 读取内存中程序指令的局部性。循环体中的指令会按照存储顺序依次执行，因此循环具有良好的空间局部性。由于循环体中的指令会被多次迭代执行，所以程序的时间局部性也很优秀。与程序数据相比，指令在运行时很少被修改。</p>
+<h2 id="存储系统层级">存储系统层级<a class="headerlink" href="#存储系统层级" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../image/image-54.png" />
+我们可以将存储在容量大而访问速度慢的设备中的数据对象暂存到容量相对较小但访问速度更快的区域中，这便是缓存（Cache）。下图展示了存储系统层级中的缓存概念：</p>
+<p><img alt="alt text" src="../image/image-55.png" />
+不同层级的设备之间以 Block 为单位传输数据，每个 Block 都有唯一的地址或名称。相邻层级设备之间的 Block 的大小一般是固定的，但也可以是变化的（如存储在 Web 服务器上的 HTML 文件）。不同层级使用的 Block 大小各不相同，如 L0 和 L1 之间的 Block 通常为一个 Word，而 L1 和 L2 之间的 Block 则为四到八个 Word。一般来说，层级越低的设备访问速度越慢，因此其使用的 Block 也会越大。</p>
+<h3 id="缓存命中与缺失">缓存命中与缺失<a class="headerlink" href="#缓存命中与缺失" title="Permanent link">&para;</a></h3>
+<p>当程序需要访问存储在第 k + 1 级设备中的数据对象 d 时，会首先从第 k 级设备中查找。如果 d 恰好缓存在第 k 级设备中，那么我们便称缓存命中（Cache Hits）。反之则为缓存缺失（Cache Misses），第 k 级设备会从第 k + 1 级设备中获取 d 所在的 Block。如果此时第 k 级设备已满，则现有的 Block 将会被覆盖（驱逐）。Block 的驱逐策略（Replacement Policy）有多种，比如随机替换和 LRU（Least Recently Used）。LRU 策略会将被访问时间据现在最久远的 Block 驱逐。</p>
+<p>缓存缺失有多种不同类型。如果缓存为空，则访问任何数据对象都将发生缓存缺失，我们称其为强制缺失（Compulsory Misses）或冷缺失（Cold Misses）。</p>
+<p>每当出现缓存缺失时，第 k 级缓存会根据其放置策略（Placement Policy）将第 k + 1 级缓存中的 Block 拷贝到指定位置处。Block 的放置策略同样有多种，最简单的便是随机放置。它的缺点十分明显，因为被随机放置的 Block 的寻址成本很高。我们可以将第 k + 1 级缓存中的 Block <code>i</code> 放置在第 k 级缓存中的 Block <code>i mod n</code> 处，该策略被称为映射放置。若 n 为 4，则上图中第 k + 1 级缓存中的 Block 0、4、8 和 12 将被映射到第 k 级缓存中的 Block 0，而第 k + 1 级缓存中的 Block 1、5、9 和 13 则将被映射到第 k 级缓存中的 Block 1。</p>
+<p>映射放置的缺点是容易导致冲突缺失（Conflict Misses）。如果程序依次请求第 k + 1 级缓存中的 Block 0、4、8 和 12，由于它们均被映射到第 k 级缓存中的 Block 0，因此即使缓存足以容纳四个 Block，也将连续发生缓存缺失。</p>
+<p>程序通常分多个阶段（如循环）运行，其中每个阶段都会访问一些恒定的 Block 集合（即工作集）。如果工作集（Working Set）超过了缓存的大小，那么就将发生容量缺失（Capacity Misses）。</p>
+<h3 id="缓存管理">缓存管理<a class="headerlink" href="#缓存管理" title="Permanent link">&para;</a></h3>
+<p>不同级别的缓存管理是由硬件、软件或两者的组合实现的，如下图所示：
+<img alt="alt text" src="../image/image-56.png" /></p>
+<h2 id="缓存的实现细节">缓存的实现细节<a class="headerlink" href="#缓存的实现细节" title="Permanent link">&para;</a></h2>
+<p>假设存在一个简单的存储系统层级结构，在 CPU 和主存储器之间只有一个 L1 级的高速缓存。我们将通过该模型介绍缓存的具体实现细节。</p>
+<h3 id="通用缓存管理">通用缓存管理<a class="headerlink" href="#通用缓存管理" title="Permanent link">&para;</a></h3>
+<p>假设我们模型中的每个内存地址都有 <span class="arithmatex">\(m\)</span> 位，则共有 <span class="arithmatex">\(M = 2^m\)</span> 个唯一地址。如下图所示，缓存是一个包含了 <span class="arithmatex">\(S = 2^s\)</span> 个缓存集（Cache Set）的数组，每个缓存集由 E 个缓存行（Cache Line）组成。每个缓存行中都有一个包含了 <span class="arithmatex">\(B = 2^b\)</span> 字节数据的 Block，一个标识该行是否存储了有效信息的有效位（图中的“Valid”），以及 <span class="arithmatex">\(t\)</span> 位（<span class="arithmatex">\(t = m -(b + s)\)</span>）唯一标识行内 Block 的标记位（图中的“Tag”）。</p>
+<p><img alt="alt text" src="../image/image-57.png" />
+缓存的结构通常可以用元祖 (S, E, B, m) 来表征，其容量为 <span class="arithmatex">\(C = S \times E \times B\)</span>。</p>
+<h3 id="直接映射缓存">直接映射缓存<a class="headerlink" href="#直接映射缓存" title="Permanent link">&para;</a></h3>
+<p>缓存可以根据 E 的数量进行分类，E 为 1 的缓存被称为直接映射缓存。当 CPU 想要读取内存中的某个 Word 时，直接映射缓存将通过以下步骤确定缓存是否命中以及提取请求的 Word：</p>
+<ul>
+<li>集合选择（Set Selection）</li>
+<li>行匹配（Line Matching）</li>
+<li>字提取（Word Extraction）</li>
+</ul>
+<p><img alt="alt text" src="../image/image-58.png" />
+我们可以将缓存看成一个以 Set Index 为索引的缓存集数组，示例中的 Set Index 为 <span class="arithmatex">\(0001_2\)</span>，因此将选择缓存集 1。</p>
+<p><img alt="alt text" src="../image/image-59.png" />
+如果有效位为 1 且缓存行中的标记位与地址中的标记位相匹配，则缓存命中。同样，我们可以将 Block 看作一个以 Block Offset 为索引的字节数组。示例中的 Block Offset 为 <span class="arithmatex">\(100_2\)</span>，因此目标 Word 的起始字节为 4，即上图中的“<span class="arithmatex">\(w_0\)</span>”。</p>
+<p>如果出现缓存缺失，则缓存将从以下一级设备中检索请求的 Block，然后存储在其 Set Index 指定的缓存集中。若当前缓存已满，考虑到直接映射缓存的缓存集中只有一个缓存行，因此对应的缓存行将被替换。</p>
+<h4 id="缓存实现示例">缓存实现示例<a class="headerlink" href="#缓存实现示例" title="Permanent link">&para;</a></h4>
+<p>假设一个直接映射缓存有四个缓存集，每个 Block 两个字节。地址均为四位，每个 Word 都只有一个字节：
+<img alt="alt text" src="../image/image-60.png" />
+- 索引位（图中的“Index Bits”）和标记位唯一标识了内存中的每个 Block；
+- 不同的 Block 可以被映射到相同的缓存集，如 Block 0 和 4；
+- 与相同缓存集映射的 Block 是通过标记位进行区分的，如 Block 0 的标记位为 0，而 Block 1 的标记位为 1。</p>
+<p>若 CPU 想要读取内存中的某些 Word，上述缓存将会开展一系列的工作。不过在开始时，缓存是空的：</p>
+<table>
+<thead>
+<tr>
+<th>Set</th>
+<th>Valid</th>
+<th>tag</th>
+<th>block[0]</th>
+<th>Block[1]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>当 CPU 读取地址 0 处的 Word 时，缓存将从主存储器中获取 Block 0 并把它存储在 Set 0 中：</p>
+<table>
+<thead>
+<tr>
+<th>Set</th>
+<th>Valid</th>
+<th>tag</th>
+<th>block[0]</th>
+<th>Block[1]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>m[0]</td>
+<td>m[1]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>此后如果 CPU 想要读取地址 1 处的 Word，就显然会发生缓存命中。而当 CPU 读取地址 13 处的 Word 时，缓存将从主存储器中获取 Block 6 并把它存储在 Set 2 中：</p>
+<table>
+<thead>
+<tr>
+<th>Set</th>
+<th>Valid</th>
+<th>tag</th>
+<th>block[0]</th>
+<th>Block[1]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>m[0]</td>
+<td>m[1]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td></td>
+<td>m[12]</td>
+<td>m[13]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>当 CPU 读取地址 8 处的 Word 时，即使 Set 0 中的有效位为 1，但 Tag 并不匹配，因此将发生缓存缺失。缓存从主存储器中获取 Block 4 并覆盖之前的缓存行，一旦 CPU 想要再次读取地址 0 处的 Word 就会出现冲突缺失。</p>
+<table>
+<thead>
+<tr>
+<th>Set</th>
+<th>Valid</th>
+<th>tag</th>
+<th>block[0]</th>
+<th>Block[1]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>m[8]</td>
+<td>m[9]</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td></td>
+<td>m[12]</td>
+<td>m[13]</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="冲突缺失">冲突缺失<a class="headerlink" href="#冲突缺失" title="Permanent link">&para;</a></h4>
+<p>直接映射缓存的冲突缺失在程序访问长度为 2 的幂的数组时经常出现，如：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">float</span><span class="w"> </span><span class="nf">dotprod</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>该程序具有良好的局部性，但在直接映射缓存中却很容易发生冲突缺失。假设缓存有两个缓存集，每个 Block 存储 16 字节的数据。那么缓存的容量便为 32 字节，可以完整地保存整个数组。数组<code>x[8]</code>和<code>y[8]</code>中的元素与缓存集的映射关系如下：</p>
+<p><img alt="alt text" src="../image/image-61.png" />
+由于两数组中索引相同的元素均被映射到相同的缓存集，因此每当循环中的指令读取数组元素时就会发生冲突缺失。我们将这种情况称为颠簸（Thrashing），即缓存重复加载并驱逐相同缓存集中的 Block。</p>
+<p>一种简单的解决方案是在每个数组末尾填充若干字节。如将数组<code>x[8]</code>重新声明为<code>x[12]</code>，则映射关系就变成了：</p>
+<p><img alt="alt text" src="../image/image-62.png" />
+显然，此时<code>x[i]</code>与<code>y[i]</code>被映射到了不同的缓存集，颠簸将不再出现。</p>
+<p>细心的读者可能会想到，为什么 Set index 在地址的中间位而非高位？如下图所示，若 Set index 位于地址的高位，那么一些连续的 Block 将被映射到相同的缓存集。因此只要程序按顺序读取数组中的元素，缓存就会发生颠簸。</p>
+<p><img alt="alt text" src="../image/image-63.png" /></p>
+<h3 id="集关联型缓存">集关联型缓存<a class="headerlink" href="#集关联型缓存" title="Permanent link">&para;</a></h3>
+<p>集关联型缓存（Set Associative Caches）中的每个缓存集可以包含多个缓存行。我们通常将包含 E （1 &lt; E &lt; C/B）个缓存行的缓存称为 E-路（E-way）集关联型缓存，下图则是一个二路集关联型缓存的结构：</p>
+<p><img alt="alt text" src="../image/image-64.png" />
+其读取 Word 的步骤与直接映射缓存类似，区别主要在于行匹配上。集关联型缓存必须检查多行的有效位和标记位是否与请求的 Word 相匹配：</p>
+<p><img alt="alt text" src="../image/image-65.png" />
+一旦发生缓存缺失，缓存将首先从主存储器中提取所需的 Block。如果此时缓存中没有空行，则必须根据策略替换已有的缓存行。最简单的方法便是随机替换，但我们应当利用局部性尽可能地减小被替换的行未来再次被使用的可能。除了上文提到的 LRU 以外，我们还可以采用 LFU（Least Frequently Used）策略，替换过去某个时间段内被引用次数最少的行。</p>
+<h3 id="全关联型缓存">全关联型缓存<a class="headerlink" href="#全关联型缓存" title="Permanent link">&para;</a></h3>
+<p>全关联型缓存（Fully Associative Caches）只有一个缓存集，其中包含多个缓存行（E = C/B）：
+<img alt="alt text" src="../image/image-66.png" />
+其读取 Word 的步骤与其他两种缓存类似，不过 Word 的地址将不包含 Set Index：
+<img alt="alt text" src="../image/image-67.png" />
+对于全关联型缓存，缓存电路必须并行地匹配多行标记位。因此实现一个容量大且速度快的全关联型缓存是十分困难而又昂贵的，它仅适用于小型缓存。</p>
+<h3 id="缓存的写入">缓存的写入<a class="headerlink" href="#缓存的写入" title="Permanent link">&para;</a></h3>
+<p>相比于读取，写入的情况要更加复杂，因为我们还要考虑如何更新低级别缓存中的副本。最简单的方法便是直接写入（Write-through），但这样每次写入操作都会消耗总线的流量。另一种方法被称为回写（Write-back），即只有当更新的 Block 被驱逐时才向低级别写入。不过回写也会增加系统的复杂性，缓存必须为每个缓存行维护一个脏位（Dirty Bit），以标识该 Block 是否已被修改。</p>
+<p>还有一个问题是如何处理写入时的缓存缺失。一种方法是将目标 Block 从低级别加载到缓存中后再进行更新，被称为写分配（Write-allocate）。该方法试图利用写入的空间局部性，但缺点是只要发生缓存缺失就必须传输 Block。另一种方法会绕过缓存直接在低级别中修改目标 Block，被称为无写分配（No-write-allocate）。直接写入通常使用无写分配，而回写则使用写分配。</p>
+<p>对于试图编写缓存友好型代码的程序员来说，我们推荐采用回写和写分配的处理方式。尤其是在低级别的缓存（如虚拟内存）中，传输数据的时间较长，因此更容易体现出回写的优势。</p>
+<h3 id="真实缓存层级剖析">真实缓存层级剖析<a class="headerlink" href="#真实缓存层级剖析" title="Permanent link">&para;</a></h3>
+<p><img alt="alt text" src="../image/image-68.png" />
+上图中的“i-cache”代表保存指令的缓存，“d-cache”代表保存程序数据的缓存，而“unified cache”则代表既存储指令又存储数据的缓存。有趣的是，所有的 SRAM 缓存都在 CPU 芯片中。</p>
+<h3 id="缓存参数对性能的影响">缓存参数对性能的影响<a class="headerlink" href="#缓存参数对性能的影响" title="Permanent link">&para;</a></h3>
+<p>缓存的性能指标主要有：</p>
+<ul>
+<li>缺失率（Miss Rate）：# missed / # references</li>
+<li>命中率（Hit Rate）：1 - Miss Rate</li>
+<li>命中时间（Hit Time）：CPU 从缓存中读取一个 Word 所需的时间</li>
+<li>缺失惩罚（Miss Penalty）：因为缓存缺失而增加的读取时间</li>
+</ul>
+<p>缓存的不同参数对其性能的影响为：</p>
+<ul>
+<li>缓存容量：更大的缓存可以增加命中率，但也会增加命中时间；</li>
+<li>Block 的大小：我们可以利用空间局部性，通过增大 Block 来提升命中率。但在缓存容量一定的情况下，Block 越大，缓存行的数量就越少。此外，更大的 Block 还会增加数据传输的时间；</li>
+<li>关联性（缓存行的数量）：更多的缓存行可以避免因冲突缺失而导致的颠簸，但维护更多的缓存行也需要大量成本。</li>
+</ul>
+<h2 id="编写缓存友好型代码">编写缓存友好型代码<a class="headerlink" href="#编写缓存友好型代码" title="Permanent link">&para;</a></h2>
+<p>编写缓存友好型代码的两个基本准则如下：</p>
+<ul>
+<li>关注核心程序的内部循环并忽略其他部分；</li>
+<li>减少每个内部循环中缓存缺失的数量。</li>
+</ul>
+<p>其中第二个准则又可以根据局部性分为两方面：</p>
+<ul>
+<li>最大化空间局部性：采用 stride-1 模式，按数据对象在内存中存储的顺序依次读取；</li>
+<li>最大化时间局部性：一旦从内存中读取了某个数据对象，就尽可能多地使用它。</li>
+</ul>
+<h2 id="缓存对程序性能的影响">缓存对程序性能的影响<a class="headerlink" href="#缓存对程序性能的影响" title="Permanent link">&para;</a></h2>
+<p><img alt="alt text" src="../image/image-69.png" /></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+<div id="__comments">
+
+<h3>颜色主题调整</h3>
+
+<!-- <div class="tx-switch">
+<button data-md-color-scheme="default"><code>default</code></button>
+<button data-md-color-scheme="slate"><code>slate</code></button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-scheme]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-scheme")
+        document.body.setAttribute("data-md-color-scheme", attr)
+        localStorage.setItem("data-md-color-scheme",attr);
+        updateScheme();
+        })
+})
+</script> -->
+
+<div class="tx-switch">
+<button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
+<button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
+<button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
+<button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
+<button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
+<button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
+<button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
+<button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
+<button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
+<button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
+<button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius=3px">brown</button>
+<button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
+<button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
+<button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
+</div>
+
+<script>
+var buttons = document.querySelectorAll("button[data-md-color-primary]")
+buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+        var attr = this.getAttribute("data-md-color-primary")
+        document.body.setAttribute("data-md-color-primary", attr)
+        localStorage.setItem("data-md-color-primary",attr);
+        })
+})
+</script>
+
+<h2 ><!-- 评论 -->评论区~</h2>
+
+有用的话请给我个赞和 star => <a href="https://github.com/Tangjp-wraith/Tangjp-wraith.github.io"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Tangjp-wraith/Tangjp-wraith.github.io.svg?style=plastic&amp;label=Stars"></a>
+
+</br>
+
+快来跟我聊天~
+
+</div>
+
+<script src="https://giscus.app/client.js" data-repo="Tangjp-wraith/discussion" data-repo-id="R_kgDOLRJCPw"
+    data-category="General" data-category-id="DIC_kwDOLRJCP84CdJdO" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN"
+    crossorigin="anonymous" async>
+    </script>
+
+<!-- Synchronize Giscus theme with palette -->
+<script>
+var giscus = document.querySelector("script[src*=giscus]")
+
+/* Set palette on initial load */
+var palette = __md_get("__palette")
+if (palette && typeof palette.color === "object") {
+    var theme = palette.color.scheme === "slate" ? "dark" : "light"
+    giscus.setAttribute("data-theme", theme) 
+}
+
+/* Register event handlers after documented loaded */
+document.addEventListener("DOMContentLoaded", function() {
+    var ref = document.querySelector("[data-md-component=palette]")
+    ref.addEventListener("change", function() {
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        localStorage.setItem("data-md-color-scheme", palette.color.scheme === "slate" ? "slate" : "default");
+        /* Instruct Giscus to change theme */
+        var frame = document.querySelector(".giscus-frame")
+        frame.contentWindow.postMessage(
+        { giscus: { setConfig: { theme } } },
+        "https://giscus.app"
+        )
+    }
+    })
+})
+</script>
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../js/timeago.min.js"></script>
+      
+        <script src="../../../js/timeago_mkdocs_material.js"></script>
+      
+        <script src="../../../from_oi_wiki/js/extra.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../js/tablesort.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>

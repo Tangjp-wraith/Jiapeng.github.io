@@ -10,10 +10,20 @@
 
     - [Chapter1：计算机系统漫游](./csapp/ch1.md)
     - [Chapter2：信息的表示和处理](./csapp/ch2.md)
+    - [Chapter3：程序的机器级表示](./csapp/ch3.md)
+    - [Chapter4：处理器体系结构](./csapp/ch4.md)
+    - [Chapter5：优化程序性能](./csapp/ch5.md)
+    - [Chapter6：存储器层次结构](./csapp/ch6.md)
+    - [Chapter7：链接](./csapp/ch7.md)
+    - [Chapter8：异常控制流](./csapp/ch8.md)
+    - [Chapter9：虚拟内存](./csapp/ch9.md)
+    - [Chapter10：系统级I/O](./csapp/ch10.md)
+    - [Chapter11：网络编程](./csapp/ch11.md)
+    - [Chapter12：并发编程](./csapp/ch12.md)
 
     <big>**Labs**</big>
 
-???+ "MIT 6.S081：Operating System Engineering"
+<!-- ???+ "MIT 6.S081：Operating System Engineering"
 
     [课程主页Fall 2020](https://pdos.csail.mit.edu/6.S081/2020/schedule.html)
 
@@ -38,7 +48,7 @@
     * [ ] Lab8: locks
     * [ ] Lab9: file system
     * [ ] Lab10: mmap
-    * [ ] Lab11: Network
+    * [ ] Lab11: Network -->
 
 ???+ "CMU10-714 Deep Learning Systems"
 

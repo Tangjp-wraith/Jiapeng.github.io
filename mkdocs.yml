@@ -17,9 +17,6 @@ nav:
           - item7：区别使用()和{}创建对象: langs/cpp/effective/item7.md
           - item9：优先考虑别名声明而非typedef: langs/cpp/effective/item9.md
           - item23：理解std::move和std::forward: langs/cpp/effective/item23.md
-      - CUDA C 编程权威指南:
-          - CUDA C++ BASICS: langs/cuda/cuda-c/lecture1.md
-
 
   # - Leetcode:
   #     - leetcode/index.md
@@ -35,15 +32,25 @@ nav:
       - CMU15-213：CSAPP:
           - Chapter1：计算机系统漫游: core/csapp/ch1.md
           - Chapter2：信息的表示和处理: core/csapp/ch2.md
+          - Chapter3：程序的机器级表示: core/csapp/ch3.md
+          - Chapter4：处理器体系结构: core/csapp/ch4.md
+          - Chapter5：优化程序性能: core/csapp/ch5.md
+          - Chapter6：存储器层次结构: core/csapp/ch6.md
+          - Chapter7：链接: core/csapp/ch7.md
+          - Chapter8：异常控制流: core/csapp/ch8.md
+          - Chapter9：虚拟内存: core/csapp/ch9.md
+          - Chapter10：系统级I/O: core/csapp/ch10.md
+          - Chapter11：网络编程: core/csapp/ch11.md
+          - Chapter12：并发编程: core/csapp/ch12.md
           
-      - MIT 6.S081：Operating System Engineering:
-          - Lecture1：Introduction: core/xv6/lecture1.md
-          - Lab1：Xv6 and Unix utilities: core/xv6/lab1.md
-          - Lecture2：Operating System Organization: core/xv6/lecture2.md
-          - Lab2：System calls: core/xv6/lab2.md
-          - Lecture3：Page Tables: core/xv6/lecture3.md
-          - Lab3：Page tables: core/xv6/lab3.md
-          - Lecture4：RISC-V calling convention: core/xv6/lecture4.md
+      # - MIT 6.S081：Operating System Engineering:
+      #     - Lecture1：Introduction: core/xv6/lecture1.md
+      #     - Lab1：Xv6 and Unix utilities: core/xv6/lab1.md
+      #     - Lecture2：Operating System Organization: core/xv6/lecture2.md
+      #     - Lab2：System calls: core/xv6/lab2.md
+      #     - Lecture3：Page Tables: core/xv6/lecture3.md
+      #     - Lab3：Page tables: core/xv6/lab3.md
+      #     - Lecture4：RISC-V calling convention: core/xv6/lecture4.md
 
       
       - CMU10-714：Deep Learning Systems: 
@@ -52,20 +59,6 @@ nav:
           - Lecture4：Automatic Differentiation: core/cmu10-714/lecture4.md
           - Lecture5：Automatic Differentiation Implementation: core/cmu10-714/lecture5.md
           - Lecture6：Optimization: core/cmu10-714/lecture6.md
-
-  - Trans:
-      - 文档翻译: trans/index.md
-      - Kaleidoscope:
-          - Kaleidoscope language and Lexer: trans/kaleidoscope/chapter1.md
-          - Implementing a Parser and AST: trans/kaleidoscope/chapter2.md
-          - Code generation to LLVM IR: trans/kaleidoscope/chapter3.md
-          - Adding JIT and Optimizer Support: trans/kaleidoscope/chapter4.md
-          - Extending the Language：Control Flow:  trans/kaleidoscope/chapter5.md
-          - Extending the Language：User-defined Operators: trans/kaleidoscope/chapter6.md
-          - Extending the Language：Mutable Variables: trans/kaleidoscope/chapter7.md
-          - Compiling to Object Files: trans/kaleidoscope/chapter8.md
-          - Debug Information: trans/kaleidoscope/chapter9.md
-          - Conclusion and other tidbits: trans/kaleidoscope/chapter10.md
 
   - Tools:
       - tools/index.md

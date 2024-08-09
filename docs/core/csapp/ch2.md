@@ -126,7 +126,7 @@ int main()
 - `～`：非，相当于逻辑运算的 NOT；
 - `&`：与，相当于逻辑运算的 AND；
 - `|`：或，相当于逻辑运算的 OR；
-- `^`：异或，相当于逻辑运算的 EXCLUSIVE-OR。若 $p = 0$，$q = 1$ 或 $p = 1$，$q = 0$ 时，$p \text{\textasciicircum} q = 1$。
+- `^`：异或，相当于逻辑运算的 EXCLUSIVE-OR。若 $p = 0$，$q = 1$ 或 $p = 1$，$q = 0$ 时，$p$ ^ $q = 1$。
 
 布尔运算符可以应用于位向量，即固定长度的 0、1 序列。举例来说，若 a 为 [0110]，b 为 [0101]，那么：
 
@@ -152,7 +152,7 @@ void inplace_swap(int *x, int *y)
 }
 ```
 
-利用对于任意数 $a$ ，$a \text{\textasciicircum} a$ = 0 且 $0 \text{\textasciicircum} a = a$ 这一性质，该程序不使用中间变量便完成了变量值的交换。另外，上述程序的实现还建立在异或运算满足交换律和结合律的基础之上。
+利用对于任意数 $a$ ，$a$ ^ $a$ = 0 且 $0$ ^ $a = a$ 这一性质，该程序不使用中间变量便完成了变量值的交换。另外，上述程序的实现还建立在异或运算满足交换律和结合律的基础之上。
 
 ### C 中的逻辑运算
 
@@ -184,7 +184,8 @@ $$ B2T_w(\vec{x}) \doteq -x_{w - 1}2^{w - 1} + \displaystyle\sum_{i=0}^{w - 2}x_
 
 二进制补码的最小值为位向量 [10...0]，即整数值 $T\min_w \doteq -2^{w-1}$。最大值为位向量 [01...1]，即整数值 $T\max_w \doteq \displaystyle\sum_{i=0}^{w - 2}2^i = 2^{w-1} -1$。与二进制转化无符号编码类似，函数 $B2T_w$ 也是一个双射。而它们的最值之间有着如下性质：
 
-$$ \|T\min\| =\|T\max\| + 1$$
+$$ |T\min| =|T\max| + 1$$
+
 $$ U\max = 2T\max + 1$$
 
 特别地，整数 -1 和 $U\max_w$的位级表示均为全 1：[11...1]，而整数 0 在两种表达方式中均为全 0：[00...0]。虽然 C 标准并没有限制有符号整数的二进制表达，但大多数机器都采用了二进制补码的方式。
@@ -246,7 +247,8 @@ uy = ty; /* Cast to usigned*/
 
 将一个数转换为更小的数据类型时，截断数字的位数是不可避免的。如一个 $w$ 位的位向量 $\vec{x} = [x_{w-1},x_{w-2},...,x_0]$ 被截断为 $k$ 位时，我们会丢弃 $w-k$ 个高位，得到 ${\vec{x} = [x_{k-1},x_{k-2},...,x_0]}$。截断数字可能会导致值的变化：
 
-$$B2U_k([x_{k-1},x_{k-2},...,x_0]) = B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod 2^k  $$
+$$B2U_k([x_{k-1},x_{k-2},...,x_0]) = B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod 2^k$$
+
 $$B2T_k([x_{k-1},x_{k-2},...,x_0])= U2T_k(B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod 2^k)$$
 
 通过上面几小节的讨论，我们发现无符号数与有符号数之间的隐式转换导致了一些与常识相悖的运算结果，这将导致一些很难发现的程序错误。因此很多编程语言，如 Java，不支持无符号数的使用。
@@ -259,7 +261,7 @@ $$B2T_k([x_{k-1},x_{k-2},...,x_0])= U2T_k(B2U_w([x_{w-1},x_{w-2},...,x_0]) \bmod
 
 $$x + _w^uy = \begin{cases}
    x + y  &\text x + y < 2^w &\text Normal \cr
-   x + y - 2^w &\text 2^w \leq x + y < 2^{w+1} &\text \space \space \space Overflow
+   x + y - 2^w &\text 2^w \leq x + y < 2^{w+1} &\text Overflow
 \end{cases}$$
 
 模数加法构成了一种数学结构，即阿贝尔群（Abelian Group），它是可交换的和可结合的。$w$ 位无符号数的集合执行 $+_w^u$ 运算，对于每个值 $x$，必然有某个值 $-_w^ux$ 满足 $-_w^ux +_w^ux = 0$，该值被称为 $x$ 的逆元（Inverse）。当 $x = 0$ 时，其逆元自然为 0。当 $x > 0$ 时，显然 $ (x + 2^w - x)\bmod 2^w = 0$。由于 $0 < 2^w -x < 2^w$，因此 $2^w -x$ 便是 $x$ 的逆元。上述两种情况总结如下：
@@ -280,9 +282,9 @@ $$\begin{split} x +_w^ty &=U2T_w(T2U_w(x) +_w^uT2U_w(y))\cr
 进一步地，我们根据两数之和的范围，将上述结果分情况讨论，从而得到：
 
 $$x + _w^ty = \begin{cases}
-   x + y + 2^w &\text x + y < -2^{w-1} &\text \space \space \space Negative \space \space Overflow \cr
+   x + y + 2^w &\text x + y < -2^{w-1} &\text  Negative \space \space Overflow \cr
    x + y  &\text -2^{w-1} \leq x + y < 2^{w-1} &\text Normal \cr
-   x + y - 2^w &\text x + y \geq 2^{w-1} &\text \space \space \space Positive \space \space Overflow
+   x + y - 2^w &\text x + y \geq 2^{w-1} &\text  Positive \space \space Overflow
 \end{cases}$$
 
 因此，若 $x>0, y>0, x+_w^ty\leq 0$，那么结果便出现了正溢出；若 $x<0, y<0, x+_w^ty\geq 0$，结果便出现了负溢出。

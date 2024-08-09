@@ -41,7 +41,3 @@
       **The Concurrency API**
 
       **Tweaks**
-
-## CUDA 
-
-???+ "CUDA C 编程权威指南"

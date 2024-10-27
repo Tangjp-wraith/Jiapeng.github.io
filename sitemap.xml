@@ -9,6 +9,10 @@
          <lastmod>2024-10-27</lastmod>
     </url>
     <url>
+         <loc>https://tang-jiapeng.github.io/tag/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
          <loc>https://tang-jiapeng.github.io/about/geren/</loc>
          <lastmod>2024-10-27</lastmod>
     </url>
@@ -77,6 +81,10 @@
          <lastmod>2024-10-27</lastmod>
     </url>
     <url>
+         <loc>https://tang-jiapeng.github.io/core/distributed/Paxos/</loc>
+         <lastmod>2024-10-27</lastmod>
+    </url>
+    <url>
          <loc>https://tang-jiapeng.github.io/develop/</loc>
          <lastmod>2024-10-27</lastmod>
     </url>
@@ -133,7 +141,7 @@
          <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/tag/</loc>
+         <loc>https://tang-jiapeng.github.io/tools/git/</loc>
          <lastmod>2024-10-27</lastmod>
     </url>
 </urlset>

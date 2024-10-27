@@ -2,482 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://tang-jiapeng.github.io/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/liuyanban/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture10/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/about/geren/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture11/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/about/link/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture12/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/about/test/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture13/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture14/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture15/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture16/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture17/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture18/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture19/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture2/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture20/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture21/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture22/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture23/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture24/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture4/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture6/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/cmu10-714/lecture9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/core/csapp/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch1/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch10/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch11/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch12/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch2/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch4/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch6/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/core/csapp/ch9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab1/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab10/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab11/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab2/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab4/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab6/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lab9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture1/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture10/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture11/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture12/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture13/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture14/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture15/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture16/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture17/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture2/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture4/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture6/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/core/xv6/lecture9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L10/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L11/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L12/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L13/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L14/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L4/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L6/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/db/cmu15445/L9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/core/distributed/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item1/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item2/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item23/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item3/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item7/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/effective/item9/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81%E4%B8%8ERTTI/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/C%2B%2B%E7%B1%BB%E5%AF%B9%E8%B1%A1%E5%B8%83%E5%B1%80/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E5%80%BC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E6%95%B0%E7%BB%84%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
          <loc>https://tang-jiapeng.github.io/langs/cpp/%E9%9B%B6%E7%A2%8E%E6%9D%82%E8%AE%B0/%E9%A1%B6%E5%B1%82const%E4%B8%8E%E5%BA%95%E5%B1%82const/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <lastmod>2024-10-27</lastmod>
     </url>
     <url>
-         <loc>https://tang-jiapeng.github.io/leetcode/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/leetcode/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/leetcode/contests/393/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/leetcode/daily/2024-5/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/life/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://tang-jiapeng.github.io/tools/</loc>
-         <lastmod>2024-08-09</lastmod>
-         <changefreq>daily</changefreq>
+         <loc>https://tang-jiapeng.github.io/tag/</loc>
+         <lastmod>2024-10-27</lastmod>
     </url>
 </urlset>

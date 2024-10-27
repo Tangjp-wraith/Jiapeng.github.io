@@ -7,6 +7,8 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="0X10CC">
+      
       
         <link rel="canonical" href="https://tang-jiapeng.github.io/core/csapp/ch9/">
       
@@ -18,7 +20,7 @@
       
       
       <link rel="icon" href="../../../logo.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
     
     
       
@@ -26,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -43,22 +45,22 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../../../css/timeago.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../from_oi_wiki/css/extra.css?v=13">
+      <link rel="stylesheet" href="../../../stylesheets/link.css">
     
-      <link rel="stylesheet" href="../../../css/status.css">
+      <link rel="stylesheet" href="../../../stylesheets/customize.css">
     
-      <link rel="stylesheet" href="../../../css/neoteroi-mkdocs.css">
+      <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     
-      <link rel="stylesheet" href="../../../termynal.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -67,7 +69,7 @@
   
   
 
-<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-JT9BRCXKJJ"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-JT9BRCXKJJ",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-JT9BRCXKJJ",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config",""),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -75,6 +77,8 @@
     
     
     
+    <link rel="stylesheet" href="../../../assets/stylesheets/custom.00c04c01.min.css">
+  
   </head>
   
   
@@ -85,7 +89,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -94,12 +98,42 @@
     <div data-md-component="skip">
       
         
-        <a href="#虚拟内存" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
     </div>
     <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="不再显示此消息">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+     Follow <strong>@Wcowin</strong> on
+    <a rel="me" href="https://space.bilibili.com/1407028951?spm_id_from=333.1007.0.0">
+      <span class="twemoji bilibili">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"/></svg>
+      </span>
+      <strong>Bilibili</strong>
+    </a>
+    and
+    <a href="https://twitter.com/Wcowin_">
+      <span class="twemoji twitter">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+      </span>
+      <strong>Twitter</strong>
+    </a>
+  
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
       
     </div>
     
@@ -110,12 +144,12 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="0X10CC&#39;s notes" class="md-header__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
       
-  <img src="../../../logo.ico" alt="logo">
+  <img src="../../../assets/logo.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -140,20 +174,30 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="关闭自动模式"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
       </label>
     
   
@@ -161,13 +205,13 @@
       
     
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -176,17 +220,24 @@
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
         <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
       
     </form>
     <div class="md-search__output">
@@ -207,7 +258,7 @@
         <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
   </div>
   <div class="md-source__repository">
     tang-jiapeng.github.io
@@ -233,19 +284,16 @@
   
   
   
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
-          
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
   
     
   
-  🏡 Home
+  🏡主页
 
-        </a>
-      </li>
-    
+      </a>
+    </li>
   
 
       
@@ -278,12 +326,12 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
     
   
-  Core
+  计算机基础
 
         </a>
       </li>
@@ -298,32 +346,12 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../tools/" class="md-tabs__link">
+        <a href="../../distributed/" class="md-tabs__link">
           
   
     
   
-  Tools
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../life/" class="md-tabs__link">
-          
-  
-    
-  
-  Life
+  分布式系统
 
         </a>
       </li>
@@ -355,7 +383,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="0X10CC&#39;s notes" class="md-nav__button md-logo" aria-label="0X10CC's notes" data-md-component="logo">
       
-  <img src="../../../logo.ico" alt="logo">
+  <img src="../../../assets/logo.ico" alt="logo">
 
     </a>
     0X10CC's notes
@@ -365,7 +393,7 @@
       <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
   </div>
   <div class="md-source__repository">
     tang-jiapeng.github.io
@@ -381,52 +409,16 @@
   
   
   
-    
-    
-      
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
-          
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
-              
   
   <span class="md-ellipsis">
-    🏡 Home
+    🏡主页
   </span>
   
 
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1">
-            <span class="md-nav__icon md-icon"></span>
-            🏡 Home
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
+      </a>
     </li>
   
 
@@ -452,13 +444,17 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           
@@ -512,13 +508,17 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -677,13 +677,17 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -862,14 +866,14 @@
       
         
       
-        
-      
     
     
       
         
         
       
+      
+        
       
     
     
@@ -882,11 +886,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Core
+    计算机基础
   </span>
   
 
@@ -902,7 +906,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Core
+            计算机基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -947,16 +951,21 @@
     
       
       
+        
+          
+          
+        
+      
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1195,7 +1204,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#物理寻址与虚拟寻址" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       物理寻址与虚拟寻址
     </span>
@@ -1204,7 +1213,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#地址空间" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       地址空间
     </span>
@@ -1213,7 +1222,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为缓存的工具" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为缓存的工具
     </span>
@@ -1223,7 +1232,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dram-缓存" class="md-nav__link">
+  <a href="#dram" class="md-nav__link">
     <span class="md-ellipsis">
       DRAM 缓存
     </span>
@@ -1232,7 +1241,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#页表" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       页表
     </span>
@@ -1241,7 +1250,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#缺页故障" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       缺页故障
     </span>
@@ -1250,7 +1259,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分配页面" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       分配页面
     </span>
@@ -1264,7 +1273,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为内存管理的工具" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为内存管理的工具
     </span>
@@ -1273,7 +1282,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为内存保护的工具" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为内存保护的工具
     </span>
@@ -1282,7 +1291,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#地址转换" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       地址转换
     </span>
@@ -1292,7 +1301,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#高速缓存与虚拟内存" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       高速缓存与虚拟内存
     </span>
@@ -1301,7 +1310,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用-tlb-加速地址转换" class="md-nav__link">
+  <a href="#tlb" class="md-nav__link">
     <span class="md-ellipsis">
       使用 TLB 加速地址转换
     </span>
@@ -1310,7 +1319,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#多级页表" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       多级页表
     </span>
@@ -1324,7 +1333,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#intel-core-i7linux-内存系统" class="md-nav__link">
+  <a href="#intel-core-i7linux" class="md-nav__link">
     <span class="md-ellipsis">
       Intel Core i7/Linux 内存系统
     </span>
@@ -1334,7 +1343,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-i7-地址转换" class="md-nav__link">
+  <a href="#core-i7" class="md-nav__link">
     <span class="md-ellipsis">
       Core i7 地址转换
     </span>
@@ -1343,7 +1352,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linux-虚拟内存系统" class="md-nav__link">
+  <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       Linux 虚拟内存系统
     </span>
@@ -1357,7 +1366,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#内存映射" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       内存映射
     </span>
@@ -1367,7 +1376,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#回看共享目标文件" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       回看共享目标文件
     </span>
@@ -1376,7 +1385,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#回看-fork-函数" class="md-nav__link">
+  <a href="#fork" class="md-nav__link">
     <span class="md-ellipsis">
       回看 fork 函数
     </span>
@@ -1385,7 +1394,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#回看-execve-函数" class="md-nav__link">
+  <a href="#execve" class="md-nav__link">
     <span class="md-ellipsis">
       回看 execve 函数
     </span>
@@ -1394,7 +1403,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mmap-函数" class="md-nav__link">
+  <a href="#mmap" class="md-nav__link">
     <span class="md-ellipsis">
       mmap 函数
     </span>
@@ -1408,7 +1417,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#动态内存分配" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       动态内存分配
     </span>
@@ -1418,7 +1427,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#malloc-和-free-函数" class="md-nav__link">
+  <a href="#malloc-free" class="md-nav__link">
     <span class="md-ellipsis">
       malloc 和 free 函数
     </span>
@@ -1427,7 +1436,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#动态内存分配的原因" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       动态内存分配的原因
     </span>
@@ -1436,7 +1445,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#对分配器的要求和目标" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       对分配器的要求和目标
     </span>
@@ -1445,7 +1454,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#碎片" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       碎片
     </span>
@@ -1454,7 +1463,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分配器的实现难点" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       分配器的实现难点
     </span>
@@ -1463,7 +1472,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#隐式空闲链表" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       隐式空闲链表
     </span>
@@ -1472,7 +1481,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#放置新分配的-block" class="md-nav__link">
+  <a href="#block" class="md-nav__link">
     <span class="md-ellipsis">
       放置新分配的 Block
     </span>
@@ -1481,7 +1490,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分割空闲的-block" class="md-nav__link">
+  <a href="#block_1" class="md-nav__link">
     <span class="md-ellipsis">
       分割空闲的 Block
     </span>
@@ -1490,7 +1499,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#获取额外的堆内存" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       获取额外的堆内存
     </span>
@@ -1499,7 +1508,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#合并空闲的-block" class="md-nav__link">
+  <a href="#block_2" class="md-nav__link">
     <span class="md-ellipsis">
       合并空闲的 Block
     </span>
@@ -1508,7 +1517,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用边界标记合并-block" class="md-nav__link">
+  <a href="#block_3" class="md-nav__link">
     <span class="md-ellipsis">
       使用边界标记合并 Block
     </span>
@@ -1517,7 +1526,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#显式空闲链表" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       显式空闲链表
     </span>
@@ -1526,7 +1535,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分离式空闲链表" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       分离式空闲链表
     </span>
@@ -1540,7 +1549,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#垃圾回收" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       垃圾回收
     </span>
@@ -1550,7 +1559,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#基本思想" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       基本思想
     </span>
@@ -1559,7 +1568,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#marksweep-算法" class="md-nav__link">
+  <a href="#marksweep" class="md-nav__link">
     <span class="md-ellipsis">
       Mark&amp;Sweep 算法
     </span>
@@ -1652,169 +1661,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    CMU10-714：Deep Learning Systems
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_3">
-            <span class="md-nav__icon md-icon"></span>
-            CMU10-714：Deep Learning Systems
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmu10-714/lecture2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture2：ML Refresher / Softmax Regression
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmu10-714/lecture3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture3：Manual Neural Networks / Backprop
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmu10-714/lecture4/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture4：Automatic Differentiation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmu10-714/lecture5/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture5：Automatic Differentiation Implementation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../cmu10-714/lecture6/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lecture6：Optimization
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1839,22 +1685,26 @@
     
       
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../tools/" class="md-nav__link ">
+            <a href="../../distributed/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Tools
+    分布式系统
   </span>
   
 
@@ -1865,63 +1715,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tools
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../life/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    Life
-  </span>
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Life
+            分布式系统
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1961,7 +1755,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#物理寻址与虚拟寻址" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       物理寻址与虚拟寻址
     </span>
@@ -1970,7 +1764,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#地址空间" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       地址空间
     </span>
@@ -1979,7 +1773,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为缓存的工具" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为缓存的工具
     </span>
@@ -1989,7 +1783,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dram-缓存" class="md-nav__link">
+  <a href="#dram" class="md-nav__link">
     <span class="md-ellipsis">
       DRAM 缓存
     </span>
@@ -1998,7 +1792,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#页表" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       页表
     </span>
@@ -2007,7 +1801,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#缺页故障" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       缺页故障
     </span>
@@ -2016,7 +1810,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分配页面" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       分配页面
     </span>
@@ -2030,7 +1824,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为内存管理的工具" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为内存管理的工具
     </span>
@@ -2039,7 +1833,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#虚拟内存作为内存保护的工具" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       虚拟内存作为内存保护的工具
     </span>
@@ -2048,7 +1842,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#地址转换" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       地址转换
     </span>
@@ -2058,7 +1852,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#高速缓存与虚拟内存" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       高速缓存与虚拟内存
     </span>
@@ -2067,7 +1861,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用-tlb-加速地址转换" class="md-nav__link">
+  <a href="#tlb" class="md-nav__link">
     <span class="md-ellipsis">
       使用 TLB 加速地址转换
     </span>
@@ -2076,7 +1870,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#多级页表" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       多级页表
     </span>
@@ -2090,7 +1884,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#intel-core-i7linux-内存系统" class="md-nav__link">
+  <a href="#intel-core-i7linux" class="md-nav__link">
     <span class="md-ellipsis">
       Intel Core i7/Linux 内存系统
     </span>
@@ -2100,7 +1894,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#core-i7-地址转换" class="md-nav__link">
+  <a href="#core-i7" class="md-nav__link">
     <span class="md-ellipsis">
       Core i7 地址转换
     </span>
@@ -2109,7 +1903,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#linux-虚拟内存系统" class="md-nav__link">
+  <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       Linux 虚拟内存系统
     </span>
@@ -2123,7 +1917,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#内存映射" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     <span class="md-ellipsis">
       内存映射
     </span>
@@ -2133,7 +1927,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#回看共享目标文件" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       回看共享目标文件
     </span>
@@ -2142,7 +1936,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#回看-fork-函数" class="md-nav__link">
+  <a href="#fork" class="md-nav__link">
     <span class="md-ellipsis">
       回看 fork 函数
     </span>
@@ -2151,7 +1945,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#回看-execve-函数" class="md-nav__link">
+  <a href="#execve" class="md-nav__link">
     <span class="md-ellipsis">
       回看 execve 函数
     </span>
@@ -2160,7 +1954,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mmap-函数" class="md-nav__link">
+  <a href="#mmap" class="md-nav__link">
     <span class="md-ellipsis">
       mmap 函数
     </span>
@@ -2174,7 +1968,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#动态内存分配" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       动态内存分配
     </span>
@@ -2184,7 +1978,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#malloc-和-free-函数" class="md-nav__link">
+  <a href="#malloc-free" class="md-nav__link">
     <span class="md-ellipsis">
       malloc 和 free 函数
     </span>
@@ -2193,7 +1987,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#动态内存分配的原因" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       动态内存分配的原因
     </span>
@@ -2202,7 +1996,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#对分配器的要求和目标" class="md-nav__link">
+  <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       对分配器的要求和目标
     </span>
@@ -2211,7 +2005,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#碎片" class="md-nav__link">
+  <a href="#_18" class="md-nav__link">
     <span class="md-ellipsis">
       碎片
     </span>
@@ -2220,7 +2014,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分配器的实现难点" class="md-nav__link">
+  <a href="#_19" class="md-nav__link">
     <span class="md-ellipsis">
       分配器的实现难点
     </span>
@@ -2229,7 +2023,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#隐式空闲链表" class="md-nav__link">
+  <a href="#_20" class="md-nav__link">
     <span class="md-ellipsis">
       隐式空闲链表
     </span>
@@ -2238,7 +2032,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#放置新分配的-block" class="md-nav__link">
+  <a href="#block" class="md-nav__link">
     <span class="md-ellipsis">
       放置新分配的 Block
     </span>
@@ -2247,7 +2041,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分割空闲的-block" class="md-nav__link">
+  <a href="#block_1" class="md-nav__link">
     <span class="md-ellipsis">
       分割空闲的 Block
     </span>
@@ -2256,7 +2050,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#获取额外的堆内存" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
       获取额外的堆内存
     </span>
@@ -2265,7 +2059,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#合并空闲的-block" class="md-nav__link">
+  <a href="#block_2" class="md-nav__link">
     <span class="md-ellipsis">
       合并空闲的 Block
     </span>
@@ -2274,7 +2068,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#使用边界标记合并-block" class="md-nav__link">
+  <a href="#block_3" class="md-nav__link">
     <span class="md-ellipsis">
       使用边界标记合并 Block
     </span>
@@ -2283,7 +2077,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#显式空闲链表" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
       显式空闲链表
     </span>
@@ -2292,7 +2086,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#分离式空闲链表" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
       分离式空闲链表
     </span>
@@ -2306,7 +2100,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#垃圾回收" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
       垃圾回收
     </span>
@@ -2316,7 +2110,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#基本思想" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
       基本思想
     </span>
@@ -2325,7 +2119,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#marksweep-算法" class="md-nav__link">
+  <a href="#marksweep" class="md-nav__link">
     <span class="md-ellipsis">
       Mark&amp;Sweep 算法
     </span>
@@ -2352,11 +2146,24 @@
                 
                   
 
+  
+    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/edit/main/docs/core/csapp/ch9.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/raw/main/docs/core/csapp/ch9.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
 
-<h1 id="虚拟内存">虚拟内存<a class="headerlink" href="#虚拟内存" title="Permanent link">&para;</a></h1>
-<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 10792 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 45 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 37 分钟</p>
-</div>
+
+<h1 id="_1">虚拟内存<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>为了更加有效地管理内存并减少错误的发生，现代系统提供了一种对主存储器的抽象，即虚拟内存（Virtual Memory，VM）。虚拟内存是硬件异常、硬件地址转换、主存储器、磁盘文件和内核软件之间的优雅交互，它为每个进程提供了一个大的、统一的和私有的地址空间。</p>
 <p>虚拟内存有以下三个重要功能：</p>
 <ul>
@@ -2364,14 +2171,14 @@
 <li>为每个进程提供统一的地址空间，从而简化内存管理；</li>
 <li>保护每个进程的地址空间不被其他进程所破坏。</li>
 </ul>
-<h2 id="物理寻址与虚拟寻址">物理寻址与虚拟寻址<a class="headerlink" href="#物理寻址与虚拟寻址" title="Permanent link">&para;</a></h2>
+<h2 id="_2">物理寻址与虚拟寻址<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>主存中的每个字节都有一个唯一的物理地址（Physical Address，PA），CPU 使用物理地址访问内存的方式被称为物理寻址（Physical Addressing）：</p>
 <p><img alt="alt text" src="../image/image-107.png" /></p>
 <p>如上图所示，CPU 生成了一个有效的物理地址并通过存储器总线传递给主存储器，详见 <strong>访问主存储器</strong>。</p>
 <p>CPU 也可以通过虚拟地址（Virtual Address，VA）访问主存，只不过该地址在发送到主存之前需要被转换为适当的物理地址。这种寻址方式被称为虚拟寻址（Virtual Addressing）：</p>
 <p><img alt="alt text" src="../image/image-108.png" /></p>
 <p>地址转换（Address Translation ）需要 CPU 硬件和操作系统之间密切合作，位于 CPU 芯片上的内存管理单元（Memory Management Unit，MMU）根据 <strong>页表</strong>（Page Table）动态地将虚拟地址转换为物理地址。页表存储在主存中，其内容由操作系统维护。</p>
-<h2 id="地址空间">地址空间<a class="headerlink" href="#地址空间" title="Permanent link">&para;</a></h2>
+<h2 id="_3">地址空间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>地址空间（Address Space）是一组有序的非负整数地址：</p>
 <div class="arithmatex">\[\lbrace0, 1, 2, . . .\rbrace\]</div>
 <p>如果这些整数是连续的，我们就称其为线性地址空间（Linear Address Space）。在拥有虚拟内存的系统中，CPU 从 n 位线性地址空间中生成虚拟地址，该虚拟地址空间共有 N = <span class="arithmatex">\(2^n\)</span> 个地址：</p>
@@ -2380,7 +2187,7 @@
 <div class="arithmatex">\[\lbrace0,1,2,...,M -1\rbrace\]</div>
 <p>与虚拟地址空间不同，M 不一定为 2 的幂。但为了简化讨论，我们假设 M = <span class="arithmatex">\(2^m\)</span>。</p>
 <p>地址空间明确地将数据对象（字节）和其属性（地址）区分开来，因此每个数据对象都可以有多个独立的地址，这便是虚拟内存的基本思想。主存中的每个字节都有一个从物理地址空间中选择的物理地址，以及一个从虚拟地址空间中选择的虚拟地址。</p>
-<h2 id="虚拟内存作为缓存的工具">虚拟内存作为缓存的工具<a class="headerlink" href="#虚拟内存作为缓存的工具" title="Permanent link">&para;</a></h2>
+<h2 id="_4">虚拟内存作为缓存的工具<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>与存储层级结构中的其他缓存一样，磁盘与主存之间以 <strong>Block</strong> 为单位传输数据。而在虚拟内存系统中，Block 被称为虚拟页面（Virtual Page，VP），其大小为 P = <span class="arithmatex">\(2^p\)</span>。类似地，物理内存也可以被划分为多个大小为 P 的物理页面（Physical Page，PP）。</p>
 <p>虚拟页面有以下三种状态：</p>
 <ul>
@@ -2388,25 +2195,25 @@
 <li>未缓存（Uncached）：仅加载到磁盘而未缓存到主存中的页面；</li>
 <li>已缓存（Cached）：已缓存在主存中的页面。</li>
 </ul>
-<h3 id="dram-缓存">DRAM 缓存<a class="headerlink" href="#dram-缓存" title="Permanent link">&para;</a></h3>
+<h3 id="dram">DRAM 缓存<a class="headerlink" href="#dram" title="Permanent link">&para;</a></h3>
 <p>我们将 CPU 和主存之间的 L1、L2 和 L3 级缓存称为 SRAM 缓存，而将主存中用来缓存虚拟页面的缓存称为 DRAM 缓存。</p>
 <p>与 SRAM 缓存相比，DRAM 缓存发生缓存缺失的成本很高（需要从磁盘中加载数据），因此虚拟页面往往比较大——通常为 4 KB 到 2 MB。DRAM 缓存是 <strong>全关联型</strong> 的，这样任何一个虚拟页面都可以放在任何一个物理页面中。</p>
 <blockquote>
 <p>Due to the large miss penalty, DRAM caches are fully associative; that is, any virtual page can be placed in any physical page.</p>
 </blockquote>
-<h3 id="页表">页表<a class="headerlink" href="#页表" title="Permanent link">&para;</a></h3>
+<h3 id="_5">页表<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>页表是由页表条目（Page Table Entries，PTEs）组成的数组。每个虚拟页面在页表都有一条 PTE，它在页表中的偏移量是固定的。每条 PTE 中都包含了一个表示该虚拟页面是否已缓存的有效位，以及一个 n 位的地址字段。若有效位为 1，则地址字段是缓存该页面的物理页面的起始地址；若有效位为 0 且地址字段为空，则代表该虚拟页面未分配；若有效位为 0 且地址字段非空，则地址字段是该页面在磁盘上的起始地址。</p>
 <p><img alt="alt text" src="../image/image-109.png" /></p>
 <p>如上图所示，系统中存在 8 个虚拟页面和 4 个物理页面：页面 1，2，4 和 7 缓存在 DRAM 中；页面 3 和 6 已分配但未缓存；页面 0 和 5 未分配。</p>
-<h3 id="缺页故障">缺页故障<a class="headerlink" href="#缺页故障" title="Permanent link">&para;</a></h3>
+<h3 id="_6">缺页故障<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>我们将访问 DRAM 缓存时发生的缓存缺失称为缺页故障（Page Fault）。若 CPU 引用上图页面 3 中的某个字，地址转换硬件会从主存中读取 PTE 3 ，然后根据其有效位判断出该页面未缓存。缺页故障异常将调用内核中的异常处理程序，选择受害者页面（Victim Page）逐出主存。</p>
 <p>在本例中，受害者页面为 VP 4，因此内核会先将 PTE 4 中的有效位重置为 0。如果该页面已发生更改，内核还需要将其复制回磁盘。接下来，内核把 VP 3 从磁盘复制到主存中的 PP 3，并更新 PTE 3 中的有效位。下图展示了异常处理程序返回后示例页表的状态：</p>
 <p><img alt="alt text" src="../image/image-110.png" />
 上述在磁盘和主存之间传输页面的活动被称为交换（Swapping）或者分页（Paging）。页面从磁盘传输到主存被称为换入（Swapping In 或 Paging In），反之则为换出（Swapping Out 或 Paging Out）。尽管我们可以试图预测缺页故障并在引用未缓存的页面前分页，但现代系统均在异常发生后分页，即按需分页（Demand Paging）。</p>
-<h3 id="分配页面">分配页面<a class="headerlink" href="#分配页面" title="Permanent link">&para;</a></h3>
+<h3 id="_7">分配页面<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../image/image-111.png" />
 上图展示了分配一个新的虚拟页面（如进程调用<code>malloc</code>）后页表的变化。操作系统先在磁盘上开辟空间，然后更新 PTE 5 使 VP 5 指向磁盘上新创建的页面。</p>
-<h2 id="虚拟内存作为内存管理的工具">虚拟内存作为内存管理的工具<a class="headerlink" href="#虚拟内存作为内存管理的工具" title="Permanent link">&para;</a></h2>
+<h2 id="_8">虚拟内存作为内存管理的工具<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>操作系统为每个进程都维护了一个单独的页表，因此所有进程都拥有自己的虚拟地址空间：</p>
 <p><img alt="alt text" src="../image/image-112.png" />
 如上图所示，进程 i 的页表将 VP 1 映射到 PP 2，将 VP 2 映射到 PP 7；进程 j 的页表将 VP 1 映射到 PP 7，将 VP 2 映射到 PP 10。多个虚拟页面可以映射到同一个共享物理页面。虚拟内存系统简化了链接、加载、代码和数据的共享以及应用程序的内存分配：</p>
@@ -2416,12 +2223,12 @@
 <li>简化共享：操作系统可以将不同进程中的不同虚拟页面映射到相同的物理页面，从而实现进程之间代码和数据的共享；</li>
 <li>简化内存分配：当应用程序申请额外的内存时，操作系统会为其分配一定数量的连续虚拟页面，然后将它们映射到任意位置的物理页面。这些物理页面无需连续，并且可以在物理内存中随机分布。</li>
 </ul>
-<h2 id="虚拟内存作为内存保护的工具">虚拟内存作为内存保护的工具<a class="headerlink" href="#虚拟内存作为内存保护的工具" title="Permanent link">&para;</a></h2>
+<h2 id="_9">虚拟内存作为内存保护的工具<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>我们可以在 PTE 中添加一些权限位来管理进程对页面的访问：</p>
 <p><img alt="alt text" src="../image/image-113.png" />
 如上图所示，SUP 表示是否只有在内核态运行的进程才能访问该页面，READ 和 WRITE 则分别表示页面是否可读写。例如，进程 i 在用户态中运行，那么它可以读取 VP 0，读取和写入 VP 1，但无法访问 VP 2。</p>
 <p>如果某条指令违反了上述权限，CPU 就会触发通用保护故障，并将控制权转移到内核中的异常处理程序。该处理程序会向问题进程发送一个 SIGSEGV 信号，Linux Shell 通常将此异常报告为分段故障（Segmentation Fault）。</p>
-<h2 id="地址转换">地址转换<a class="headerlink" href="#地址转换" title="Permanent link">&para;</a></h2>
+<h2 id="_10">地址转换<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p><img alt="alt text" src="../image/image-114.png" />
 CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当前页表，n 位的虚拟地址由 p 位的虚拟页面偏移量（Virtual Page Offset，VPO）和 n-p 位的虚拟页面编号（Virtual Page Number，VPN）组成。MMU 根据 VPN 的值选择对应的 PTE，如 VPN 0 选择 PTE 0，VPN 1 选择 PTE 1。由于物理页面和虚拟页面的大小相同，VPO 与物理页面偏移量（Physical Page Offset，PPO）也就相同，因此页表条目中的物理页面编号（Physical Page Number，PPN）与 VPO 共同组成了转换后的物理地址。</p>
 <p><img alt="alt text" src="../image/image-115.png" />
@@ -2444,10 +2251,10 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li>处理程序将新页面换入并更新 PTE；</li>
 <li>处理程序返回到原来的进程，之前引发缺页故障的指令重新执行。此时进程请求的页面已缓存，因此 CPU 随后的操作与页面命中时相同。</li>
 </ol>
-<h3 id="高速缓存与虚拟内存">高速缓存与虚拟内存<a class="headerlink" href="#高速缓存与虚拟内存" title="Permanent link">&para;</a></h3>
+<h3 id="_11">高速缓存与虚拟内存<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>大部分同时使用虚拟内存和高速缓存（SRAM 缓存）的系统均采用物理寻址的方式访问高速缓存。下图展示了两者的集成方式：</p>
 <p><img alt="alt text" src="../image/image-117.png" /></p>
-<h3 id="使用-tlb-加速地址转换">使用 TLB 加速地址转换<a class="headerlink" href="#使用-tlb-加速地址转换" title="Permanent link">&para;</a></h3>
+<h3 id="tlb">使用 TLB 加速地址转换<a class="headerlink" href="#tlb" title="Permanent link">&para;</a></h3>
 <p>CPU 每次生成虚拟地址时，MMU 都必须引用 PTE 才能完成地址转换。如果 PTE 位于主存而非高速缓存中，那么地址转换的速度将大大下降。大多数系统的 MMU 中包含了一个被称为转换后备缓冲区（Translation Lookaside Buffer，TLB）的小型 PTE 缓存，其每个缓存行中都有一个由单条 PTE 组成的 Block。用于 <strong>集合选择和行匹配</strong> 的 Set Index 和 Tag 是从虚拟地址的 VPN 中提取的：</p>
 <p><img alt="alt text" src="../image/image-118.png" />
 如果 TLB 有 T = <span class="arithmatex">\(2^t\)</span> 个集合，则 Set Index（TLBI）由 VPN 中 t 个最低位组成，Tag（TLBT）由 VPN 中的剩余高位组成。</p>
@@ -2462,7 +2269,7 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 </ol>
 <p><img alt="alt text" src="../image/image-120.png" />
 上图展示了 TLB 未命中时的 CPU 硬件操作步骤。MMU 必须从高速缓存或主存中获取 PTE 并将其存储在 TLB 中，这可能会覆盖现有条目。</p>
-<h3 id="多级页表">多级页表<a class="headerlink" href="#多级页表" title="Permanent link">&para;</a></h3>
+<h3 id="_12">多级页表<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>在之前的讨论中，我们假设系统只使用单级页表进行地址转换。但如果地址空间有 32 位，一个页面 4 KB 并且一条 PTE 4 字节。那么即使应用程序只引用一小部分虚拟内存，我们也需要一个 4 MB 的页表常驻在内存中：</p>
 <div class="arithmatex">\[n=32, P=4K=2^{12}, n(PTE)=2^{n-p}=2^{20}=1M\]</div>
 <p>我们可以通过对页表分级来压缩页表的大小：</p>
@@ -2472,12 +2279,12 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <p>若一级页表中的 PTE 为空，那么二级页表内对应的条目就无需存在。多数应用程序的虚拟地址空间中大部分页面是未分配的，因此这将显著地降低页表的内存占用。另外，我们只需在主存中维护一级页表和被调用最为频繁的二级页表，其它的二级页表可以由操作系统按需创建和分页。</p>
 <p><img alt="alt text" src="../image/image-122.png" />
 在 k 级页表中，虚拟地址被划分为 k 个 VPN 和一个 VPO，VPN i（1 ≤ i ≤ k）是第 i 级页表的索引。除第 k 级页表外，每个页表中的 PTE 均指向下一级页表的起始位置，而第 k 级表内的每条 PTE 则保存了对应物理页面的 PPN。与单级页表一样，PPO 与 VPO 相同。MMU 必须先请求 k 个 PTE，然后才能确定 PPN 以生成完整的物理地址。TLB 可以缓存多级页表中的 PTE，这使得多级页表的地址转换速度并不比单级页表慢很多。</p>
-<h2 id="intel-core-i7linux-内存系统">Intel Core i7/Linux 内存系统<a class="headerlink" href="#intel-core-i7linux-内存系统" title="Permanent link">&para;</a></h2>
+<h2 id="intel-core-i7linux">Intel Core i7/Linux 内存系统<a class="headerlink" href="#intel-core-i7linux" title="Permanent link">&para;</a></h2>
 <p>尽管底层的 Haswell 微架构能够支持完整的 64 位虚拟和物理地址空间，但目前 Core i7 仅提供了 48 位 (256 TB) 的虚拟地址空间和 52 位 (4 PB ) 的物理地址空间，以及一个支持 32 位 (4 GB) 虚拟和物理地址空间的兼容模式。</p>
-<h3 id="core-i7-地址转换">Core i7 地址转换<a class="headerlink" href="#core-i7-地址转换" title="Permanent link">&para;</a></h3>
+<h3 id="core-i7">Core i7 地址转换<a class="headerlink" href="#core-i7" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../image/image-123.png" />
 如上图所示，Core i7 使用四级页表结构。CR 3 控制寄存器中保存了一级 (L1) 页表的起始物理地址，其值是每个进程上下文的一部分并在上下文切换时恢复。48 位的虚拟地址包含了 36 位的 VPN 和 12 位（4 K = <span class="arithmatex">\(2^{12}\)</span>）的 VPO，其中 VPN 又被划分为四个 9 位的地址空间块。</p>
-<h3 id="linux-虚拟内存系统">Linux 虚拟内存系统<a class="headerlink" href="#linux-虚拟内存系统" title="Permanent link">&para;</a></h3>
+<h3 id="linux">Linux 虚拟内存系统<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../image/image-124.png" /></p>
 <blockquote>
 <p>注：每个进程地址空间里的内核部分都是相同的，因此上图中的"Different for each process"有误。</p>
@@ -2494,21 +2301,21 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 </ul>
 <p><img alt="alt text" src="../image/image-126.png" />
 异常处理程序可以将虚拟地址与<code>vm_start</code>和<code>vm_end</code>字段比较，从而判断它是否属于某个区域，如上图 ①。还可以根据<code>vm_prot</code>字段判断进程是否有权限访问目标区域中的页面，如上图 ②。</p>
-<h2 id="内存映射">内存映射<a class="headerlink" href="#内存映射" title="Permanent link">&para;</a></h2>
+<h2 id="_13">内存映射<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>Linux 使用内存映射（Memory Mapping）技术初始化虚拟内存区域并将其与磁盘上的“对象”相关联。该“对象”有两种类型：</p>
 <ul>
 <li>文件系统中的常规文件（Regular File）：文件被分成多个与页面大小相同的片段，而每个片段都包含了一个虚拟页面的初始内容。由于操作系统采用按需分页的策略，因此页面在第一次被 CPU 引用前不会被换入到物理内存中。如果虚拟内存区域比文件大，则多余部分用零填充；</li>
 <li>匿名文件（Anonymous File）：由内核创建，其内容全部为二进制零。当 CPU 第一次引用该区域内的虚拟页面时，内核会先在物理内存中选择一个合适的受害者页面（若该页面已被修改则需要将其换出）并用二进制零将其覆盖，然后更新页表使虚拟页面指向被覆盖后的物理页面。整个过程中没有数据被换入到物理内存，因此该区域内的页面又被称为零需求页面（Demand-zero Page）。</li>
 </ul>
 <p>一旦我们使用内存映射初始化一个虚拟页面，它就会在由内核维护的交换文件（Swap File）与物理内存之间来回交换。交换文件又称交换区（Swap Area）或交换空间（Swap Space），它的大小限制了当前运行进程所能申请的虚拟页面总量。</p>
-<h3 id="回看共享目标文件">回看共享目标文件<a class="headerlink" href="#回看共享目标文件" title="Permanent link">&para;</a></h3>
+<h3 id="_14">回看共享目标文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p><img alt="alt text" src="../image/image-127.png" />
 如上图所示，两进程将相同的 <strong>共享目标文件</strong> 映射到各自虚拟地址空间中的不同区域，而物理内存中只需存在单个文件副本。进程 1 对该共享区域的任何写入操作都对进程 2 可见，并且这些更改还会同步到磁盘上的原始文件。</p>
 <p><img alt="alt text" src="../image/image-128.png" /></p>
 <p>如上图 (a) 所示，两进程将私有目标文件映射到各自虚拟地址空间的不同区域。进程 1 对该私有区域的任何写入操作都对进程 2 不可见，并且这些更改也不会同步到磁盘上的原始文件。如上图 (b) 所示，当进程 2 试图修改该区域中的内容时，内核会在物理内存中为页面创建一个新副本并更新页表条目使其指向它。由于页面复制发生在写入操作前，这种技术被称为写时复制（Copy-on-Write），这些区域则是私有写时复制的（Private Copy-on-Write）。</p>
-<h3 id="回看-fork-函数">回看 fork 函数<a class="headerlink" href="#回看-fork-函数" title="Permanent link">&para;</a></h3>
+<h3 id="fork">回看 fork 函数<a class="headerlink" href="#fork" title="Permanent link">&para;</a></h3>
 <p>进程调用 <code>fork</code> 函数后，内核会为子进程分配一个唯一的 PID 并为其创建与父进程相同的<code>mm_struct</code>、<code>vm_area_structs</code>以及页表。当任意进程后续执行写入操作时，内核将使用写时复制技术创建新页面，这便保证了进程虚拟地址空间的私有性。</p>
-<h3 id="回看-execve-函数">回看 execve 函数<a class="headerlink" href="#回看-execve-函数" title="Permanent link">&para;</a></h3>
+<h3 id="execve">回看 execve 函数<a class="headerlink" href="#execve" title="Permanent link">&para;</a></h3>
 <p>如果进程调用 <code>execve</code> 函数，如<code>execve("a.out", NULL, NULL)</code>，则加载并运行<code>a.out</code>的步骤如下：</p>
 <ol>
 <li>删除当前进程虚拟地址空间中用户区域的<code>vm_area_structs</code>；</li>
@@ -2517,13 +2324,17 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li>使当前进程上下文中的程序计数器指向新程序代码区域的入口点。</li>
 </ol>
 <p><img alt="alt text" src="../image/image-129.png" /></p>
-<h3 id="mmap-函数">mmap 函数<a class="headerlink" href="#mmap-函数" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
-<span class="kt">void</span><span class="w">  </span><span class="o">*</span><span class="nf">mmap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span>
-<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">off_t</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
-<span class="c1">// Returns: pointer to mapped area if OK, MAP_FAILED (−1) on error</span>
-</code></pre></div>
+<h3 id="mmap">mmap 函数<a class="headerlink" href="#mmap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kt">void</span><span class="w">  </span><span class="o">*</span><span class="nf">mmap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">prot</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">off_t</span><span class="w"> </span><span class="n">offset</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">// Returns: pointer to mapped area if OK, MAP_FAILED (−1) on error</span>
+</code></pre></div></td></tr></table></div>
 <p><code>mmap</code>函数请求内核创建一个起始地址为参数<code>start</code>的虚拟内存区域，该区域映射到文件描述符<code>fd</code>所指定的对象。连续对象的长度为参数<code>length</code>，其首部在文件中的偏移量为参数<code>offset</code>：</p>
 <p><img alt="alt text" src="../image/image-130.png" /></p>
 <p>参数<code>prot</code>中包含了描述虚拟内存区域访问权限的位，即<code>vm_area_structs</code>中的<code>vm_prot</code>：</p>
@@ -2540,12 +2351,15 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li><code>MAP_ANON</code>：匿名对象，对应的虚拟页面是零需求页面。</li>
 </ul>
 <p><code>munmap</code>函数删除起始于虚拟地址<code>start</code>、长度为<code>length</code>的区域，后续对已删除区域的引用会引发分段故障。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">munmap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
-<span class="c1">// Returns: 0 if OK, −1 on error</span>
-</code></pre></div>
-<h2 id="动态内存分配">动态内存分配<a class="headerlink" href="#动态内存分配" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/mman.h&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">munmap</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">length</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1">// Returns: 0 if OK, −1 on error</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_15">动态内存分配<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>相比于低级别的<code>mmap</code>函数，C 程序员更倾向于在运行时调用动态内存分配器（Dynamic Memory Allocator）来创建虚拟内存区域。动态内存分配器为进程维护的虚拟内存区域被称为堆（Heap），其一般结构为：</p>
 <p><img alt="alt text" src="../image/image-131.png" /></p>
 <p>堆向上增长，内核为每个进程都维护了一个指向堆顶的变量<code>brk</code>。分配器将堆看作一个包含不同尺寸 Block 的集合，每个 Block 都是一个连续的虚拟内存块。Block 有两种状态，已分配（Allocated）和空闲（Free）。所有分配器均显式地为应用程序分配 Block，但负责释放已分配 Block 的实体可能有所不同：</p>
@@ -2553,58 +2367,89 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li>显式分配器：应用程序显式地释放已分配的 Block。C 和 C++ 程序分别调用<code>malloc</code>和<code>new</code>函数请求 Block，调用<code>free</code>和<code>delete</code>函数释放 Block；</li>
 <li>隐式分配器：分配器自行释放程序不再使用的已分配 Block，该过程被称为垃圾回收（Garbage Collection）。Lisp、ML 和 Java 等高级语言均采用这种方法。</li>
 </ul>
-<h3 id="malloc-和-free-函数">malloc 和 free 函数<a class="headerlink" href="#malloc-和-free-函数" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-<span class="c1">// Returns: pointer to allocated block if OK, NULL on error</span>
-</code></pre></div>
+<h3 id="malloc-free">malloc 和 free 函数<a class="headerlink" href="#malloc-free" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">// Returns: pointer to allocated block if OK, NULL on error</span>
+</code></pre></div></td></tr></table></div>
 <p><code>malloc</code>函数请求堆中的一块 Block 并返回指向该 Block 的指针。Block 的大小至少为参数<code>size</code>，并可能根据其保存的数据对象类型进行适当对齐。在 32 位编译模式下，Block 的地址始终为 8 的倍数，而在 64 位中则为 16 的倍数。如果执行<code>malloc</code>遇到问题，如程序请求的 Block 大小超过了可用的虚拟内存，则函数返回<code>NULL</code>并设置 <a href="https://man7.org/linux/man-pages/man3/errno.3.html"><code>errno</code></a>。我们还可以使用<code>malloc</code>的包装函数<code>calloc</code>，它会将分配的内存初始化为零。类似地，<code>realloc</code>函数可以更改已分配 Block 的大小。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">sbrk</span><span class="p">(</span><span class="kt">intptr_t</span><span class="w"> </span><span class="n">incr</span><span class="p">);</span>
-<span class="c1">// Returns: old brk pointer on success, −1 on error</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">sbrk</span><span class="p">(</span><span class="kt">intptr_t</span><span class="w"> </span><span class="n">incr</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">// Returns: old brk pointer on success, −1 on error</span>
+</code></pre></div></td></tr></table></div>
 <p><code>sbrk</code>函数将参数<code>incr</code>与内核中的<code>brk</code>指针相加以增大或缩小堆。若执行成功，则返回<code>brk</code>的旧值，否则将返回 -1 并将<code>errno</code>设置为<code>ENOMEM</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
-<span class="c1">// Returns: nothing</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">// Returns: nothing</span>
+</code></pre></div></td></tr></table></div>
 <p><code>free</code>函数将参数<code>ptr</code>指向的 Block 释放，而这些 Block 必须是由<code>malloc</code>、<code>calloc</code>或<code>realloc</code>分配的。该函数没有返回值，因此很容易产生一些令人费解的运行时错误。</p>
 <p><img alt="alt text" src="../image/image-132.png" />
 上图展示了 C 程序如何使用<code>malloc</code>和<code>free</code>管理一个大小为 16 字（字长为 4 字节）的堆。图中的每个方框代表一个字，每个被粗线分隔的矩形代表一个 Block。有阴影的 Block 代表已分配，无阴影的 Block 则代表空闲。</p>
 <p>如上图 (a) 所示，程序请求一个 4 字的 Block，<code>malloc</code>从空闲块中切出一个 4 字的 Block 并返回指向该 Block 中第一个字的指针<code>p1</code>；如上图 (b) 所示，程序请求一个 5 字的 Block，<code>malloc</code>从空闲块中切出一个 6 字的 Block 以实现双字对齐；如上图 &copy; 所示，程序请求一个 6 字的 Block，<code>malloc</code>从空闲块中切出一个 6 字的 Block；如上图 (d) 所示，程序释放图 (b) 中分配的 Block。<code>free</code>返回后，指针<code>p2</code>依然指向已释放的 Block，因此程序不应在重新初始化<code>p2</code>前继续使用它；如上图 (e) 所示，程序请求一个 2 字的 Block。<code>malloc</code>从上一步释放的 Block 中切出一部分并返回指向新 Block 的指针<code>p4</code>。</p>
-<h3 id="动态内存分配的原因">动态内存分配的原因<a class="headerlink" href="#动态内存分配的原因" title="Permanent link">&para;</a></h3>
+<h3 id="_16">动态内存分配的原因<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <p>在程序实际运行之前，我们可能并不知道某些数据结构的大小。示例 C 程序将<code>n</code>个 ASCII 整型从标准输入读取到数组<code>array[MAXN]</code>中：</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;csapp.h&quot;</span>
-<span class="cp">#define MAXN 15213</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAXN</span><span class="p">)</span>
-<span class="w">        </span><span class="n">app_error</span><span class="p">(</span><span class="s">&quot;Input file too big&quot;</span><span class="p">);</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;csapp.h&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cp">#define MAXN 15213</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">array</span><span class="p">[</span><span class="n">MAXN</span><span class="p">];</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAXN</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">        </span><span class="n">app_error</span><span class="p">(</span><span class="s">&quot;Input file too big&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <p>由于我们无法预测<code>n</code>的值，因此只能将数组大小写死为<code>MAXN</code>。<code>MAXN</code>的值是任意的，可能超出系统可用的虚拟内存量。另外，一旦程序想要读取一个比<code>MAXN</code>还大的文件，唯一的办法就是增大<code>MAXN</code>的值并重新编译程序。如果我们在运行时根据<code>n</code>的大小动态分配内存，以上问题便迎刃而解：</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;csapp.h&quot;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-<span class="w">    </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">Malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
-<span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="对分配器的要求和目标">对分配器的要求和目标<a class="headerlink" href="#对分配器的要求和目标" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;csapp.h&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">array</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">Malloc</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">array</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="_17">对分配器的要求和目标<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p>显式分配器必须在若干限制条件下运行：</p>
 <ul>
 <li>处理任意顺序的请求：分配器不能对<code>malloc</code>和<code>free</code>的请求顺序作出假设。例如，分配器不能假设所有的<code>malloc</code>都紧跟一个与之匹配的<code>free</code>；</li>
@@ -2619,14 +2464,14 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li>内存利用率（Memory Utilization）：即堆内存的使用率。</li>
 </ul>
 <p>最大化吞吐量和最大化内存利用率之间存在矛盾，因此我们在设计分配器时需要找到二者的平衡。</p>
-<h3 id="碎片">碎片<a class="headerlink" href="#碎片" title="Permanent link">&para;</a></h3>
+<h3 id="_18">碎片<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p>我们将空闲堆内存无法满足分配请求的现象称为碎片（Fragmentation），它是内存利用率低的主要原因。碎片有两种形式：</p>
 <ul>
 <li>内部碎片（Internal Fragmentation）：已分配的 Block 比进程请求的 Block（即 Payload）大，通常因分配器为满足对齐要求而产生；</li>
 <li>外部碎片（External Fragmentation）：空闲内存充足但却没有空闲的 Block 能够满足分配请求。例如堆中有 4 个空闲的字且分布在两个不相邻的 Block 上，此时若进程申请一个 4 字的 Block 就会出现外部碎片。</li>
 </ul>
 <p>内部碎片很容易量化，因为它只是已分配 Block 与 Payload 之间大小差异的总和，其数量仅取决于先前的请求模式和分配器的实现方式；外部碎片则难以量化，因为它还要受到未来请求模式的影响。为了减少外部碎片的产生，分配器力求维护少量较大的空闲 Block 而非大量较小的空闲 Block。</p>
-<h3 id="分配器的实现难点">分配器的实现难点<a class="headerlink" href="#分配器的实现难点" title="Permanent link">&para;</a></h3>
+<h3 id="_19">分配器的实现难点<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>我们可以想象一个简单的分配器，它将堆看作一个大型的字节数组，指针<code>p</code>指向该数组的第一个字节。当进程请求<code>size</code>大小的 Block 时，<code>malloc</code>先把<code>p</code>的当前值保存在栈中，然后将其加上<code>size</code>，最后返回<code>p</code>的旧值。当进程想要释放 Block 时，<code>free</code>则只是简单地返回给调用者而不做任何事情。</p>
 <p>由于<code>malloc</code>和<code>free</code>仅由少量指令组成，这种分配器的吞吐量很大。然而<code>malloc</code>不会重用任何 Block，因此堆内存的利用率非常低。能够在吞吐量和内存利用率之间取得良好平衡的分配器必须考虑以下问题：</p>
 <ul>
@@ -2635,14 +2480,14 @@ CPU 中的页表基址寄存器（Page Table Base Register ，PTBR）指向当�
 <li>分割（Splitting）：完成放置后，如何处理剩余的空闲 Block？</li>
 <li>合并（Coalescing）：如何处理刚刚被释放的 Block？</li>
 </ul>
-<h3 id="隐式空闲链表">隐式空闲链表<a class="headerlink" href="#隐式空闲链表" title="Permanent link">&para;</a></h3>
+<h3 id="_20">隐式空闲链表<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p>大多数分配器通过将一些数据结构嵌入到 Block 中以分辨其边界和状态，例如：</p>
 <p><img alt="alt text" src="../image/image-133.png" /></p>
 <p>如上图所示，Block 由一个单字（四字节）的头部（Header）、有效负载（Payload）和一些额外填充（Padding）组成，头部中包含了 Block 的大小（Block Size）和状态信息（Allocated or Free）。如果系统采用双字对齐策略，那么每个 Block 的大小始终为 8 的倍数，其二进制表达的后 3 位始终为 0。因此我们可以仅在头部中存储该字段的前 29 位，剩余 3 位用来存储其他信息。上图中的位“a”便指示了此 Block 是已分配的还是空闲的。填充的大小是任意的，它可能是分配器为了避免外部碎片产生而设置的，也可能是为了满足对齐要求而存在的。</p>
 <p>基于这种 Block 格式，我们可以将堆组织成一系列连续的已分配 Block 和空闲 Block：</p>
 <p><img alt="alt text" src="../image/image-134.png" />
 Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) = addr(current_block) + block_size），因此我们将这种堆组织方式称为隐式空闲链表（Implicit Free List），分配器必须遍历堆中所有的 Block 才能得到全部空闲的 Block。我们还需要一个特殊的 Block 以标记堆的结尾，如上图中的 “0/1”。隐式空闲链表的优点是简单，但任何搜索空闲 Block 的操作（如放置新分配的 Block）的成本都与堆中 Block 的总数成正比。</p>
-<h3 id="放置新分配的-block">放置新分配的 Block<a class="headerlink" href="#放置新分配的-block" title="Permanent link">&para;</a></h3>
+<h3 id="block">放置新分配的 Block<a class="headerlink" href="#block" title="Permanent link">&para;</a></h3>
 <p>当应用程序请求一个 Block 时，分配器需要在空闲链表中选取一个足够大的 Block 以响应。分配器搜索空闲 Block 的方式由放置策略（Placement Policy）所决定：</p>
 <ul>
 <li>第一次拟合（First Fit）：从头开始遍历空闲链表并选择第一个满足条件的 Block；</li>
@@ -2650,18 +2495,18 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 <li>最佳拟合（Best Fit）：遍历所有 Block 并选择满足条件且最小的 Block。</li>
 </ul>
 <p>第一次拟合的优点是较大的 Block 通常存留在链表末尾，但一些较小的 Block 也会散落在链表开头，这将增加搜索较大 Block 的时间。如果链表开头存在大量较小的 Block，下一次拟合就比第一次拟合快很多。然而研究表明，下一次拟合的内存利用率比第一次拟合低。最佳拟合的内存利用率通常比其他两种策略高，但对隐式空闲链表来说，其搜索时间显然要比它们慢很多。</p>
-<h3 id="分割空闲的-block">分割空闲的 Block<a class="headerlink" href="#分割空闲的-block" title="Permanent link">&para;</a></h3>
+<h3 id="block_1">分割空闲的 Block<a class="headerlink" href="#block_1" title="Permanent link">&para;</a></h3>
 <p>如果分配器找到了合适的 Block 并将整个 Block 分配给程序，就有可能产生内部碎片。为了避免这一问题，分配器可以将选取的 Block 分成一个已分配的 Block 和一个新的空闲 Block：</p>
 <p><img alt="alt text" src="../image/image-135.png" />
 如图 9.37 所示，程序请求一个 3 字的 Block，于是分配器将图 9.36 中 8 字的空闲 Block 拆分为两个 4 字的 Block 并将其中之一分配给它。</p>
-<h3 id="获取额外的堆内存">获取额外的堆内存<a class="headerlink" href="#获取额外的堆内存" title="Permanent link">&para;</a></h3>
+<h3 id="_21">获取额外的堆内存<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
 <p>如果分配器无法找到合适的 Block，它可以尝试将相邻的空闲 Block 合并以获取更大的 Block。但如果仍然无法满足请求，分配器便会调用<code>sbrk</code>函数向内核请求额外的堆内存并将其转换为一个新的空闲 Block。</p>
-<h3 id="合并空闲的-block">合并空闲的 Block<a class="headerlink" href="#合并空闲的-block" title="Permanent link">&para;</a></h3>
+<h3 id="block_2">合并空闲的 Block<a class="headerlink" href="#block_2" title="Permanent link">&para;</a></h3>
 <p>分配器释放 Block 后，可能会有其他空闲的 Block 与之相邻。此时内存中将产生一种特殊的外部碎片现象，我们称其为虚假碎片（False Fagmentation）。</p>
 <p><img alt="alt text" src="../image/image-136.png" />
 如图 9.38 所示，分配器将图 9.37 中第二个 4 字 Block 释放。尽管两个连续空闲 Block 中均有 3 字的有效负载，它们也无法满足一个 4 字的分配请求。因此，分配器必须将相邻空闲的 Block 合并。</p>
 <p>分配器可以在每次释放 Block 后立即合并 Block，也可以等到某个时刻，比如分配请求失败时才合并堆中所有空闲的 Block。立即合并很简单，但它也有可能造成“颠簸”，即某个 Block 在短时间内被多次合并和分割。</p>
-<h3 id="使用边界标记合并-block">使用边界标记合并 Block<a class="headerlink" href="#使用边界标记合并-block" title="Permanent link">&para;</a></h3>
+<h3 id="block_3">使用边界标记合并 Block<a class="headerlink" href="#block_3" title="Permanent link">&para;</a></h3>
 <p>我们把即将释放的 Block 称为当前（Current）Block，其头部指向下一个 Block 的头部（addr(next_block) = addr(current_block) + block_size）。因此我们很容易判断下一个 Block 是否空闲，并且只需将当前 Block 头部中的大小字段与之相加即可完成合并。</p>
 <p>但若要合并上一个 Block，我们只能遍历整个链表，并在到达当前 Block 前不断记下上一个 Block 的位置。因此对于隐式空闲链表，合并上一个 Block 的时间与堆内存的大小成正比。</p>
 <p>我们可以在每个 Block 末尾都添加一个头部的副本以使合并 Block 的时间变为常数，这种技术被称为边界标记（Boundary Tags）：</p>
@@ -2669,7 +2514,7 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 上一个 Block 的尾部始终与当前 Block 的头部相距一个字长，因此分配器可以通过检查上一个 Block 的尾部来确定其位置和状态。下图展示了分配器是如何使用边界标记合并 Block 的：</p>
 <p><img alt="alt text" src="../image/image-138.png" />
 由于每个 Block 都包含头部和尾部，当 Block 数量较多时，边界标记显著地增加了内存的开销。考虑到分配器只有在上一个 Block 空闲时才需要获取其尾部内的 Block 大小，因此我们可以将上一个 Block 的状态存储在当前 Block 头部的多余低位中，这样已分配的 Block 便不需要尾部了。</p>
-<h3 id="显式空闲链表">显式空闲链表<a class="headerlink" href="#显式空闲链表" title="Permanent link">&para;</a></h3>
+<h3 id="_22">显式空闲链表<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
 <p>由于分配 Block 的时间与 Block 的总数成正比，隐式空闲链表不适用于通用分配器。我们可以在每个空闲 Block 中加入一个指向上一个空闲 Block 的前驱（Predecessor）指针和一个指向下一个空闲 Block 的后继（Successor）指针，这样堆的组织结构就变成了一个双向链表，我们称其为显式空闲链表（Explicit Free List）。
 <img alt="alt text" src="../image/image-139.png" />
 如果采用第一次拟合策略，显式空闲链表分配 Block 的时间与空闲 Block 的数量成正比，而释放 Block 的时间则取决于空闲 Block 的排序方式：</p>
@@ -2678,7 +2523,7 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 <li>按地址顺序（Address Order）：使链表中每个 Block 的地址均小于其后继 Block 的地址。在这种情况下，释放 Block 需要一定的时间来寻找合适的位置，但堆内存的利用率比后进先出高。</li>
 </ul>
 <p>显式空闲链表的缺点在于指针的引入增加了空闲 Block 的大小，这将增大内部碎片发生的可能性。</p>
-<h3 id="分离式空闲链表">分离式空闲链表<a class="headerlink" href="#分离式空闲链表" title="Permanent link">&para;</a></h3>
+<h3 id="_23">分离式空闲链表<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
 <p>我们可以将堆组织成多个空闲链表，每个链表中 Block 的大小都大致相同，这种结构被称为分离式空闲链表（Segregated Free List）。为了实现这一结构，我们需要把 Block 的大小划分为多个大小类（Size Class），如：</p>
 <div class="arithmatex">\[\lbrace1\rbrace, \lbrace2\rbrace, \lbrace3, 4\rbrace, \lbrace5–8\rbrace,..., \lbrace1025–2048\rbrace, \lbrace2049–4096\rbrace, \lbrace4097–∞\rbrace\]</div>
 <p>也可以让每个较小的 Block 独自成为一个大小类，较大的 Block 依然按 2 的幂划分：</p>
@@ -2688,9 +2533,9 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 <p>在简单分离存储中，空闲链表内每个 Block 的大小均等于其所属大小类中最大的元素。如某个大小类为 {17-32}，则其对应的空闲链表中 Block 的大小都是 32。</p>
 <p>当进程请求一个 Block 时，分配器选取满足请求的空闲链表并分配其中第一个 Block；当某个 Block 被释放后，分配器将其插入到合适的空闲链表前面。因此，简单分离存储分配和释放 Block 的时间均为常量。</p>
 <p>使用分离式空闲链表的分配器只会在堆中某个特定部分搜索空闲 Block，因此其吞吐量较大；对分离式空闲链表使用第一次拟合的内存利用率与对整个堆使用最佳拟合的内存利用率近似，因此其内存利用率较高。大多数高性能的分配器均采用分离式空闲链表，如 C 标准库提供的 GNU <code>malloc</code>。</p>
-<h2 id="垃圾回收">垃圾回收<a class="headerlink" href="#垃圾回收" title="Permanent link">&para;</a></h2>
+<h2 id="_24">垃圾回收<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
 <p>垃圾回收器（Garbage Collector）是一种动态存储分配器，它会自动释放程序不再需要的 Block（垃圾）。</p>
-<h3 id="基本思想">基本思想<a class="headerlink" href="#基本思想" title="Permanent link">&para;</a></h3>
+<h3 id="_25">基本思想<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
 <p>垃圾回收器将内存看作一个有向可达性图：</p>
 <p><img alt="alt text" src="../image/image-140.png" />
 图中的节点被分为一组根节点（Root Nodes）和一组堆节点（Heap Nodes），每个堆节点都对应于一个堆中已分配的 Block。有向边 <span class="arithmatex">\(p \to q\)</span> 表示 Block <span class="arithmatex">\(p\)</span> 中的某个位置指向 Block <span class="arithmatex">\(q\)</span> 中的某个位置。根节点对应于不在堆中却包含了指向堆的指针的位置，这些位置可以是寄存器、栈中的变量或可读写数据区域中的全局变量。</p>
@@ -2698,7 +2543,7 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 <p>ML 和 Java 等语言的垃圾回收器对应用程序使用指针的方式进行了严格的限制，因此它可以维护一个精确的可达性图，从而回收所有的垃圾。而 C 和 C++ 等语言的垃圾回收器则无法保证可达性图的精确性，一些不可达的节点可能被错误地识别为可达的，我们称其为保守垃圾回收器（Conservative Garbage Collector）。</p>
 <p>垃圾回收器可以按需提供服务，也可以作为单独的进程与应用程序并行运行，不断更新可达性图并回收垃圾：</p>
 <p><img alt="alt text" src="../image/image-141.png" /></p>
-<h3 id="marksweep-算法">Mark&amp;Sweep 算法<a class="headerlink" href="#marksweep-算法" title="Permanent link">&para;</a></h3>
+<h3 id="marksweep">Mark&amp;Sweep 算法<a class="headerlink" href="#marksweep" title="Permanent link">&para;</a></h3>
 <p>Mark&amp;Sweep 是常用的垃圾回收算法之一，它分为两个阶段：</p>
 <ul>
 <li>标记（Mark）阶段：标记所有可达的根节点后代。通常我们将 Block 头部的多余低位之一用于指示该 Block 是否被标记；</li>
@@ -2720,175 +2565,325 @@ Block 通过其头部中的大小字段隐式地链接起来（addr(next_block) 
 在标记阶段，垃圾回收器为每个根节点调用一次<code>mark</code>函数。若<code>p</code>未指向已分配且未标记的 Block，则该函数直接返回。否则，它标记该 Block 并将其中的每个字作为参数递归地调用自身（<code>mark(b[i])</code>）。此阶段结束时，任何未标记且已分配的 Block 都是不可达的；在扫描阶段，垃圾回收器只调用一次<code>sweep</code>函数。该函数遍历堆中的每一个 Block，释放所有已分配且未标记的 Block。</p>
 <p><img alt="alt text" src="../image/image-143.png" />
 上图中的每个方框代表一个字，每个被粗线分隔的矩形代表一个 Block，而每个 Block 都有一个单字的头部。最初，堆中有 6 个已分配且未标记的 Block。Block 3 中包含指向 Block 1 的指针，Block 4 中包含指向 Block 3 和 6 的指针。根节点指向 Block 4，因此 Block 1、3、4 和 6 从根节点可达，它们会被垃圾回收器标记。在扫描阶段完成后，剩余不可达的 Block 2 和 5 将被释放。</p>
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Render date of last update -->
 
 
+<!-- Render date of creation -->
 
 
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render authors -->
 
 
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Render committers from GitHub -->
+
+
+<!-- Render committers from GitLab -->
+
+
+<!-- Render committers -->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Determine date of last update -->
 
   
     
   
+
+  <!-- Determine date of creation -->
   
     
   
 
+
+<!-- Source file information -->
 
   <aside class="md-source-file">
+
+    <!-- Date of last update -->
     
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="最后更新">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
   </span>
 
     
+
+    <!-- Date of creation -->
     
       
   <span class="md-source-file__fact">
     <span class="md-icon" title="创建日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-08-09T13:17:58+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-08-09</span>
   </span>
 
     
+
+    <!-- Authors (git-authors plugin) -->
     
+
+    <!-- Authors (git-committers plugin) -->
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="贡献者">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a
+          href="https://github.com/tang-jiapeng"
+          class="md-author"
+          title="@tang-jiapeng"
+        >
+          
+          <img
+            src="https://avatars.githubusercontent.com/u/83797617?v=4&size=72"
+            alt="tang-jiapeng"
+          />
+        </a>
+      
+
+      <!-- More authors -->
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine feedback configuration -->
 
   
 
 
+<!-- Determine whether to show feedback -->
 
-<div id="__comments">
 
-<h3>颜色主题调整</h3>
+<!-- Was this page helpful? -->
 
-<!-- <div class="tx-switch">
-<button data-md-color-scheme="default"><code>default</code></button>
-<button data-md-color-scheme="slate"><code>slate</code></button>
-</div>
+<!--
+  Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
 
-<script>
-var buttons = document.querySelectorAll("button[data-md-color-scheme]")
-buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-        var attr = this.getAttribute("data-md-color-scheme")
-        document.body.setAttribute("data-md-color-scheme", attr)
-        localStorage.setItem("data-md-color-scheme",attr);
-        updateScheme();
-        })
-})
-</script> -->
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
 
-<div class="tx-switch">
-<button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
-<button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
-<button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
-<button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
-<button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
-<button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
-<button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
-<button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
-<button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
-<button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
-<button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius=3px">brown</button>
-<button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
-<button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
-<button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
-</div>
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
 
-<script>
-var buttons = document.querySelectorAll("button[data-md-color-primary]")
-buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-        var attr = this.getAttribute("data-md-color-primary")
-        document.body.setAttribute("data-md-color-primary", attr)
-        localStorage.setItem("data-md-color-primary",attr);
-        })
-})
-</script>
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
 
-<h2 ><!-- 评论 -->评论区~</h2>
+<!-- Comment system -->
 
-有用的话请给我个赞和 star => <a href="https://github.com/Tangjp-wraith/Tangjp-wraith.github.io"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Tangjp-wraith/Tangjp-wraith.github.io.svg?style=plastic&amp;label=Stars"></a>
 
-</br>
 
-快来跟我聊天~
 
-</div>
 
-<script src="https://giscus.app/client.js" data-repo="Tangjp-wraith/discussion" data-repo-id="R_kgDOLRJCPw"
-    data-category="General" data-category-id="DIC_kwDOLRJCP84CdJdO" data-mapping="pathname" data-strict="0"
-    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="dark" data-lang="zh-CN"
-    crossorigin="anonymous" async>
-    </script>
-
-<!-- Synchronize Giscus theme with palette -->
-<script>
-var giscus = document.querySelector("script[src*=giscus]")
-
-/* Set palette on initial load */
-var palette = __md_get("__palette")
-if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate" ? "dark" : "light"
-    giscus.setAttribute("data-theme", theme) 
-}
-
-/* Register event handlers after documented loaded */
-document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
-        localStorage.setItem("data-md-color-scheme", palette.color.scheme === "slate" ? "slate" : "default");
-        /* Instruct Giscus to change theme */
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-        { giscus: { setConfig: { theme } } },
-        "https://giscus.app"
-        )
-    }
-    })
-})
-</script>
                 
               </article>
             </div>
           
           
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   回到页面顶部
 </button>
         
       </main>
       
-        <footer class="md-footer">
+        <!-- Footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
   
+    
+      
+      <nav
+        class="md-footer__inner md-grid"
+        aria-label="页脚"
+        
+      >
+
+        <!-- Link to previous page -->
+        
+          
+          <a
+            href="../ch8/"
+            class="md-footer__link md-footer__link--prev"
+            aria-label="上一页: Chapter8：异常控制流"
+          >
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter8：异常控制流
+              </div>
+            </div>
+            
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          
+          <a
+            href="../ch10/"
+            class="md-footer__link md-footer__link--next"
+            aria-label="下一页: Chapter10：系统级I/O"
+          >
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter10：系统级I/O
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+
+  <!-- Further information -->
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      本页面的全部内容在 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a> 协议之条款下提供，附加条款亦可能应用
+      Copyright &copy; 2022~2024 0X10CC/All Rights Reserved.
     </div>
   
   
     Made with
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
+    </a>
+  
+</div>
+   
+    <font color="#B9B9B9">
+      <div class="footer-visit-count" style="display: flex; justify-content: center; align-items: center;">
+    本站访问量：<script async src="//finicounter.eu.org/finicounter.js"></script>
+    <span id="finicount_views"></span>    &nbsp;|&nbsp;
+    <footer>
+      <a href="https://icp.gov.moe/?keyword=20249950" target="_blank">萌ICP备20249950号</a>
+    </footer>
+  </div>
+      </font>
+
+      <style>
+        .footer-visit-count {
+            height: fit-content;
+            min-height: 55px; /* 根据实际情况调整此高度 */
+        }
+        </style>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tang-jiapeng" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<tangjiapeng0215@gmail.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
     </a>
   
 </div>
@@ -2903,29 +2898,24 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.indexes", "navigation.top", "toc.follow"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.action.edit", "content.action.view", "content.code.annotate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="../../../js/timeago.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js"></script>
       
-        <script src="../../../js/timeago_mkdocs_material.js"></script>
-      
-        <script src="../../../from_oi_wiki/js/extra.js"></script>
-      
-        <script src="../../../js/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
-      
-        <script src="../../../js/tablesort.js"></script>
-      
-        <script src="../../../termynal.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js"></script>
       
     
+    <script src="../../../assets/javascripts/custom.9458f965.min.js"></script>
+  
   </body>
 </html>

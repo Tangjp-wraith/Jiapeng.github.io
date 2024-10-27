@@ -11,7 +11,7 @@ theme:
   #   code: Roboto Mono  #代码字体
   logo: assets/logo.ico #左上角logo，可插入图片链接
 
-  favicon: logo.ico # 网页icon
+  favicon: assets/logo.ico # 网页icon
 
   palette:
     - media: "(prefers-color-scheme)"
@@ -69,10 +69,12 @@ repo_name: tang-jiapeng.github.io # 右上角的名字
 
 # [Navigtion]
 nav:
-  - 🏡主页: index.md
+  # - 🏡主页: index.md
 
   - 编程语言:
       - langs/index.md
+      # - Golang杂记:
+          # - 
       - C++零碎杂记:
           - 顶层const与底层const: langs/cpp/零碎杂记/顶层const与底层const.md
           - 值类型与右值引用: langs/cpp/零碎杂记/值类型与右值引用.md
@@ -88,12 +90,12 @@ nav:
           - item23：理解std::move和std::forward: langs/cpp/effective/item23.md
   - 计算机基础:
       - core/csapp/index.md
-      - CMU15-213：CSAPP:
+      - CSAPP阅读笔记:
           - Chapter1：计算机系统漫游: core/csapp/ch1.md
           - Chapter2：信息的表示和处理: core/csapp/ch2.md
           - Chapter3：程序的机器级表示: core/csapp/ch3.md
-          - Chapter4：处理器体系结构: core/csapp/ch4.md
-          - Chapter5：优化程序性能: core/csapp/ch5.md
+          # - Chapter4：处理器体系结构: core/csapp/ch4.md
+          # - Chapter5：优化程序性能: core/csapp/ch5.md
           - Chapter6：存储器层次结构: core/csapp/ch6.md
           - Chapter7：链接: core/csapp/ch7.md
           - Chapter8：异常控制流: core/csapp/ch8.md
@@ -104,12 +106,14 @@ nav:
   
   - 分布式系统:
       - core/distributed/index.md
+      - Paxos: core/distributed/Paxos.md
 
   - 后端开发:
       - develop/index.md
 
   - 工具:
       - tools/index.md
+      - Git: tools/git.md
 
   # - 标签: tag.md
   # - 留言板: liuyanban.md
@@ -183,8 +187,6 @@ plugins:
       branch: master
       exclude:
         - index.md
-        - langs.md
-        - core/csapp.md
         # - tag.md
         # - waline.md
         # - blog/posts/update.md
@@ -196,8 +198,6 @@ plugins:
       enable_creation_date: true
       exclude:
         - index.md
-        - langs.md
-        - core/csapp.md
         # - tag.md
         # - liuyanban.md
         # - blog/posts/update.md
@@ -216,8 +216,8 @@ plugins:
       #     case: lower
       # pagination_url_format: "page/{page}"
       # authors_file: "{blog}/.authors.yml" #作者信息
-  - tags:
-      tags_file: tag.md #分类标签
+  # - tags:
+  #     tags_file: tag.md #分类标签
 
 markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/ 和 https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
   - abbr

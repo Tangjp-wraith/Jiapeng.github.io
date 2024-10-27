@@ -55,21 +55,113 @@ ____    __    ____  ______   ______   ____    __    ____  __  .__   __.
 </center>
 
 
+<!-- 可选一言 -->
+<!-- <center>
+<font  color= #608DBD size=3>
+<p id="hitokoto">
+  <a href="#" id="hitokoto_text" target="_blank"></a>
+</p>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.querySelector('#hitokoto_text')
+      hitokoto.href = `https://hitokoto.cn/?uuid=${data.uuid}`
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+</font>
+</center> -->
 
-## 📒关于笔记
 
-**这个笔记本更像一个助记簿**，记录一些自己学习过程中觉得十分重要的知识，方便自己查阅。
-
-???+ example "📚内容分类"
-    - [Langs](langs/index.md)
-          - C++零碎杂记
-          - Effective Modern C++ 阅读笔记（有空一定读完）
-    - [计算机基础](core/index.md)
-          - CMU15-213：CSAPP
-    - [Tools](tools/index.md)
-
-
-
+<div id="rcorners2" >
+  <div id="rcorners1">
+    <!-- <i class="fa fa-calendar" style="font-size:100"></i> -->
+    <body>
+      <font color="#4351AF">
+        <p class="p1"></p>
+<script defer>
+    //格式：2020年04月12日 10:20:00 星期二
+    function format(newDate) {
+        var day = newDate.getDay();
+        var y = newDate.getFullYear();
+        var m =
+            newDate.getMonth() + 1 < 10
+                ? "0" + (newDate.getMonth() + 1)
+                : newDate.getMonth() + 1;
+        var d =
+            newDate.getDate() < 10 ? "0" + newDate.getDate() : newDate.getDate();
+        var h =
+            newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours();
+        var min =
+            newDate.getMinutes() < 10
+                ? "0" + newDate.getMinutes()
+                : newDate.getMinutes();
+        var s =
+            newDate.getSeconds() < 10
+                ? "0" + newDate.getSeconds()
+                : newDate.getSeconds();
+        var dict = {
+            1: "一",
+            2: "二",
+            3: "三",
+            4: "四",
+            5: "五",
+            6: "六",
+            0: "天",
+        };
+        //var week=["日","一","二","三","四","五","六"]
+        return (
+            y +
+            "年" +
+            m +
+            "月" +
+            d +
+            "日" +
+            " " +
+            h +
+            ":" +
+            min +
+            ":" +
+            s +
+            " 星期" +
+            dict[day]
+        );
+    }
+    var timerId = setInterval(function () {
+        var newDate = new Date();
+        var p1 = document.querySelector(".p1");
+        if (p1) {
+            p1.textContent = format(newDate);
+        }
+    }, 1000);
+</script>
+      </font>
+    </body>
+    <!-- <b><span id="time"></span></b> -->
+  </div>
+  <ul>
+    <center><strong>记录一些学习过程中觉得重要的知识</strong></center>
+    <br/></br>
+    <li><a href = "./langs">Langs</a></li>
+    <ul>
+      <li>Golang杂记</li>
+      <li>C++零碎杂记</li>
+      <li>Effective Modern C++ 阅读笔记（已弃坑C++）</li>
+    </ul>
+    <li><a href = "./core/csapp">计算机基础</a></li>
+    <ul>
+      <li>CSAPP阅读笔记</li>
+    </ul>
+    <li><a href = "./core/distributed">分布式系统</a></li>
+    <ul>
+      <li>Poxos</li>
+    </ul>
+    <li><a href = "./develop">后端开发</a></li>
+    <li><a href = "./tools">工具</a></li>
+  </ul>
+</div> 
 
 
 

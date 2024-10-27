@@ -71,7 +71,7 @@ repo_name: tang-jiapeng.github.io # 右上角的名字
 nav:
   - 🏡主页: index.md
 
-  - Langs:
+  - 编程语言:
       - langs/index.md
       - C++零碎杂记:
           - 顶层const与底层const: langs/cpp/零碎杂记/顶层const与底层const.md
@@ -105,6 +105,11 @@ nav:
   - 分布式系统:
       - core/distributed/index.md
 
+  - 后端开发:
+      - develop/index.md
+
+  - 工具:
+      - tools/index.md
 
   # - 标签: tag.md
   # - 留言板: liuyanban.md

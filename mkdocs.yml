@@ -5,9 +5,10 @@ site_author: 0X10CC # your name
 #[UI]
 theme:
   name: material
+  
   custom_dir: docs/overrides #覆写路径
   # font: #谷歌字体，自行搜索
-  #   text: Bitter  #文本字体
+  #   text: Roboto   #文本字体
   #   code: Roboto Mono  #代码字体
   logo: assets/logo.ico #左上角logo，可插入图片链接
 
@@ -106,10 +107,13 @@ nav:
   
   - 分布式系统:
       - core/distributed/index.md
+      - MapReduce: core/distributed/MapReduce.md
       - Paxos: core/distributed/Paxos.md
 
   - 后端开发:
       - develop/index.md
+      - Go语言进阶与依赖管理: develop/ByteDance/02.md
+      - Go语言工程实践之测试: develop/ByteDance/03.md
 
   - 工具:
       - tools/index.md
@@ -263,6 +267,7 @@ markdown_extensions: #详见https://squidfunk.github.io/mkdocs-material/setup/ex
   #     permalink: "\ue157"
 
 extra_javascript:
+  # - "from_oi_wiki/js/extra.js"
   # - javascripts/extra.js #自定义javascript
   - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js  # extra的cdn
   - javascripts/mathjax.js #Latex支持
@@ -282,8 +287,11 @@ extra_css:
   # - ckplayer/css/ckplayer.css   #播放器配置
   - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
   # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css  #分享支持
-
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
+  - https://cdn.jsdelivr.net/npm/fontsource-noto-serif-sc@4.0.0/index.min.css
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css #字体
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css #字体
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css  #字体
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css  #字体
+  # - "from_oi_wiki/css/extra.css?v=13"
+  # - css/status.css
+  # - css/neoteroi-mkdocs.css

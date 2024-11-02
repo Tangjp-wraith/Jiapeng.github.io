@@ -144,7 +144,7 @@ ____    __    ____  ______   ______   ____    __    ____  __  .__   __.
   <ul>
     <center><strong>记录一些学习过程中觉得重要的知识</strong></center>
     <br/></br>
-    <li><a href = "./langs">Langs</a></li>
+    <li><a href = "./langs">编程语言</a></li>
     <ul>
       <li>Golang杂记</li>
       <li>C++零碎杂记</li>

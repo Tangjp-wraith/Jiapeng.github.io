@@ -114,6 +114,7 @@ nav:
       - develop/index.md
       - Go语言进阶与依赖管理: develop/ByteDance/02.md
       - Go语言工程实践之测试: develop/ByteDance/03.md
+      - 社区话题页面demo实践: develop/ByteDance/04.md
 
   - 工具:
       - tools/index.md

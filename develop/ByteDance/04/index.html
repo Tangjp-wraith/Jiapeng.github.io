@@ -10,13 +10,13 @@
         <meta name="author" content="0X10CC">
       
       
-        <link rel="canonical" href="https://tang-jiapeng.github.io/develop/ByteDance/02/">
+        <link rel="canonical" href="https://tang-jiapeng.github.io/develop/ByteDance/04/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../03/">
       
       
-        <link rel="next" href="../03/">
+        <link rel="next" href="../../../tools/">
       
       
       <link rel="icon" href="../../../assets/logo.ico">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Go语言进阶与依赖管理 - 0X10CC's notes</title>
+        <title>社区话题页面demo实践 - 0X10CC's notes</title>
       
     
     
@@ -98,7 +98,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#go" class="md-skip">
+        <a href="#demo" class="md-skip">
           跳转至
         </a>
       
@@ -161,7 +161,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Go语言进阶与依赖管理
+              社区话题页面demo实践
             
           </span>
         </div>
@@ -1383,30 +1383,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Go语言进阶与依赖管理
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1415,317 +1395,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#go_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go语言进阶
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Go语言进阶">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
-    <span class="md-ellipsis">
-      并发 VS 并行
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#goroutine" class="md-nav__link">
-    <span class="md-ellipsis">
-      Goroutine
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#csp-communicating-sequential-processes" class="md-nav__link">
-    <span class="md-ellipsis">
-      CSP (Communicating Sequential Processes)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Channel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock" class="md-nav__link">
-    <span class="md-ellipsis">
-      并发安全Lock
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#waitgroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      WaitGroup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      小结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖管理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖管理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      背景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go依赖管理演进
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Go依赖管理演进">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gopath" class="md-nav__link">
-    <span class="md-ellipsis">
-      GOPATH
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gopath_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      GOPATH——弊端
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-vendor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go Vendor——弊端
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-module" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go Module
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖管理三要素
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖配置
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gomod" class="md-nav__link">
-    <span class="md-ellipsis">
-      go.mod
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version" class="md-nav__link">
-    <span class="md-ellipsis">
-      version
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indirect" class="md-nav__link">
-    <span class="md-ellipsis">
-      indirect
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#incompatible" class="md-nav__link">
-    <span class="md-ellipsis">
-      incompatible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖配置依赖图
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖分发">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——回源
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——Proxy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#goproxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——变量GOPROXY
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-get" class="md-nav__link">
-    <span class="md-ellipsis">
-      工具 go get
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-mod" class="md-nav__link">
-    <span class="md-ellipsis">
-      工具 go mod
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      小结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1756,10 +1425,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../04/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    社区话题页面demo实践
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1768,6 +1457,149 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求描述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求用例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#er-entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER图-Entity Relationship Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      分层结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      组件工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repositoryindex" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository——index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository——查询
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controller
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Homework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1895,73 +1727,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#go_1" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Go语言进阶
+      需求描述
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Go语言进阶">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      需求用例
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#er-entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER图-Entity Relationship Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      分层结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      组件工具
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Repository">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vs" class="md-nav__link">
+  <a href="#repositoryindex" class="md-nav__link">
     <span class="md-ellipsis">
-      并发 VS 并行
+      Repository——index
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#goroutine" class="md-nav__link">
+  <a href="#repository_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Goroutine
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#csp-communicating-sequential-processes" class="md-nav__link">
-    <span class="md-ellipsis">
-      CSP (Communicating Sequential Processes)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#channel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Channel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock" class="md-nav__link">
-    <span class="md-ellipsis">
-      并发安全Lock
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#waitgroup" class="md-nav__link">
-    <span class="md-ellipsis">
-      WaitGroup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      小结
+      Repository——查询
     </span>
   </a>
   
@@ -1973,215 +1805,47 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#service" class="md-nav__link">
     <span class="md-ellipsis">
-      依赖管理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖管理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      背景
+      Service
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#go_2" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
     <span class="md-ellipsis">
-      Go依赖管理演进
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Go依赖管理演进">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gopath" class="md-nav__link">
-    <span class="md-ellipsis">
-      GOPATH
+      Controller
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#gopath_1" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#router" class="md-nav__link">
     <span class="md-ellipsis">
-      GOPATH——弊端
+      Router
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#go-vendor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go Vendor——弊端
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-module" class="md-nav__link">
-    <span class="md-ellipsis">
-      Go Module
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖管理三要素
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      依赖配置
+      运行
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="依赖配置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gomod" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
     <span class="md-ellipsis">
-      go.mod
+      Homework
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version" class="md-nav__link">
-    <span class="md-ellipsis">
-      version
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#indirect" class="md-nav__link">
-    <span class="md-ellipsis">
-      indirect
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#incompatible" class="md-nav__link">
-    <span class="md-ellipsis">
-      incompatible
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖配置依赖图
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖分发">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——回源
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——Proxy
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#goproxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      依赖分发——变量GOPROXY
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-get" class="md-nav__link">
-    <span class="md-ellipsis">
-      工具 go get
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#go-mod" class="md-nav__link">
-    <span class="md-ellipsis">
-      工具 go mod
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      小结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2200,7 +1864,7 @@
                   
 
   
-    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/edit/main/docs/develop/ByteDance/02.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/edit/main/docs/develop/ByteDance/04.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2209,58 +1873,80 @@
     
       
     
-    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/raw/main/docs/develop/ByteDance/02.md" title="查看本页的源代码" class="md-content__button md-icon">
+    <a href="https://github.com/tang-jiapeng/tang-jiapeng.github.io/raw/main/docs/develop/ByteDance/04.md" title="查看本页的源代码" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<h1 id="go">Go 语言进阶与依赖管理<a class="headerlink" href="#go" title="Permanent link">&para;</a></h1>
-<h2 id="go_1">Go语言进阶<a class="headerlink" href="#go_1" title="Permanent link">&para;</a></h2>
-<p>从并发编程的视角了解Go高性能的本质</p>
-<h3 id="vs">并发 VS 并行<a class="headerlink" href="#vs" title="Permanent link">&para;</a></h3>
-<p>Go可以充分发挥多核优势，高效运行</p>
-<p><img alt="alt text" src="../image/image.png" /></p>
-<h3 id="goroutine">Goroutine<a class="headerlink" href="#goroutine" title="Permanent link">&para;</a></h3>
-<p><strong>线程</strong>：用户态，轻量级线程，栈MB级别。</p>
-<p><strong>协程</strong>：内核态，线程跑多个协程，栈KB级别。</p>
-<p><center><img alt="alt text" src="../image/image-1.png" width="500" /></center></p>
-<p>在go里面快速开启一个协程快速打印<code>hello goroutine: 0 ~ hello goroutine: 4</code>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">hello</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nb">println</span><span class="p">(</span><span class="s">&quot;hello world : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprint</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">}</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kd">func</span><span class="w"> </span><span class="nx">HelloGoRoutine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">            </span><span class="nx">hello</span><span class="p">(</span><span class="nx">j</span><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-<h3 id="csp-communicating-sequential-processes">CSP (Communicating Sequential Processes)<a class="headerlink" href="#csp-communicating-sequential-processes" title="Permanent link">&para;</a></h3>
-<p>Go提倡<strong>通过通信共享内存</strong>而不是通过共享内存而实现通信</p>
-<p><center><img alt="alt text" src="../image/image-2.png" width="500" /></center></p>
-<h3 id="channel">Channel<a class="headerlink" href="#channel" title="Permanent link">&para;</a></h3>
-<p>make(chan元素类型，[缓冲大小])</p>
+<h1 id="demo">社区话题页面demo实践<a class="headerlink" href="#demo" title="Permanent link">&para;</a></h1>
+<h2 id="_1">需求描述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>社区话题页面</p>
 <ul>
-<li>无缓冲通道make(chan int)</li>
-<li>有缓冲通道make(chan int,2)</li>
+<li>展示话题（标题，文字描述）和回帖列表</li>
+<li>暂不考虑前端页面实现，仅仅实现一个本地web服务</li>
+<li>话题和回帖数据用文件存储</li>
 </ul>
-<p><center><img alt="alt text" src="../image/image-3.png" width="500" /></center></p>
+<h2 id="_2">需求用例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>主要涉及功能点，用户浏览消费，涉及页面的展示，包括话题内容和回帖的列表，其实从图中我们应该会抽出2个实体的，而实体的属性有哪些，他们之间的联系又如何？</p>
+<p><center><img alt="alt text" src="../image/image-30.png" width="400" /></center></p>
+<h2 id="er-entity-relationship-diagram">ER图-Entity Relationship Diagram<a class="headerlink" href="#er-entity-relationship-diagram" title="Permanent link">&para;</a></h2>
+<p>ER图，用来描述现实世界的概念模型</p>
+<p><center><img alt="alt text" src="../image/image-31.png" width="400" /></center></p>
+<h2 id="_3">分层结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>整体分为三层，repository数据层， service逻辑层， controoler视图层。</p>
+<p>数据层关联底层数据模型，也就是这里的model，封装外部数据的增删改查，我们的数据存储在本地文件，通过文件操作拉取话题，帖子数据；数据层面向逻辑层，对service层透明，屏蔽下游数据差异，也就是不管下游是文件，还是数据库，还是微服务等，对service层的接口模型是不变的</p>
+<p>Servcie逻辑层处理核心业务逻辑，计算打包业务实体entiy，对应我们的需求，就是话题页面，包括话题和回帖列表，并上送给视图层</p>
+<p>Cortroller视图层负责处理和外部的交互逻辑，以view视图的形式返回给客户端，对于我们需求，我们封装json格式化的请求结果，api形式访问就好</p>
+<p><center><img alt="alt text" src="../image/image-32.png" width="600" /></center></p>
+<ul>
+<li>数据层：数据Model，外部数据的增删改查</li>
+<li>逻辑层：业务Entity，处理核心业务逻辑输出</li>
+<li>视图层：视图view，处理和外部的交互逻辑</li>
+</ul>
+<h2 id="_4">组件工具<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Gin</strong>高性能go web框架 https://github.com/gin-gonic/gin#installation</li>
+<li>
+<p>Go Mod </p>
+<p>go mod init</p>
+<p>go get  gopkg.in/gin-gonic/gin.v1@v1.3.0</p>
+</li>
+</ol>
+<p>介绍下开发涉及的基础组件和工具，首先是gin， 高性能开源的go web框架，我们基于gin搭建web服务器，这里我们只是简单的使用，主要涉及路由分发，不会涉及其他复杂的概念。</p>
+<p>因为我们引入了web框架，所以就涉及go module依赖管理，如前面依赖管理课程内容讲解，我们首先通过go mod是初始化go mod管理配置文件，然后go get下载gin依赖，这里显示用了V1.3.0版本。</p>
+<p>有了框架依赖，我们只需要关注业务本身的实现，从reposity &rarr; service  &rarr; contoller我们一步步实现。</p>
+<h2 id="repository">Repository<a class="headerlink" href="#repository" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Topic</th>
+<th style="text-align: center;">Post</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><center><img alt="alt text" src="../image/image-33.png" width="300" /></center></td>
+<td style="text-align: center;"><center><img alt="alt text" src="../image/image-34.png" width="300" /></center></td>
+</tr>
+<tr>
+<td style="text-align: center;">QueryTopicByld</td>
+<td style="text-align: center;">QueryPostsByParentld</td>
+</tr>
+</tbody>
+</table>
+<h3 id="repositoryindex">Repository——index<a class="headerlink" href="#repositoryindex" title="Permanent link">&para;</a></h3>
+<p>一方面查询我们可以用全扫描遍历的方式，但是这虽然能达到我们的目的，但是并非高效的方式，所以这里引出索引的概念，索引就像书的目录，可以引导我们快速查找定位我们需要的结果；这里我们用map实现内存索引，在服务对外暴露前，利用文件元数据初始化全局内存索引，这样就可以实现<span class="arithmatex">\(O(1)\)</span>的时间复杂度查找操作。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">var</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nx">topicIndexMap</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">int64</span><span class="p">]</span><span class="o">*</span><span class="nx">Topic</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nx">postIndexMap</span><span class="w">  </span><span class="kd">map</span><span class="p">[</span><span class="kt">int64</span><span class="p">][]</span><span class="o">*</span><span class="nx">Post</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>下面是具体的实现，首先是打开文件，基于file初始化scanner，通过迭代器方式遍历数据行，转化为结构体存储至内存map，这就是初始化话题内存索引</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -2278,35 +1964,27 @@
 <span class="normal"><a href="#__codelineno-1-15">15</a></span>
 <span class="normal"><a href="#__codelineno-1-16">16</a></span>
 <span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">CalSquare</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nx">src</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nx">dest</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="c1">// A子协程发送0~9数字</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="nb">close</span><span class="p">(</span><span class="nx">src</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span><span class="nx">src</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">i</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">}()</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="c1">// B子协程计算输入数字的平方</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="nb">close</span><span class="p">(</span><span class="nx">dest</span><span class="p">)</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">src</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">            </span><span class="nx">dest</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">i</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="p">}()</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="c1">// 主协程输出最后平方数</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">dest</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">        </span><span class="nb">println</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">initTopicIndexMap</span><span class="p">(</span><span class="nx">filePath</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="nx">open</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="nx">filePath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;topic&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nx">scanner</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bufio</span><span class="p">.</span><span class="nx">NewScanner</span><span class="p">(</span><span class="nx">open</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="nx">topicTmpMap</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int64</span><span class="p">]</span><span class="o">*</span><span class="nx">Topic</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nx">Scan</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="nx">text</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nx">Text</span><span class="p">()</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">topic</span><span class="w"> </span><span class="nx">Topic</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">text</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">topic</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="nx">topicTmpMap</span><span class="p">[</span><span class="nx">topic</span><span class="p">.</span><span class="nx">Id</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">topic</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="nx">topicIndexMap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">topicTmpMap</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="lock">并发安全Lock<a class="headerlink" href="#lock" title="Permanent link">&para;</a></h3>
-<p>变量执行2000次+1操作，5个协程并发执行</p>
+<h3 id="repository_1">Repository——查询<a class="headerlink" href="#repository_1" title="Permanent link">&para;</a></h3>
+<p>有了查询内存索引，下一步实现查询操作就比较简单了，直接根据查询key获得map中的value就好了 ，这里用到了sync.once，主要适用高并发的场景下只执行一次的场景，这里的基于once的实现模式就是我们平常说的单例模式，减少存储的浪费</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -2320,187 +1998,217 @@
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
 <span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span>
-<span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span>
-<span class="normal"><a href="#__codelineno-2-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="kt">int64</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nx">lock</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">var</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nx">postDao</span><span class="w"> </span><span class="o">*</span><span class="nx">PostDao</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="nx">postOnce</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Once</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="kd">func</span><span class="w"> </span><span class="nx">addWithLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="nx">lock</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="nx">lock</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="p">}</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="kd">func</span><span class="w"> </span><span class="nx">addWithoutLock</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">        </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="p">}</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="kd">func</span><span class="w"> </span><span class="nx">Add</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="nx">addWithLock</span><span class="p">()</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;WithLock:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="nx">addWithoutLock</span><span class="p">()</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">    </span><span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;WithoutLock:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="p">}</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="kd">func</span><span class="w"> </span><span class="nx">NewPostDaoInstance</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">PostDao</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nx">postOnce</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">            </span><span class="nx">postDao</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">PostDao</span><span class="p">{}</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="p">})</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">postDao</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">PostDao</span><span class="p">)</span><span class="w"> </span><span class="nx">QueryPostsByParentId</span><span class="p">(</span><span class="nx">parentId</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">Post</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">postIndexMap</span><span class="p">[</span><span class="nx">parentId</span><span class="p">]</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>加锁之后得到预期值10000，未加锁输出值是不确定的</p>
-<p><center><img alt="alt text" src="../image/image-4.png" width="300" /></center></p>
-<h3 id="waitgroup">WaitGroup<a class="headerlink" href="#waitgroup" title="Permanent link">&para;</a></h3>
+<h2 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
+<p>实体</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">PageInfo</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="nx">Topic</span><span class="w">    </span><span class="o">*</span><span class="nx">repository</span><span class="p">.</span><span class="nx">Topic</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="nx">PostList</span><span class="w"> </span><span class="p">[]</span><span class="o">*</span><span class="nx">repository</span><span class="p">.</span><span class="nx">Post</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>流程：</p>
+<p><center><img alt="alt text" src="../image/image-35.png" width="500" /></center></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">// 代码流程编排</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">QueryPageInfoFlow</span><span class="p">)</span><span class="w"> </span><span class="nx">Do</span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">PageInfo</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">f</span><span class="p">.</span><span class="nx">checkParam</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">f</span><span class="p">.</span><span class="nx">prepareInfo</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">f</span><span class="p">.</span><span class="nx">packPageInfo</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">f</span><span class="p">.</span><span class="nx">pageInfo</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+关于prepareInfo方法，话题和回帖信息的获取都依赖topicId，这样2这就可以并行执行，提高执行效率</p>
+<p><center><img alt="alt text" src="../image/image-36.png" width="500" /></center></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">f</span><span class="w"> </span><span class="o">*</span><span class="nx">QueryPageInfoFlow</span><span class="p">)</span><span class="w"> </span><span class="nx">prepareInfo</span><span class="p">()</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="c1">//获取topic信息</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">wg</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="nx">topic</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nx">NewTopicDaoInstance</span><span class="p">().</span><span class="nx">QueryTopicById</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">topicId</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="nx">f</span><span class="p">.</span><span class="nx">topic</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">topic</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">}()</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">    </span><span class="c1">//获取post列表</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="k">defer</span><span class="w"> </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="nx">posts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nx">NewPostDaoInstance</span><span class="p">().</span><span class="nx">QueryPostsByParentId</span><span class="p">(</span><span class="nx">f</span><span class="p">.</span><span class="nx">topicId</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="nx">f</span><span class="p">.</span><span class="nx">posts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">posts</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">    </span><span class="p">}()</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<strong>在做项目开发中，一定要思考流程是否可以并行处理，通过压榨CPU，降低接口耗时，不要一味的串行实现，浪费多核CPU的资源</strong></p>
+<h2 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h2>
+<p>Service实现完成，下面就是controller层。这里我们定义一个view对象，通过code msg打包业务状态信息，用data承载业务实体信息</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">PageData</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="nx">Code</span><span class="w"> </span><span class="kt">int64</span><span class="w">       </span><span class="s">`json:&quot;code&quot;`</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="nx">Msg</span><span class="w">  </span><span class="kt">string</span><span class="w">      </span><span class="s">`json:&quot;msg&quot;`</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="nx">Data</span><span class="w"> </span><span class="kd">interface</span><span class="p">{}</span><span class="w"> </span><span class="s">`json:&quot;data&quot;`</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="kd">func</span><span class="w"> </span><span class="nx">QueryPageInfo</span><span class="p">(</span><span class="nx">topicIdStr</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">PageData</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="nx">topicId</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strconv</span><span class="p">.</span><span class="nx">ParseInt</span><span class="p">(</span><span class="nx">topicIdStr</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">  </span><span class="c1">// 构建View对象业务错误码</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">PageData</span><span class="p">{</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">            </span><span class="nx">Code</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">            </span><span class="nx">Msg</span><span class="p">:</span><span class="w">  </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">(),</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">    </span><span class="nx">pageInfo</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">service</span><span class="p">.</span><span class="nx">QueryPageInfo</span><span class="p">(</span><span class="nx">topicId</span><span class="p">)</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">PageData</span><span class="p">{</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">            </span><span class="nx">Code</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="w">            </span><span class="nx">Msg</span><span class="p">:</span><span class="w">  </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">(),</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">PageData</span><span class="p">{</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">        </span><span class="nx">Code</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">        </span><span class="nx">Msg</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="w">        </span><span class="nx">Data</span><span class="p">:</span><span class="w"> </span><span class="nx">pageInfo</span><span class="p">,</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="router">Router<a class="headerlink" href="#router" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="c1">// 初始化数据索引</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Init</span><span class="p">(</span><span class="s">&quot;./data/&quot;</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">        </span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// 初始化引擎配置</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">gin</span><span class="p">.</span><span class="nx">Default</span><span class="p">()</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="c1">// 构建路由</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="nx">r</span><span class="p">.</span><span class="nx">GET</span><span class="p">(</span><span class="s">&quot;/community/page/get/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">gin</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="nx">topicId</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">Param</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cotroller</span><span class="p">.</span><span class="nx">QueryPageInfo</span><span class="p">(</span><span class="nx">topicId</span><span class="p">)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nx">JSON</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">    </span><span class="p">})</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="c1">// 启动服务</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Run</span><span class="p">()</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">        </span><span class="k">return</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">}</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="kd">func</span><span class="w"> </span><span class="nx">Init</span><span class="p">(</span><span class="nx">filePath</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">repository</span><span class="p">.</span><span class="nx">Init</span><span class="p">(</span><span class="nx">filePath</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="_5">运行<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>终端执行：<code>curl --location --request GET 'http://127.0.0.1:8080/community/page/get/2'</code></p>
+<p><center><img alt="alt text" src="../image/image-37.png" width="500" /></center></p>
+<h2 id="homework">Homework<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Add方法：计数器+delta</li>
-<li>Done方法：计数器-1</li>
-<li>Wait方法：阻塞到计数器为0</li>
-</ul>
-<p>计数器：开启协程 +1；执行结束-1；主协程阻塞直到计数器为0</p>
-<p><center><img alt="alt text" src="../image/image-5.png" width="300" /></center></p>
-<p>回到最初多个协程带打印hello gorouting的例子，现在用watigroup实现协程的同步阻塞。</p>
-<p>首先通过add方法，对计数器+5，然后开启协程，每个协程执行完后，通过done对计数器减少1，最后wait主协程阻塞，计数器为0退出主协程
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">func</span><span class="w"> </span><span class="nx">ManyGo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">wg</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">        </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">            </span><span class="k">defer</span><span class="w"> </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Done</span><span class="p">()</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">            </span><span class="nx">hello</span><span class="p">(</span><span class="nx">j</span><span class="p">)</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="p">}(</span><span class="nx">i</span><span class="p">)</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="nx">wg</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div></p>
-<h3 id="_1">小结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>主要涉及3个方面：</p>
-<ul>
-<li>协程Goroutine，通过高效的调度模型实现高并发操作</li>
-<li>通道channel，通过通信实现共享内存</li>
-<li>sync相关关键字，实现并发安全操作和协程间的同步</li>
-</ul>
-<h2 id="_2">依赖管理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<h3 id="_3">背景<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>对于hello world以及类似的单体函数只需要依赖原生SDK,而实际工程会相对复杂，我们不可能基于标准库0~1编码搭建，而更多的关注业务逻辑的实现，而其他的涉及框架、日志、driver、 以及collection等一系列依赖都会通过sdk的方式引入，这样对依赖包的管理就显得尤为重要。</p>
-<p><center><img alt="alt text" src="../image/image-6.png" width="500" /></center></p>
-<h3 id="go_2">Go依赖管理演进<a class="headerlink" href="#go_2" title="Permanent link">&para;</a></h3>
-<p>Go的依赖管理主要经历了3个阶段，分别是：GOPATH&rarr;Go Vendor&rarr;Go Module。到目前被广泛应用的go module，整个演进路线主要围绕实现两个目标来迭代发展的</p>
-<p><center><img alt="alt text" src="../image/image-7.png" width="500" /></center></p>
-<h4 id="gopath">GOPATH<a class="headerlink" href="#gopath" title="Permanent link">&para;</a></h4>
-<p>GOPATH是Go语言支持的一个环境变量，value是GO项目的工作区。目录有以下结构:</p>
-<ul>
-<li>bin：存放Go项目编译生成的二进制文件</li>
-<li>pkg：存放编译的中间产物，加快编译速度</li>
-<li>src：存放Go项目的源码</li>
-</ul>
-<h4 id="gopath_1">GOPATH——弊端<a class="headerlink" href="#gopath_1" title="Permanent link">&para;</a></h4>
-<p><center><img alt="alt text" src="../image/image-8.png" width="500" /></center></p>
-<p>如图，同一个pkg，有2个版本，A&rarr;A0、B&rarr;B0，而src下只能有一个版本存在，那AB项目无法保证都能编译通过。也就是在go path管理模式下，如果多个项目依赖同一个库，则依赖该库是同一份代码，所以不同项目不能依赖同一个库的不同版本，这很显然不能满足我们的项目依赖需求。为了解决这问题，go vender出现了。 </p>
-<h4 id="go-vendor">Go Vendor——弊端<a class="headerlink" href="#go-vendor" title="Permanent link">&para;</a></h4>
-<p>Vendor是当前项目中的一个目录，其中存放了当前项目依赖的副本。在Vendor机制下，如果当前项目存在Vendor目录，会优先使用该目录下的依赖，如果依赖不存在，会从GOPATH中寻找</p>
-<p>但vendor无法很好解决依赖包的版本变动问题和一个项目依赖同一个包的不同版本的问题，下面我们看一个场景</p>
-<p><center><img alt="alt text" src="../image/image-9.png" width="500" /></center></p>
-<h4 id="go-module">Go Module<a class="headerlink" href="#go-module" title="Permanent link">&para;</a></h4>
-<ul>
-<li>通过go.mod文件管理依赖包版本</li>
-<li>通过go get/go mod指令工具管理依赖包</li>
-</ul>
-<p>GO Module是Go语言官方推出的依赖管理系统，解决了之前依赖管理系统存在的诸如无法依赖同一个库的多个版本等问题，go module从Go 1.11开始实验性引入Go 1.16默认开启</p>
-<h3 id="_4">依赖管理三要素<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>配置文件，描述依赖go.mod</li>
-<li>中心仓库管理依赖库Proxy</li>
-<li>本地工具go get/mod</li>
-</ul>
-<h3 id="_5">依赖配置<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<h4 id="gomod">go.mod<a class="headerlink" href="#gomod" title="Permanent link">&para;</a></h4>
-<p><center><img alt="alt text" src="../image/934e033ff69bbc401ddbb8f975c55c26.png" width="500" /></center></p>
-<p>依赖标识：[Module Path] [Version/Pseudo-version]</p>
-<h4 id="version">version<a class="headerlink" href="#version" title="Permanent link">&para;</a></h4>
-<p>go path和go vendor都是源码副本方式依赖，没有版本规则概念，而go mod为了放方便管理则定义了版本规则，分为语义化版本；其中语义化版本包括不同的MAJOR版本表示是不兼容的AP,所以即使是同一个库，MAJOR版本不同也会被认为是不同的模块；MINOR版本通常是新增函数或功能，向后兼容；</p>
-<p>而patch版本一般是修复bug基础版本前缀是和语义化版本一样的；时间戳(yyymmddhhmmss)，也就是提交Commit的时间，最后是校验(abcdefabcdef)，包含12位的哈希前缀；每次提交commit后Go都会默认生成一个伪版本号。</p>
-<h4 id="indirect">indirect<a class="headerlink" href="#indirect" title="Permanent link">&para;</a></h4>
-<p>indirect后缀，表示go.mod对应的当前模块，没有直接导入该依赖模块的包，也就是非直接依赖，表示间接依赖</p>
-<p>例如：A&rarr;B&rarr;C</p>
-<ul>
-<li>A&rarr;B 直接依赖</li>
-<li>A&rarr;C 间接依赖 </li>
-</ul>
-<h4 id="incompatible">incompatible<a class="headerlink" href="#incompatible" title="Permanent link">&para;</a></h4>
-<p>下一个常见是的是incompatible，主版本2+模块会在模块路径增加/vN后缀，这能让go module按照不同的模块来处理同一个项目不同主版本的依赖。</p>
-<p>由于go module是1.11实验性引入所以这项规则提出之前已经有一些仓库打上了2或者更高版本的tag了，为了兼容这部分仓库，对于没有go.mod文件并且主版本在2或者以上的依赖，会在版本号后加上+incompatible后缀</p>
-<h4 id="_6">依赖配置依赖图<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>如果X项目依赖了A、B两个项目，且A、B分别依赖了C项目的v1.3、v1.4两个版本，最终编译时所使用的C项目的版本为如下哪个选项? (单选) </p>
-<p><center><img alt="alt text" src="../image/image-15.png" width="300" /></center></p>
-<p>A. v1.3</p>
-<p>B. v1.4</p>
-<p>C. A用到C时用v1. 3编译, B用到C时用v1.4编译</p>
-<p>答案：<strong>B 选择最低的兼容版本</strong></p>
-</div>
-<h3 id="_7">依赖分发<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<h4 id="_8">依赖分发——回源<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
-<blockquote>
-<p>go module的依赖分发。也就是从哪里下载，如何下载的问题？</p>
-</blockquote>
-<p>github是比较常见给的代码托管系统平台，而Go Modules系统中定义的依赖，最终可以对应到多版本代码管理系统中某一项目的特定提交或版本，这样的话，对于go.mod中定义的依赖，则直接可以从对应仓库中下载指定软件依赖，从而完成依赖分发。</p>
-<p><center><img alt="alt text" src="../image/image-12.png" width="500" /></center></p>
-<p>但直接使用版本管理仓库下载依赖，存在多个问题，首先无法保证构建确定性:软件作者可以直接代码平台增加修改/删除软件版本，导致下次构建使用另外版本的依赖，或者找不到依赖版本。无法保证依赖可用性:依赖软件作者可以直接代码平台删除软件，导致依赖不可用;大幅增加第三方代码托管平台压力。</p>
-<h4 id="proxy">依赖分发——Proxy<a class="headerlink" href="#proxy" title="Permanent link">&para;</a></h4>
-<p>而go proxy就是解决这些问题的方案，Go Proxy是一个服务站点，它会缓源站中的软件内容，缓存的软件版本不会改变，并且在源站软件删除之后依然可用，从而实现了供"immutability"和"available"的依赖分发;使用Go Proxy之后，构建时会直接从Go Proxy站点拉取依赖。类比项目中，下游无法满足我们上游的需求</p>
-<p><center><img alt="alt text" src="../image/image-16.png" width="500" /></center></p>
-<h4 id="goproxy">依赖分发——变量GOPROXY<a class="headerlink" href="#goproxy" title="Permanent link">&para;</a></h4>
-<p>GOPROXY="https://proxy1.cn, https://proxy2.cn ,direct'</p>
-<p>服务站点URL列表，“direct" 表示源站</p>
-<p><center><img alt="alt text" src="../image/image-17.png" width="500" /></center></p>
-<p><strong>go proxy</strong>的使用：Go Modules通过GOPROXY环境变量控制如何使用Go Proxy；GOPROXY是一个Go Proxy站点URL列表，可以使用directr表示源站。对于示例配置，整体的依赖寻址路径，会优先从proxy1下载依赖，如果proxy1不存在，后下钻proxy2寻找，如果proxy2中不存在则会回源到源站直接下载依赖，缓存到proxy站点中</p>
-<h3 id="go-get">工具 go get<a class="headerlink" href="#go-get" title="Permanent link">&para;</a></h3>
-<p><center><img alt="alt text" src="../image/image-18.png" width="500" /></center></p>
-<h3 id="go-mod">工具 go mod<a class="headerlink" href="#go-mod" title="Permanent link">&para;</a></h3>
-<p>尽量提交之前执行下go tidy，减少构建时无效依赖包的拉取</p>
-<p><center><img alt="alt text" src="../image/image-19.png" width="500" /></center></p>
-<h3 id="_9">小结<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>依赖管理三要素</p>
-<ul>
-<li>配置文件，描述依赖 go.mod</li>
-<li>中心仓库管理依赖库 Proxy</li>
-<li>本地工具 go get/mod</li>
+<li>支持发布帖子</li>
+<li>本地ID生成需要保证不重复、唯一性</li>
+<li>Append文件，更新索引，注意Map的并发安全问题</li>
 </ul>
 <!--
   Copyright (c) 2016-2023 Martin Donath <martin.donath@squidfunk.com>
@@ -2571,7 +2279,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-04</span>
   </span>
 
     
@@ -2583,7 +2291,7 @@
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-02</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-11-04</span>
   </span>
 
     
@@ -2722,9 +2430,9 @@
         
           
           <a
-            href="../../"
+            href="../03/"
             class="md-footer__link md-footer__link--prev"
-            aria-label="上一页: 后端开发"
+            aria-label="上一页: Go语言工程实践之测试"
           >
             <div class="md-footer__button md-icon">
               
@@ -2735,7 +2443,7 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                后端开发
+                Go语言工程实践之测试
               </div>
             </div>
             
@@ -2746,16 +2454,16 @@
         
           
           <a
-            href="../03/"
+            href="../../../tools/"
             class="md-footer__link md-footer__link--next"
-            aria-label="下一页: Go语言工程实践之测试"
+            aria-label="下一页: 工具"
           >
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                Go语言工程实践之测试
+                工具
               </div>
             </div>
             <div class="md-footer__button md-icon">
